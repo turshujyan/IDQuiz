@@ -9,11 +9,22 @@
 /* Begin PBXBuildFile section */
 		5E0BC3031CB7DE5700B6E491 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3021CB7DE5700B6E491 /* main.m */; };
 		5E0BC3061CB7DE5700B6E491 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3051CB7DE5700B6E491 /* AppDelegate.m */; };
-		5E0BC3091CB7DE5700B6E491 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3081CB7DE5700B6E491 /* ViewController.m */; };
-		5E0BC30C1CB7DE5700B6E491 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BC30A1CB7DE5700B6E491 /* Main.storyboard */; };
 		5E0BC30F1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */; };
 		5E0BC3111CB7DE5700B6E491 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BC3101CB7DE5700B6E491 /* Assets.xcassets */; };
 		5E0BC3141CB7DE5700B6E491 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BC3121CB7DE5700B6E491 /* LaunchScreen.storyboard */; };
+		5E0BC3251CB7DE7B00B6E491 /* IDQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC31C1CB7DE7B00B6E491 /* IDQHomeViewController.m */; };
+		5E0BC3261CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC31E1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m */; };
+		5E0BC3271CB7DE7B00B6E491 /* IDQGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3201CB7DE7B00B6E491 /* IDQGameViewController.m */; };
+		5E0BC3281CB7DE7B00B6E491 /* IDQResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3221CB7DE7B00B6E491 /* IDQResultsViewController.m */; };
+		5E0BC3291CB7DE7B00B6E491 /* IDQRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3241CB7DE7B00B6E491 /* IDQRulesViewController.m */; };
+		5E0BC3351CB7DE9500B6E491 /* IDQUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC32D1CB7DE9500B6E491 /* IDQUser.m */; };
+		5E0BC3371CB7DE9500B6E491 /* IDQGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3311CB7DE9500B6E491 /* IDQGame.m */; };
+		5E0BC3381CB7DE9500B6E491 /* IDQGameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3331CB7DE9500B6E491 /* IDQGameState.m */; };
+		5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BC3391CB7DEAD00B6E491 /* Main.storyboard */; };
+		5E0BC33D1CB7DED600B6E491 /* IDQButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC33C1CB7DED600B6E491 /* IDQButton.m */; };
+		5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3721CBA488D00B6E491 /* IDQQuestion.m */; };
+		5E0BC3761CBA585400B6E491 /* IDQConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3751CBA585400B6E491 /* IDQConstants.h */; };
+		5E0BC3791CBA73FF00B6E491 /* IDQDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +32,34 @@
 		5E0BC3021CB7DE5700B6E491 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5E0BC3041CB7DE5700B6E491 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E0BC3051CB7DE5700B6E491 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5E0BC3071CB7DE5700B6E491 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5E0BC3081CB7DE5700B6E491 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5E0BC30B1CB7DE5700B6E491 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E0BC30E1CB7DE5700B6E491 /* IDQuiz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IDQuiz.xcdatamodel; sourceTree = "<group>"; };
 		5E0BC3101CB7DE5700B6E491 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E0BC3131CB7DE5700B6E491 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E0BC3151CB7DE5700B6E491 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E0BC31B1CB7DE7B00B6E491 /* IDQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQHomeViewController.h; sourceTree = "<group>"; };
+		5E0BC31C1CB7DE7B00B6E491 /* IDQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQHomeViewController.m; sourceTree = "<group>"; };
+		5E0BC31D1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQLeaderBoardViewController.h; sourceTree = "<group>"; };
+		5E0BC31E1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQLeaderBoardViewController.m; sourceTree = "<group>"; };
+		5E0BC31F1CB7DE7B00B6E491 /* IDQGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQGameViewController.h; sourceTree = "<group>"; };
+		5E0BC3201CB7DE7B00B6E491 /* IDQGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQGameViewController.m; sourceTree = "<group>"; };
+		5E0BC3211CB7DE7B00B6E491 /* IDQResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQResultsViewController.h; sourceTree = "<group>"; };
+		5E0BC3221CB7DE7B00B6E491 /* IDQResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQResultsViewController.m; sourceTree = "<group>"; };
+		5E0BC3231CB7DE7B00B6E491 /* IDQRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQRulesViewController.h; sourceTree = "<group>"; };
+		5E0BC3241CB7DE7B00B6E491 /* IDQRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQRulesViewController.m; sourceTree = "<group>"; };
+		5E0BC32C1CB7DE9500B6E491 /* IDQUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQUser.h; sourceTree = "<group>"; };
+		5E0BC32D1CB7DE9500B6E491 /* IDQUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQUser.m; sourceTree = "<group>"; };
+		5E0BC3301CB7DE9500B6E491 /* IDQGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQGame.h; sourceTree = "<group>"; };
+		5E0BC3311CB7DE9500B6E491 /* IDQGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQGame.m; sourceTree = "<group>"; };
+		5E0BC3321CB7DE9500B6E491 /* IDQGameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQGameState.h; sourceTree = "<group>"; };
+		5E0BC3331CB7DE9500B6E491 /* IDQGameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQGameState.m; sourceTree = "<group>"; };
+		5E0BC3391CB7DEAD00B6E491 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5E0BC33B1CB7DED600B6E491 /* IDQButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQButton.h; sourceTree = "<group>"; };
+		5E0BC33C1CB7DED600B6E491 /* IDQButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQButton.m; sourceTree = "<group>"; };
+		5E0BC3711CBA488D00B6E491 /* IDQQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDQQuestion.h; path = ../IDQQuestion.h; sourceTree = "<group>"; };
+		5E0BC3721CBA488D00B6E491 /* IDQQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDQQuestion.m; path = ../IDQQuestion.m; sourceTree = "<group>"; };
+		5E0BC3751CBA585400B6E491 /* IDQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQConstants.h; sourceTree = "<group>"; };
+		5E0BC3771CBA73FF00B6E491 /* IDQDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQDataController.h; sourceTree = "<group>"; };
+		5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQDataController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +92,35 @@
 		5E0BC3001CB7DE5700B6E491 /* IDQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				5E0BC34A1CB9AFB800B6E491 /* model */,
+				5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */,
+				5E0BC3751CBA585400B6E491 /* IDQConstants.h */,
+				5E0BC3771CBA73FF00B6E491 /* IDQDataController.h */,
+				5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */,
 				5E0BC3041CB7DE5700B6E491 /* AppDelegate.h */,
 				5E0BC3051CB7DE5700B6E491 /* AppDelegate.m */,
-				5E0BC3071CB7DE5700B6E491 /* ViewController.h */,
-				5E0BC3081CB7DE5700B6E491 /* ViewController.m */,
-				5E0BC30A1CB7DE5700B6E491 /* Main.storyboard */,
+				5E0BC32C1CB7DE9500B6E491 /* IDQUser.h */,
+				5E0BC32D1CB7DE9500B6E491 /* IDQUser.m */,
+				5E0BC3301CB7DE9500B6E491 /* IDQGame.h */,
+				5E0BC3311CB7DE9500B6E491 /* IDQGame.m */,
+				5E0BC3321CB7DE9500B6E491 /* IDQGameState.h */,
+				5E0BC3331CB7DE9500B6E491 /* IDQGameState.m */,
+				5E0BC31B1CB7DE7B00B6E491 /* IDQHomeViewController.h */,
+				5E0BC31C1CB7DE7B00B6E491 /* IDQHomeViewController.m */,
+				5E0BC31D1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.h */,
+				5E0BC31E1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m */,
+				5E0BC31F1CB7DE7B00B6E491 /* IDQGameViewController.h */,
+				5E0BC3201CB7DE7B00B6E491 /* IDQGameViewController.m */,
+				5E0BC3211CB7DE7B00B6E491 /* IDQResultsViewController.h */,
+				5E0BC3221CB7DE7B00B6E491 /* IDQResultsViewController.m */,
+				5E0BC3231CB7DE7B00B6E491 /* IDQRulesViewController.h */,
+				5E0BC3241CB7DE7B00B6E491 /* IDQRulesViewController.m */,
+				5E0BC3391CB7DEAD00B6E491 /* Main.storyboard */,
 				5E0BC3101CB7DE5700B6E491 /* Assets.xcassets */,
 				5E0BC3121CB7DE5700B6E491 /* LaunchScreen.storyboard */,
 				5E0BC3151CB7DE5700B6E491 /* Info.plist */,
-				5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */,
+				5E0BC33B1CB7DED600B6E491 /* IDQButton.h */,
+				5E0BC33C1CB7DED600B6E491 /* IDQButton.m */,
 				5E0BC3011CB7DE5700B6E491 /* Supporting Files */,
 			);
 			path = IDQuiz;
@@ -80,6 +132,15 @@
 				5E0BC3021CB7DE5700B6E491 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E0BC34A1CB9AFB800B6E491 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5E0BC3711CBA488D00B6E491 /* IDQQuestion.h */,
+				5E0BC3721CBA488D00B6E491 /* IDQQuestion.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +202,7 @@
 			files = (
 				5E0BC3141CB7DE5700B6E491 /* LaunchScreen.storyboard in Resources */,
 				5E0BC3111CB7DE5700B6E491 /* Assets.xcassets in Resources */,
-				5E0BC30C1CB7DE5700B6E491 /* Main.storyboard in Resources */,
+				5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,9 +213,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E0BC3091CB7DE5700B6E491 /* ViewController.m in Sources */,
+				5E0BC3261CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m in Sources */,
+				5E0BC3761CBA585400B6E491 /* IDQConstants.h in Sources */,
+				5E0BC3351CB7DE9500B6E491 /* IDQUser.m in Sources */,
+				5E0BC3371CB7DE9500B6E491 /* IDQGame.m in Sources */,
+				5E0BC3291CB7DE7B00B6E491 /* IDQRulesViewController.m in Sources */,
+				5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */,
 				5E0BC30F1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld in Sources */,
 				5E0BC3061CB7DE5700B6E491 /* AppDelegate.m in Sources */,
+				5E0BC3281CB7DE7B00B6E491 /* IDQResultsViewController.m in Sources */,
+				5E0BC3791CBA73FF00B6E491 /* IDQDataController.m in Sources */,
+				5E0BC3381CB7DE9500B6E491 /* IDQGameState.m in Sources */,
+				5E0BC3251CB7DE7B00B6E491 /* IDQHomeViewController.m in Sources */,
+				5E0BC3271CB7DE7B00B6E491 /* IDQGameViewController.m in Sources */,
+				5E0BC33D1CB7DED600B6E491 /* IDQButton.m in Sources */,
 				5E0BC3031CB7DE5700B6E491 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,14 +234,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5E0BC30A1CB7DE5700B6E491 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E0BC30B1CB7DE5700B6E491 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5E0BC3121CB7DE5700B6E491 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -306,6 +370,7 @@
 				5E0BC31A1CB7DE5700B6E491 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
