@@ -24,24 +24,37 @@
     
     self = [super init];
     if (self) {
-//        [self writeQuestionsToDB];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+        if(![defaults objectForKey:@"questionsAdded"]) {
+            [self writeQuestionsToDB];
+            [defaults setObject:@"YES" forKey:@"questionsAdded"];
+        }
 
     }
     return self;
 }
 
 
-- (void) writeQuestionsToDB {
-    IDQQuestion *question = [NSEntityDescription insertNewObjectForEntityForName:kEntityNameQuestion
-                                                          inManagedObjectContext:self.managedObjectContext];
-    [question setQuestionText:@"Question 6 text"
-                      answers:@[@"answer", @"answer", @"answer", @"rightAnswer"]
-                  rightAnswer:@"rightAnswer"
-                     infoText:@"info text for question 6"
-                     category:@"Category4"
-              difficultyLevel:@4];
+- (void)writeQuestionsToDB {
     
-    [self saveContext];
+    for (NSInteger i = 1; i <= 50; i++) {
+        
+        IDQQuestion *question = [NSEntityDescription insertNewObjectForEntityForName:kEntityNameQuestion
+                                                              inManagedObjectContext:self.managedObjectContext];
+        
+        NSInteger righAnswerIndex = arc4random()%4;
+        NSMutableArray *answersArray = [[NSMutableArray alloc] initWithObjects: @"answer", @"answer", @"answer", @"answer", nil];
+        [answersArray setObject:@"rightAnswer" atIndexedSubscript:righAnswerIndex];
+        
+        [question setQuestionText:[NSString stringWithFormat:@"Question %ld text", (long)i]
+                          answers:answersArray
+                 rightAnswerIndex:[NSNumber numberWithInteger:righAnswerIndex]
+                         infoText:[NSString stringWithFormat:@"Info text for question %ld", (long)i]
+                     categoryName:[NSString stringWithFormat:@"Category %u", arc4random()%15]
+                  difficultyLevel:[NSNumber numberWithInt:arc4random()%5]];
+        [self saveContext];
+    }
 }
 
 

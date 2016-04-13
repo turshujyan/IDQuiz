@@ -12,7 +12,6 @@
 @interface IDQGame : NSObject
 
 @property (nonatomic, strong) IDQGameState *gameState;
-@property (nonatomic, assign) NSInteger currentQuestionNumber;
 @property (nonatomic, strong) NSArray *questions;
 
 + (instancetype)sharedGame;

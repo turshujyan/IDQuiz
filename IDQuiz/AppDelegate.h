@@ -10,6 +10,11 @@
 #import <CoreData/CoreData.h>
 #import "IDQDataController.h"
 
+@class AppDelegate;
+
+@interface UIApplication (Additions)
++ (AppDelegate *)appDelegate;
+@end
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

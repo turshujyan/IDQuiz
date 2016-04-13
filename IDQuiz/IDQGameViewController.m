@@ -17,10 +17,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
-/*@property (weak, nonatomic) IBOutlet UIButton *answerOne;
-@property (weak, nonatomic) IBOutlet UIButton *answerTwo;
-@property (weak, nonatomic) IBOutlet UIButton *answerThree;
-@property (weak, nonatomic) IBOutlet UIButton *answerFour;*/
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *answerButtons;
 
 @end
@@ -34,9 +30,9 @@
 }
 
 - (IBAction)selectAnswer:(UIButton *)sender {
-   // NSLog(@"%@ %@", self.currentQuestion.rightAnswer, sender.titleLabel);
-    if ([sender.titleLabel.text isEqual:self.currentQuestion.rightAnswer]) {
-        NSInteger nextQuestionNumber = ++self.game.currentQuestionNumber;
+    NSNumber *index = self.currentQuestion.rightAnswerIndex;
+    if ([sender.titleLabel.text isEqual:self.currentQuestion.answers[[index intValue]]]) {
+        NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
         [self loadQuestion:nextQuestionNumber];
     }
 
@@ -45,11 +41,9 @@
 - (void)loadQuestion:(NSInteger)nextQuestionNumber {
     self.currentQuestion = self.game.questions[nextQuestionNumber];
     self.questionLabel.text = self.currentQuestion.questionText;
-   /* [self.answerOne setTitle:self.currentQuestion.answers[0] forState:UIControlStateNormal];
-    [self.answerTwo setTitle:self.currentQuestion.answers[1] forState:UIControlStateNormal];
-    [self.answerThree setTitle:self.currentQuestion.answers[2] forState:UIControlStateNormal];
-    [self.answerFour setTitle:self.currentQuestion.answers[3] forState:UIControlStateNormal];*/
     NSArray *answers = self.currentQuestion.answers;
+    
+    //ARAM shuffle answers array before setting to buttons
     for(NSInteger i = 0; i <  answers.count; i++) {
         UIButton *button =  self.answerButtons[i];
         button.hidden = NO;
@@ -58,6 +52,7 @@
 }
 
 - (IBAction)removeTwoAnswers:(UIButton *)sender {
+    // ARAM, remove random 2 incorrect answers
     UIButton *button =  self.answerButtons[0];
     button.hidden  = YES;
     

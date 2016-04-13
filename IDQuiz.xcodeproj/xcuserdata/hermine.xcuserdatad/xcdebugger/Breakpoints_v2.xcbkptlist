@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IDQQuestion.h"
-            timestampString = "481973343.559772"
+            filePath = "IDQuiz/IDQDataController.m"
+            timestampString = "482175384.69165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-setQuestionText:answers:rightAnswer:infoText:category:difficultyLevel:"
-            landmarkType = "4">
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-writeQuestionsToDB"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

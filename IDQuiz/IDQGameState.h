@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IDQUser.h"
+#import <UIKit/UIKit.h>
 
 @interface IDQGameState : NSObject
 
-//@property (nonatomic, assign) NSInteger currentQuestionNumber;
+@property (nonatomic, assign) NSInteger currentQuestionNumber;
 @property (nonatomic, strong) NSDictionary *helpers;
 @property (nonatomic, assign) NSInteger totalScore;
 @property (nonatomic, assign) CGFloat totalTime;

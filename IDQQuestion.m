@@ -11,18 +11,23 @@
 @implementation IDQQuestion
 
 @dynamic answers;
-@dynamic category;
+@dynamic categoryName;
 @dynamic infoText;
 @dynamic questionText;
-@dynamic rightAnswer;
+@dynamic rightAnswerIndex;
 @dynamic difficultyLevel;
 
-- (void) setQuestionText:(NSString *)questionText answers:(NSArray *)answers rightAnswer:(NSString *)rightAnswer infoText:(NSString *)infoText category:(NSString *)category difficultyLevel:(NSNumber *)difficultyLevel {
+- (void) setQuestionText:(NSString *)questionText
+                 answers:(NSArray *)answers
+        rightAnswerIndex:(NSNumber *)rightAnswer
+                infoText:(NSString *)infoText
+            categoryName:(NSString *)categoryName
+         difficultyLevel:(NSNumber *)difficultyLevel {
     self.questionText = questionText;
     self.answers = answers;
-    self.rightAnswer = rightAnswer;
+    self.rightAnswerIndex = rightAnswer;
     self.infoText = infoText;
-    self.category = category;
+    self.categoryName = categoryName;
     self.difficultyLevel = difficultyLevel;
 }
 

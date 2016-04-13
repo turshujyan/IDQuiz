@@ -19,6 +19,6 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 + (instancetype)sharedDataController;
-- (NSArray *) fetchQuestions;
+- (NSArray *)fetchQuestions;
 
 @end

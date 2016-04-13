@@ -17,7 +17,6 @@
 		5E0BC3271CB7DE7B00B6E491 /* IDQGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3201CB7DE7B00B6E491 /* IDQGameViewController.m */; };
 		5E0BC3281CB7DE7B00B6E491 /* IDQResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3221CB7DE7B00B6E491 /* IDQResultsViewController.m */; };
 		5E0BC3291CB7DE7B00B6E491 /* IDQRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3241CB7DE7B00B6E491 /* IDQRulesViewController.m */; };
-		5E0BC3351CB7DE9500B6E491 /* IDQUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC32D1CB7DE9500B6E491 /* IDQUser.m */; };
 		5E0BC3371CB7DE9500B6E491 /* IDQGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3311CB7DE9500B6E491 /* IDQGame.m */; };
 		5E0BC3381CB7DE9500B6E491 /* IDQGameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3331CB7DE9500B6E491 /* IDQGameState.m */; };
 		5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BC3391CB7DEAD00B6E491 /* Main.storyboard */; };
@@ -46,8 +45,6 @@
 		5E0BC3221CB7DE7B00B6E491 /* IDQResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQResultsViewController.m; sourceTree = "<group>"; };
 		5E0BC3231CB7DE7B00B6E491 /* IDQRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQRulesViewController.h; sourceTree = "<group>"; };
 		5E0BC3241CB7DE7B00B6E491 /* IDQRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQRulesViewController.m; sourceTree = "<group>"; };
-		5E0BC32C1CB7DE9500B6E491 /* IDQUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQUser.h; sourceTree = "<group>"; };
-		5E0BC32D1CB7DE9500B6E491 /* IDQUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQUser.m; sourceTree = "<group>"; };
 		5E0BC3301CB7DE9500B6E491 /* IDQGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQGame.h; sourceTree = "<group>"; };
 		5E0BC3311CB7DE9500B6E491 /* IDQGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQGame.m; sourceTree = "<group>"; };
 		5E0BC3321CB7DE9500B6E491 /* IDQGameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQGameState.h; sourceTree = "<group>"; };
@@ -92,29 +89,14 @@
 		5E0BC3001CB7DE5700B6E491 /* IDQuiz */ = {
 			isa = PBXGroup;
 			children = (
-				5E0BC34A1CB9AFB800B6E491 /* model */,
-				5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */,
 				5E0BC3751CBA585400B6E491 /* IDQConstants.h */,
-				5E0BC3771CBA73FF00B6E491 /* IDQDataController.h */,
-				5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */,
 				5E0BC3041CB7DE5700B6E491 /* AppDelegate.h */,
 				5E0BC3051CB7DE5700B6E491 /* AppDelegate.m */,
-				5E0BC32C1CB7DE9500B6E491 /* IDQUser.h */,
-				5E0BC32D1CB7DE9500B6E491 /* IDQUser.m */,
-				5E0BC3301CB7DE9500B6E491 /* IDQGame.h */,
-				5E0BC3311CB7DE9500B6E491 /* IDQGame.m */,
-				5E0BC3321CB7DE9500B6E491 /* IDQGameState.h */,
-				5E0BC3331CB7DE9500B6E491 /* IDQGameState.m */,
-				5E0BC31B1CB7DE7B00B6E491 /* IDQHomeViewController.h */,
-				5E0BC31C1CB7DE7B00B6E491 /* IDQHomeViewController.m */,
-				5E0BC31D1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.h */,
-				5E0BC31E1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m */,
-				5E0BC31F1CB7DE7B00B6E491 /* IDQGameViewController.h */,
-				5E0BC3201CB7DE7B00B6E491 /* IDQGameViewController.m */,
-				5E0BC3211CB7DE7B00B6E491 /* IDQResultsViewController.h */,
-				5E0BC3221CB7DE7B00B6E491 /* IDQResultsViewController.m */,
-				5E0BC3231CB7DE7B00B6E491 /* IDQRulesViewController.h */,
-				5E0BC3241CB7DE7B00B6E491 /* IDQRulesViewController.m */,
+				5E0BC3771CBA73FF00B6E491 /* IDQDataController.h */,
+				5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */,
+				5E0BC34A1CB9AFB800B6E491 /* Model */,
+				5E0BC37A1CBD4CDA00B6E491 /* ViewControllers */,
+				5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */,
 				5E0BC3391CB7DEAD00B6E491 /* Main.storyboard */,
 				5E0BC3101CB7DE5700B6E491 /* Assets.xcassets */,
 				5E0BC3121CB7DE5700B6E491 /* LaunchScreen.storyboard */,
@@ -134,13 +116,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5E0BC34A1CB9AFB800B6E491 /* model */ = {
+		5E0BC34A1CB9AFB800B6E491 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5E0BC3301CB7DE9500B6E491 /* IDQGame.h */,
+				5E0BC3311CB7DE9500B6E491 /* IDQGame.m */,
+				5E0BC3321CB7DE9500B6E491 /* IDQGameState.h */,
+				5E0BC3331CB7DE9500B6E491 /* IDQGameState.m */,
 				5E0BC3711CBA488D00B6E491 /* IDQQuestion.h */,
 				5E0BC3721CBA488D00B6E491 /* IDQQuestion.m */,
 			);
-			name = model;
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5E0BC37A1CBD4CDA00B6E491 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E0BC31B1CB7DE7B00B6E491 /* IDQHomeViewController.h */,
+				5E0BC31C1CB7DE7B00B6E491 /* IDQHomeViewController.m */,
+				5E0BC31D1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.h */,
+				5E0BC31E1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m */,
+				5E0BC31F1CB7DE7B00B6E491 /* IDQGameViewController.h */,
+				5E0BC3201CB7DE7B00B6E491 /* IDQGameViewController.m */,
+				5E0BC3211CB7DE7B00B6E491 /* IDQResultsViewController.h */,
+				5E0BC3221CB7DE7B00B6E491 /* IDQResultsViewController.m */,
+				5E0BC3231CB7DE7B00B6E491 /* IDQRulesViewController.h */,
+				5E0BC3241CB7DE7B00B6E491 /* IDQRulesViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +218,6 @@
 			files = (
 				5E0BC3261CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m in Sources */,
 				5E0BC3761CBA585400B6E491 /* IDQConstants.h in Sources */,
-				5E0BC3351CB7DE9500B6E491 /* IDQUser.m in Sources */,
 				5E0BC3371CB7DE9500B6E491 /* IDQGame.m in Sources */,
 				5E0BC3291CB7DE7B00B6E491 /* IDQRulesViewController.m in Sources */,
 				5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */,

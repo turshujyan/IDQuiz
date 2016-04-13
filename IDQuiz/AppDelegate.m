@@ -48,3 +48,11 @@
 }
 
 @end
+
+@implementation UIApplication (Additions)
+
++ (AppDelegate *)appDelegate {
+    return [[UIApplication sharedApplication] delegate];
+}
+
+@end
