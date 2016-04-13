@@ -12,7 +12,7 @@
 @interface IDQGameState : NSObject
 
 @property (nonatomic, assign) NSInteger currentQuestionNumber;
-@property (nonatomic, strong) NSDictionary *helpers;
+@property (nonatomic, strong) NSDictionary *helpOptions;
 @property (nonatomic, assign) NSInteger totalScore;
 @property (nonatomic, assign) CGFloat totalTime;
 

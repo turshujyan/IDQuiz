@@ -24,6 +24,8 @@
 		5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3721CBA488D00B6E491 /* IDQQuestion.m */; };
 		5E0BC3761CBA585400B6E491 /* IDQConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3751CBA585400B6E491 /* IDQConstants.h */; };
 		5E0BC3791CBA73FF00B6E491 /* IDQDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */; };
+		5E0BC3821CBE85FB00B6E491 /* IDQCustomPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BC3811CBE85FB00B6E491 /* IDQCustomPopup.xib */; };
+		5E0BC3851CBE873C00B6E491 /* IDQCustomPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3841CBE873C00B6E491 /* IDQCustomPopup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,9 @@
 		5E0BC3751CBA585400B6E491 /* IDQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQConstants.h; sourceTree = "<group>"; };
 		5E0BC3771CBA73FF00B6E491 /* IDQDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQDataController.h; sourceTree = "<group>"; };
 		5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQDataController.m; sourceTree = "<group>"; };
+		5E0BC3811CBE85FB00B6E491 /* IDQCustomPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDQCustomPopup.xib; sourceTree = "<group>"; };
+		5E0BC3831CBE873C00B6E491 /* IDQCustomPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQCustomPopup.h; sourceTree = "<group>"; };
+		5E0BC3841CBE873C00B6E491 /* IDQCustomPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQCustomPopup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +102,9 @@
 				5E0BC34A1CB9AFB800B6E491 /* Model */,
 				5E0BC37A1CBD4CDA00B6E491 /* ViewControllers */,
 				5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */,
+				5E0BC3811CBE85FB00B6E491 /* IDQCustomPopup.xib */,
+				5E0BC3831CBE873C00B6E491 /* IDQCustomPopup.h */,
+				5E0BC3841CBE873C00B6E491 /* IDQCustomPopup.m */,
 				5E0BC3391CB7DEAD00B6E491 /* Main.storyboard */,
 				5E0BC3101CB7DE5700B6E491 /* Assets.xcassets */,
 				5E0BC3121CB7DE5700B6E491 /* LaunchScreen.storyboard */,
@@ -204,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E0BC3141CB7DE5700B6E491 /* LaunchScreen.storyboard in Resources */,
+				5E0BC3821CBE85FB00B6E491 /* IDQCustomPopup.xib in Resources */,
 				5E0BC3111CB7DE5700B6E491 /* Assets.xcassets in Resources */,
 				5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */,
 			);
@@ -226,6 +235,7 @@
 				5E0BC3281CB7DE7B00B6E491 /* IDQResultsViewController.m in Sources */,
 				5E0BC3791CBA73FF00B6E491 /* IDQDataController.m in Sources */,
 				5E0BC3381CB7DE9500B6E491 /* IDQGameState.m in Sources */,
+				5E0BC3851CBE873C00B6E491 /* IDQCustomPopup.m in Sources */,
 				5E0BC3251CB7DE7B00B6E491 /* IDQHomeViewController.m in Sources */,
 				5E0BC3271CB7DE7B00B6E491 /* IDQGameViewController.m in Sources */,
 				5E0BC33D1CB7DED600B6E491 /* IDQButton.m in Sources */,

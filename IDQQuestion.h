@@ -18,13 +18,16 @@
 @property (nonatomic, retain) NSString *infoText;
 @property (nonatomic, retain) NSString *categoryName;
 @property (nonatomic, assign) NSNumber *difficultyLevel;
+@property (nonatomic, assign) NSNumber *questionId;
+
 
 - (void)setQuestionText:(NSString *)questionText
                  answers:(NSArray *)answers
        rightAnswerIndex:(NSNumber *)rightAnswer
                infoText:(NSString *)infoText
-                categoryName:(NSString *)categoryName
-         difficultyLevel:(NSNumber *)difficultyLevel;
+           categoryName:(NSString *)categoryName
+         difficultyLevel:(NSNumber *)difficultyLevel
+             questionId:(NSNumber *)questionId;
 
 @end
 

@@ -24,7 +24,8 @@
 - (void)startNewGame {
     
     AppDelegate *appDelegate = [UIApplication appDelegate];
-    self.questions = [[NSArray alloc] initWithArray:[appDelegate.dataController fetchQuestions]];
+    self.questions = [appDelegate.dataController fetchQuestions];
+   // NSLog(@"%@", self.questions);
     self.gameState = [[IDQGameState alloc] init];
 }
 

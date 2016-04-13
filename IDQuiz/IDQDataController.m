@@ -9,6 +9,12 @@
 #import "IDQDataController.h"
 #import "AppDelegate.h"
 
+@interface IDQDataController()
+
+@property NSArray *questionIds;
+@end
+
+
 @implementation IDQDataController
 
 + (instancetype)sharedDataController {
@@ -38,34 +44,60 @@
 
 - (void)writeQuestionsToDB {
     
-    for (NSInteger i = 1; i <= 50; i++) {
+    for (NSInteger i = 0; i <= 49; i++) {
         
         IDQQuestion *question = [NSEntityDescription insertNewObjectForEntityForName:kEntityNameQuestion
                                                               inManagedObjectContext:self.managedObjectContext];
         
         NSInteger righAnswerIndex = arc4random()%4;
-        NSMutableArray *answersArray = [[NSMutableArray alloc] initWithObjects: @"answer", @"answer", @"answer", @"answer", nil];
+        NSString *answerText = [NSString stringWithFormat:@"Q %ld answer", i+1 ];
+        NSMutableArray *answersArray = [[NSMutableArray alloc] initWithObjects: answerText, answerText, answerText, answerText, nil];
         [answersArray setObject:@"rightAnswer" atIndexedSubscript:righAnswerIndex];
         
-        [question setQuestionText:[NSString stringWithFormat:@"Question %ld text", (long)i]
+        [question setQuestionText:[NSString stringWithFormat:@"Question %ld text", (long)i+1]
                           answers:answersArray
                  rightAnswerIndex:[NSNumber numberWithInteger:righAnswerIndex]
-                         infoText:[NSString stringWithFormat:@"Info text for question %ld", (long)i]
+                         infoText:[NSString stringWithFormat:@"Info text for question %ld", (long)i+1]
                      categoryName:[NSString stringWithFormat:@"Category %u", arc4random()%15]
-                  difficultyLevel:[NSNumber numberWithInt:arc4random()%5]];
+                  difficultyLevel:[NSNumber numberWithLong:(i%5 + 1)]
+                       questionId:[NSNumber numberWithInteger:i+1]];
         [self saveContext];
     }
 }
 
 
 - (NSArray *)fetchQuestions{
+    NSError *requestError = nil;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:kEntityNameQuestion];
+    [request setFetchLimit:15];
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&requestError];
+    NSMutableArray *questionIds = [[NSMutableArray alloc] initWithCapacity:result.count];
+    
+    if(!requestError) {
+        for(IDQQuestion *question in result) {
+            [questionIds addObject:question.questionId];
+        }
+        self.questionIds = [questionIds copy];
+        return result;
+    } else {
+        return nil;
+
+    }
+}
+
+
+- (IDQQuestion *)fetchQuestionWithDifficultyLevel:(NSNumber *)level{
     
     NSError *requestError = nil;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:kEntityNameQuestion];
-    //[request setPredicate:[NSPredicate predicateWithFormat:@"category = 'Category1'"]];
-    return [self.managedObjectContext executeFetchRequest:request error:&requestError];
-    
-} 
+    [request setPredicate:[NSPredicate predicateWithFormat:@"difficultyLevel = %@  AND  NOT (questionId IN %@)", level, self.questionIds]];
+    NSArray *result= [self.managedObjectContext executeFetchRequest:request error:&requestError];
+    if(!requestError) {
+        return result[0];
+    } else {
+        return nil;
+    }
+}
 
 #pragma mark - CORE DATA
 

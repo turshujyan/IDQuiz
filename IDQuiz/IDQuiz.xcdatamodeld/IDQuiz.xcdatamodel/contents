@@ -5,6 +5,7 @@
         <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="difficultyLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="infoText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="questionId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="questionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightAnswerIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
@@ -14,7 +15,7 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Question" positionX="-927" positionY="-594" width="128" height="133"/>
-        <element name="Result" positionX="-704" positionY="-592" width="128" height="88"/>
+        <element name="Result" positionX="-1107" positionY="-1062" width="128" height="88"/>
+        <element name="Question" positionX="-1386" positionY="-1107" width="128" height="148"/>
     </elements>
 </model>

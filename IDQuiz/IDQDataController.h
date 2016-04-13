@@ -20,5 +20,6 @@
 
 + (instancetype)sharedDataController;
 - (NSArray *)fetchQuestions;
+- (IDQQuestion *)fetchQuestionWithDifficultyLevel:(NSNumber *)difficultyLevel;
 
 @end

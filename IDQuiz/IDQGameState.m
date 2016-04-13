@@ -17,9 +17,9 @@
         self.currentQuestionNumber = 0;
         self.totalTime = 0.0;
         self.totalScore = 0;
-        NSArray *helpersNamesArray = @[@"50/50", @"changeQuestion", @"call", @"infoText"];
-        NSArray *helpersValuesArray = @[@YES, @YES, @YES, @YES];
-        self.helpers = [[NSDictionary alloc] initWithObjects:helpersValuesArray forKeys:helpersNamesArray];
+        NSArray *helpersNamesArray = @[@"50/50", @"changeQuestion", @"call", @"showInfoText"];
+        NSArray *helpersValuesArray = @[@"available", @"available", @"available", @"available"];
+        self.helpOptions = [[NSDictionary alloc] initWithObjects:helpersValuesArray forKeys:helpersNamesArray];
     }
     return self;
 }
