@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IDQGame.h"
+#import "IDQPlayerManager.h"
 
 @interface IDQHomeViewController : UIViewController
 

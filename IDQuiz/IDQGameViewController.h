@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AVFoundation/AVFoundation.h>
+#import "IDQPlayerManager.h"
 
 @interface IDQGameViewController : UIViewController
+
+@property (nonatomic,retain) AVAudioPlayer *audioPlayer;
+
 
 @end
