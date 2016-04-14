@@ -70,7 +70,7 @@
                 break;
             }
         }
-        popup.frame = CGRectMake(0, 0, 280, 200);
+        popup.frame = CGRectMake(0, 0, 280, 250);
         popup.center = self.view.center;
         popup.infoTextLabel.text = self.currentQuestion.infoText;
         NSLog(@"creating popup %@", self.currentQuestion.infoText);
