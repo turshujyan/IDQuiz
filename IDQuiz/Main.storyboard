@@ -195,6 +195,9 @@
                                 <state key="normal" title="info">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="showInfoText:" destination="mGM-K9-bMa" eventType="touchUpInside" id="Ss9-2I-URX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvG-Vp-IM8">
                                 <rect key="frame" x="89" y="14" width="38" height="42"/>
@@ -214,6 +217,9 @@
                                 <state key="normal" title="xch">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="changeQuestion:" destination="mGM-K9-bMa" eventType="touchUpInside" id="cwL-oj-zvW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKP-qt-EwU">
                                 <rect key="frame" x="93" y="510" width="115" height="38"/>

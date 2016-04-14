@@ -31,12 +31,12 @@
     self = [super init];
     if (self) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
+        
         if(![defaults objectForKey:@"questionsAdded"]) {
             [self writeQuestionsToDB];
             [defaults setObject:@"YES" forKey:@"questionsAdded"];
         }
-
+        
     }
     return self;
 }
@@ -81,7 +81,7 @@
         return result;
     } else {
         return nil;
-
+        
     }
 }
 
