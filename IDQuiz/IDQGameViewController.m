@@ -6,7 +6,6 @@
 //  Copyright © 2016 Arman Markosyan. All rights reserved.
 //
 #import "AppDelegate.h"
-#import "IDQCustomPopup.h"
 #import "IDQGameViewController.h"
 #import "IDQGame.h"
 #import "IDQQuestion.h"
@@ -16,12 +15,15 @@
 
 @property (nonatomic, strong) IDQGame *game;
 @property (nonatomic, strong) IDQQuestion *currentQuestion;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *answerButtons;
+@property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
 @end
+
 
 @implementation IDQGameViewController
 
@@ -29,6 +31,13 @@
     [super viewDidLoad];
     self.game = [IDQGame sharedGame];
     [self loadQuestion:self.game.questions[0]];
+    self.startDate = [NSDate date];
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
+    NSRunLoop *runner = [NSRunLoop currentRunLoop];
+    [runner addTimer:timer forMode: NSDefaultRunLoopMode];
+
+
 }
 
 - (IBAction)selectAnswer:(UIButton *)sender {
@@ -36,8 +45,9 @@
     if ([sender.titleLabel.text isEqual:self.currentQuestion.answers[[index intValue]]]) {
         NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
         [self loadQuestion:self.game.questions[nextQuestionNumber]];
+    } else {
+        [self endGame];
     }
-    
 }
 
 - (void)loadQuestion:(IDQQuestion *)question{
@@ -62,19 +72,9 @@
 - (IBAction)showInfoText:(id)sender {
     if ([[self.game.gameState.helpOptions objectForKey:@"showInfoText"] isEqualToString:@"available"]) {
         
-        IDQCustomPopup *popup;
-        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"IDQCustomPopup" owner:self options:nil];
-        for (id nib in nibs) {
-            if ([nib isKindOfClass:[IDQCustomPopup class]]) {
-                popup = nib;
-                break;
-            }
-        }
-        popup.frame = CGRectMake(0, 0, 280, 200);
-        popup.center = self.view.center;
-        popup.infoTextLabel.text = self.currentQuestion.infoText;
-        NSLog(@"creating popup %@", self.currentQuestion.infoText);
-        [[[UIApplication appDelegate] window] addSubview:popup];
+        UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:self.currentQuestion.infoText  message:nil  preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
         
         NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
         [helpOptions setValue:@"used" forKey:@"showInfoText"];
@@ -94,8 +94,7 @@
 }
 
 
-- (IBAction)playMusic:(UIButton *)sender {
-    
+- (IBAction)playMusic:(UIButton *)sender {    
     IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
     if ([player.audioPlayer isPlaying]) {
         [player.audioPlayer pause];
@@ -103,11 +102,29 @@
         [player.audioPlayer play];
         player.audioPlayer.currentTime = 0;
     }
-    
 }
 
 - (IBAction)openContacts:(UIButton *)sender {
-    
-    
+
 }
+
+
+
+- (void)timeTick:(NSTimer *)timer {
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.startDate];
+    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"mm:ss"];
+    NSString *timeString = [dateFormatter stringFromDate:timerDate];
+    self.totalTimeLabel.text = timeString;
+}
+
+- (void)endGame {
+    self.game.gameState.totalTime = self.totalTimeLabel.text;
+    NSLog(@"%@", self.game.gameState.totalTime);
+    IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 @end

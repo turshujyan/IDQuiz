@@ -24,8 +24,7 @@
 		5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3721CBA488D00B6E491 /* IDQQuestion.m */; };
 		5E0BC3761CBA585400B6E491 /* IDQConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3751CBA585400B6E491 /* IDQConstants.h */; };
 		5E0BC3791CBA73FF00B6E491 /* IDQDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */; };
-		5E0BC3821CBE85FB00B6E491 /* IDQCustomPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BC3811CBE85FB00B6E491 /* IDQCustomPopup.xib */; };
-		5E0BC3851CBE873C00B6E491 /* IDQCustomPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3841CBE873C00B6E491 /* IDQCustomPopup.m */; };
+		5E0BC38B1CC0039700B6E491 /* IDQResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3891CC0039700B6E491 /* IDQResult.m */; };
 		A03CDE731CBF861600C941F6 /* IDQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */; };
 		A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03CDE781CBF87F700C941F6 /* redbone.mp3 */; };
 /* End PBXBuildFile section */
@@ -61,9 +60,8 @@
 		5E0BC3751CBA585400B6E491 /* IDQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQConstants.h; sourceTree = "<group>"; };
 		5E0BC3771CBA73FF00B6E491 /* IDQDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQDataController.h; sourceTree = "<group>"; };
 		5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQDataController.m; sourceTree = "<group>"; };
-		5E0BC3811CBE85FB00B6E491 /* IDQCustomPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDQCustomPopup.xib; sourceTree = "<group>"; };
-		5E0BC3831CBE873C00B6E491 /* IDQCustomPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQCustomPopup.h; sourceTree = "<group>"; };
-		5E0BC3841CBE873C00B6E491 /* IDQCustomPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQCustomPopup.m; sourceTree = "<group>"; };
+		5E0BC3881CC0039700B6E491 /* IDQResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDQResult.h; path = ../IDQResult.h; sourceTree = "<group>"; };
+		5E0BC3891CC0039700B6E491 /* IDQResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDQResult.m; path = ../IDQResult.m; sourceTree = "<group>"; };
 		A03CDE711CBF861600C941F6 /* IDQPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQPlayerManager.h; sourceTree = "<group>"; };
 		A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQPlayerManager.m; sourceTree = "<group>"; };
 		A03CDE781CBF87F700C941F6 /* redbone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = redbone.mp3; sourceTree = "<group>"; };
@@ -109,9 +107,6 @@
 				5E0BC34A1CB9AFB800B6E491 /* Model */,
 				5E0BC37A1CBD4CDA00B6E491 /* ViewControllers */,
 				5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */,
-				5E0BC3811CBE85FB00B6E491 /* IDQCustomPopup.xib */,
-				5E0BC3831CBE873C00B6E491 /* IDQCustomPopup.h */,
-				5E0BC3841CBE873C00B6E491 /* IDQCustomPopup.m */,
 				5E0BC3391CB7DEAD00B6E491 /* Main.storyboard */,
 				5E0BC3101CB7DE5700B6E491 /* Assets.xcassets */,
 				5E0BC3121CB7DE5700B6E491 /* LaunchScreen.storyboard */,
@@ -141,6 +136,8 @@
 				5E0BC3331CB7DE9500B6E491 /* IDQGameState.m */,
 				5E0BC3711CBA488D00B6E491 /* IDQQuestion.h */,
 				5E0BC3721CBA488D00B6E491 /* IDQQuestion.m */,
+				5E0BC3881CC0039700B6E491 /* IDQResult.h */,
+				5E0BC3891CC0039700B6E491 /* IDQResult.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -236,7 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E0BC3141CB7DE5700B6E491 /* LaunchScreen.storyboard in Resources */,
-				5E0BC3821CBE85FB00B6E491 /* IDQCustomPopup.xib in Resources */,
 				5E0BC3111CB7DE5700B6E491 /* Assets.xcassets in Resources */,
 				5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */,
 				A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */,
@@ -258,10 +254,10 @@
 				5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */,
 				5E0BC30F1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld in Sources */,
 				5E0BC3061CB7DE5700B6E491 /* AppDelegate.m in Sources */,
+				5E0BC38B1CC0039700B6E491 /* IDQResult.m in Sources */,
 				5E0BC3281CB7DE7B00B6E491 /* IDQResultsViewController.m in Sources */,
 				5E0BC3791CBA73FF00B6E491 /* IDQDataController.m in Sources */,
 				5E0BC3381CB7DE9500B6E491 /* IDQGameState.m in Sources */,
-				5E0BC3851CBE873C00B6E491 /* IDQCustomPopup.m in Sources */,
 				5E0BC3251CB7DE7B00B6E491 /* IDQHomeViewController.m in Sources */,
 				5E0BC3271CB7DE7B00B6E491 /* IDQGameViewController.m in Sources */,
 				5E0BC33D1CB7DED600B6E491 /* IDQButton.m in Sources */,

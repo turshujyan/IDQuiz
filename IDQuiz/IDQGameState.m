@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         self.currentQuestionNumber = 0;
-        self.totalTime = 0.0;
+        self.totalTime = 0;
         self.totalScore = 0;
         NSArray *helpersNamesArray = @[@"50/50", @"changeQuestion", @"call", @"showInfoText"];
         NSArray *helpersValuesArray = @[@"available", @"available", @"available", @"available"];

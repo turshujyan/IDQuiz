@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "IDQQuestion.h"
 #import "IDQConstants.h"
+#import "IDQResult.h"
 
 
 @interface IDQDataController : NSObject
@@ -21,5 +22,6 @@
 + (instancetype)sharedDataController;
 - (NSArray *)fetchQuestions;
 - (IDQQuestion *)fetchQuestionWithDifficultyLevel:(NSNumber *)difficultyLevel;
+- (void)saveResult:(IDQResult *)result;
 
 @end

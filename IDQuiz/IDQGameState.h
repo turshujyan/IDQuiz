@@ -14,7 +14,7 @@
 @property (nonatomic, assign) NSInteger currentQuestionNumber;
 @property (nonatomic, strong) NSDictionary *helpOptions;
 @property (nonatomic, assign) NSInteger totalScore;
-@property (nonatomic, assign) CGFloat totalTime;
+@property (nonatomic, assign) NSString *totalTime;
 
 -(id)init; 
 

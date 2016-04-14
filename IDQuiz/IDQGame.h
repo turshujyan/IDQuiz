@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "IDQGameState.h"
+#import "IDQResult.h"
+
 
 @interface IDQGame : NSObject
 
@@ -16,5 +18,5 @@
 
 + (instancetype)sharedGame;
 - (void)startNewGame;
-
+- (void)endGame:(IDQResult *)result;
 @end

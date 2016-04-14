@@ -7,8 +7,12 @@
 //
 
 #import "IDQResultsViewController.h"
+#import "IDQGame.h"
 
 @interface IDQResultsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 
 @end
 
@@ -16,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    IDQGame *game = [IDQGame sharedGame];
+    self.timeLabel.text = game.gameState.totalTime;
+    
     // Do any additional setup after loading the view.
 }
 

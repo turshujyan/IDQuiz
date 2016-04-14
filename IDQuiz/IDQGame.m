@@ -22,13 +22,18 @@
 }
 
 - (void)startNewGame {
-    
     AppDelegate *appDelegate = [UIApplication appDelegate];
     self.questions = [appDelegate.dataController fetchQuestions];
-   // NSLog(@"%@", self.questions);
     self.gameState = [[IDQGameState alloc] init];
 }
 
+-(void)endGame:(IDQResult *)result{
+    
+    AppDelegate *appDelegate = [UIApplication appDelegate];
+    [appDelegate.dataController saveResult:result];
+    
+    
 
+}
 
 @end

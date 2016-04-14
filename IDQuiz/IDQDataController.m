@@ -99,6 +99,10 @@
     }
 }
 
+- (void)saveResult:(IDQResult *)result {
+
+}
+
 #pragma mark - CORE DATA
 
 @synthesize managedObjectContext = _managedObjectContext;
