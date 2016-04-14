@@ -27,6 +27,9 @@
 
 - (IBAction)play:(UIButton *)sender {
     
+    IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
+    [player.audioPlayer play];
+    
     IDQGame *game = [IDQGame sharedGame];
     [game startNewGame];
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"gameVC"];

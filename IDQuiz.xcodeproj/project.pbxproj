@@ -26,6 +26,8 @@
 		5E0BC3791CBA73FF00B6E491 /* IDQDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */; };
 		5E0BC3821CBE85FB00B6E491 /* IDQCustomPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BC3811CBE85FB00B6E491 /* IDQCustomPopup.xib */; };
 		5E0BC3851CBE873C00B6E491 /* IDQCustomPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3841CBE873C00B6E491 /* IDQCustomPopup.m */; };
+		A03CDE731CBF861600C941F6 /* IDQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */; };
+		A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03CDE781CBF87F700C941F6 /* redbone.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,9 @@
 		5E0BC3811CBE85FB00B6E491 /* IDQCustomPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDQCustomPopup.xib; sourceTree = "<group>"; };
 		5E0BC3831CBE873C00B6E491 /* IDQCustomPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQCustomPopup.h; sourceTree = "<group>"; };
 		5E0BC3841CBE873C00B6E491 /* IDQCustomPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQCustomPopup.m; sourceTree = "<group>"; };
+		A03CDE711CBF861600C941F6 /* IDQPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQPlayerManager.h; sourceTree = "<group>"; };
+		A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQPlayerManager.m; sourceTree = "<group>"; };
+		A03CDE781CBF87F700C941F6 /* redbone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = redbone.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,8 @@
 				5E0BC3051CB7DE5700B6E491 /* AppDelegate.m */,
 				5E0BC3771CBA73FF00B6E491 /* IDQDataController.h */,
 				5E0BC3781CBA73FF00B6E491 /* IDQDataController.m */,
+				A03CDE711CBF861600C941F6 /* IDQPlayerManager.h */,
+				A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */,
 				5E0BC34A1CB9AFB800B6E491 /* Model */,
 				5E0BC37A1CBD4CDA00B6E491 /* ViewControllers */,
 				5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */,
@@ -111,6 +118,7 @@
 				5E0BC3151CB7DE5700B6E491 /* Info.plist */,
 				5E0BC33B1CB7DED600B6E491 /* IDQButton.h */,
 				5E0BC33C1CB7DED600B6E491 /* IDQButton.m */,
+				A03CDE761CBF87F700C941F6 /* Resources */,
 				5E0BC3011CB7DE5700B6E491 /* Supporting Files */,
 			);
 			path = IDQuiz;
@@ -152,6 +160,22 @@
 				5E0BC3241CB7DE7B00B6E491 /* IDQRulesViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A03CDE761CBF87F700C941F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A03CDE771CBF87F700C941F6 /* Music */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A03CDE771CBF87F700C941F6 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				A03CDE781CBF87F700C941F6 /* redbone.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +239,7 @@
 				5E0BC3821CBE85FB00B6E491 /* IDQCustomPopup.xib in Resources */,
 				5E0BC3111CB7DE5700B6E491 /* Assets.xcassets in Resources */,
 				5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */,
+				A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +253,7 @@
 				5E0BC3261CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m in Sources */,
 				5E0BC3761CBA585400B6E491 /* IDQConstants.h in Sources */,
 				5E0BC3371CB7DE9500B6E491 /* IDQGame.m in Sources */,
+				A03CDE731CBF861600C941F6 /* IDQPlayerManager.m in Sources */,
 				5E0BC3291CB7DE7B00B6E491 /* IDQRulesViewController.m in Sources */,
 				5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */,
 				5E0BC30F1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld in Sources */,
