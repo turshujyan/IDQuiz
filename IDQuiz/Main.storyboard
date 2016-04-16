@@ -98,7 +98,35 @@
                     <view key="view" contentMode="scaleToFill" id="4LD-pk-ewt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7q-7Z-vyY">
+                                <rect key="frame" x="20" y="28" width="280" height="496"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">There are 15 questions standing between you and a (pretend!) million dollar pay day! Each question is presented in multiple choice format. One of the four choices is the correct answer - your job is to pick the right one! The questions become more difficult as you progress through the game, but the potential (fake!) payoff increases as well! Miss a question and the game is over.
+
+If you need help, there are four 'life lines' at your disposal. You can use each one only once during the course of the game, so use them wisely! The life lines are:
+
+50/50 - The computer will randomly remove two incorrect answers, leaving the correct answer and one incorrect answer.
+
+Phone a Friend - You can call a friend or family member and ask the current question for 30 seconds, and the phoned friend gave his/her answer.
+
+Switch the Question - If you think that question was too hard to answer, you can ask the computer eliminate that question and generate a new one.
+
+Info text -  You can get more information to answer </mutableString>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asj-UH-vwT">
+                                <rect key="frame" x="105" y="532" width="111" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="Wiw-T4-KfF" eventType="touchUpInside" id="kwa-R0-86p"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>

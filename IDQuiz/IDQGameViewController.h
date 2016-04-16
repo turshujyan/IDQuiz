@@ -14,5 +14,6 @@
 
 @property (nonatomic,retain) AVAudioPlayer *audioPlayer;
 
+-(void)showPeoplePickerController;
 
 @end
