@@ -9,9 +9,17 @@
 #import "IDQGameViewController.h"
 #import "IDQGame.h"
 #import "IDQQuestion.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <Contacts/Contacts.h>
+#import <ContactsUI/ContactsUI.h>
 
 
-@interface IDQGameViewController ()
+@interface IDQGameViewController () < ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate,
+ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
+
+@property (nonatomic, assign) CNContactStore *addressBook;
+@property (nonatomic, strong) NSMutableArray *menuArray;
 
 @property (nonatomic, strong) IDQGame *game;
 @property (nonatomic, strong) IDQQuestion *currentQuestion;
@@ -22,6 +30,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
+@property (nonatomic, strong) IDQPlayerManager *player;
+
 @end
 
 
@@ -29,7 +39,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.game = [IDQGame sharedGame];
+    self.player = [IDQPlayerManager sharedPlayer];
+    
     [self loadQuestion:self.game.questions[0]];
     self.startDate = [NSDate date];
     
@@ -95,16 +108,32 @@
 
 
 - (IBAction)playMusic:(UIButton *)sender {    
-    IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
-    if ([player.audioPlayer isPlaying]) {
-        [player.audioPlayer pause];
+    if ([self.player.audioPlayer isPlaying]) {
+        [self.player.audioPlayer pause];
     } else {
-        [player.audioPlayer play];
-        player.audioPlayer.currentTime = 0;
+        [self.player.audioPlayer play];
+        self.player.audioPlayer.currentTime = 0;
     }
 }
 
+-(void)showPeoplePickerController {
+    
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    // Display only a person's phone, email, and birthdate
+    NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty],
+                               [NSNumber numberWithInt:kABPersonEmailProperty],
+                               [NSNumber numberWithInt:kABPersonBirthdayProperty], nil];
+    
+    
+    picker.displayedProperties = displayedItems;
+    // Show the picker
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
 - (IBAction)openContacts:(UIButton *)sender {
+    
+    [self showPeoplePickerController];
 
 }
 
@@ -121,6 +150,9 @@
 }
 
 - (void)endGame {
+    
+    [self.player.audioPlayer pause];
+    
     self.game.gameState.totalTime = self.totalTimeLabel.text;
     NSLog(@"%@", self.game.gameState.totalTime);
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
