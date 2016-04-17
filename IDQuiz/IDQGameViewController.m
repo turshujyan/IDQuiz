@@ -9,9 +9,17 @@
 #import "IDQGameViewController.h"
 #import "IDQGame.h"
 #import "IDQQuestion.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <Contacts/Contacts.h>
+#import <ContactsUI/ContactsUI.h>
 
+@interface IDQGameViewController () < ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate,
+ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
-@interface IDQGameViewController ()
+@property (nonatomic, assign) CNContactStore *addressBook;
+@property (nonatomic, strong) NSMutableArray *menuArray;
+
 
 @property (nonatomic, strong) IDQGame *game;
 @property (nonatomic, strong) IDQQuestion *currentQuestion;
@@ -98,8 +106,23 @@
     }
 }
 
-- (IBAction)openContacts:(UIButton *)sender {
+-(void)showPeoplePickerController {
+    
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    // Display only a person's phone, email, and birthdate
+    NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty],
+                               [NSNumber numberWithInt:kABPersonEmailProperty],
+                               [NSNumber numberWithInt:kABPersonBirthdayProperty], nil];
+    
+    
+    picker.displayedProperties = displayedItems;
+    // Show the picker
+    [self presentViewController:picker animated:YES completion:nil];
+}
 
+- (IBAction)openContacts:(UIButton *)sender {
+    [self showPeoplePickerController];
 }
 
 
