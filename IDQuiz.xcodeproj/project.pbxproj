@@ -27,6 +27,8 @@
 		5E0BC38B1CC0039700B6E491 /* IDQResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3891CC0039700B6E491 /* IDQResult.m */; };
 		A03CDE731CBF861600C941F6 /* IDQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */; };
 		A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03CDE781CBF87F700C941F6 /* redbone.mp3 */; };
+		A05DAD061CC19A0700EDB12E /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05DAD051CC19A0700EDB12E /* Contacts.framework */; };
+		A05DAD081CC19A0C00EDB12E /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05DAD071CC19A0C00EDB12E /* ContactsUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		A03CDE711CBF861600C941F6 /* IDQPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQPlayerManager.h; sourceTree = "<group>"; };
 		A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQPlayerManager.m; sourceTree = "<group>"; };
 		A03CDE781CBF87F700C941F6 /* redbone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = redbone.mp3; sourceTree = "<group>"; };
+		A05DAD051CC19A0700EDB12E /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		A05DAD071CC19A0C00EDB12E /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A05DAD081CC19A0C00EDB12E /* ContactsUI.framework in Frameworks */,
+				A05DAD061CC19A0700EDB12E /* Contacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,8 @@
 		5E0BC2F51CB7DE5700B6E491 = {
 			isa = PBXGroup;
 			children = (
+				A05DAD071CC19A0C00EDB12E /* ContactsUI.framework */,
+				A05DAD051CC19A0700EDB12E /* Contacts.framework */,
 				5E0BC3001CB7DE5700B6E491 /* IDQuiz */,
 				5E0BC2FF1CB7DE5700B6E491 /* Products */,
 			);

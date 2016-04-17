@@ -30,6 +30,8 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
+@property (nonatomic, strong) IDQPlayerManager *player;
+
 @end
 
 
@@ -37,7 +39,10 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.game = [IDQGame sharedGame];
+    self.player = [IDQPlayerManager sharedPlayer];
+    
     [self loadQuestion:self.game.questions[0]];
     self.startDate = [NSDate date];
     
@@ -97,12 +102,11 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
 
 - (IBAction)playMusic:(UIButton *)sender {    
-    IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
-    if ([player.audioPlayer isPlaying]) {
-        [player.audioPlayer pause];
+    if ([self.player.audioPlayer isPlaying]) {
+        [self.player.audioPlayer pause];
     } else {
-        [player.audioPlayer play];
-        player.audioPlayer.currentTime = 0;
+        [self.player.audioPlayer play];
+        self.player.audioPlayer.currentTime = 0;
     }
 }
 
@@ -150,6 +154,9 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 }
 
 - (void)endGame {
+    
+    [self.player.audioPlayer pause];
+    
     self.game.gameState.totalTime = self.totalTimeLabel.text;
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
     [self presentViewController:vc animated:YES completion:nil];
