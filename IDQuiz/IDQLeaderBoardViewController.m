@@ -7,6 +7,7 @@
 //
 
 #import "IDQLeaderBoardViewController.h"
+#import "IDQGame.h"
 
 @interface IDQLeaderBoardViewController ()
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    IDQGame *game = [IDQGame sharedGame];
+    [game getLeaderBoard];
 }
 
 - (void)didReceiveMemoryWarning {

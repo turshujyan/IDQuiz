@@ -21,7 +21,10 @@
 
 + (instancetype)sharedDataController;
 - (NSArray *)fetchQuestions;
+- (NSArray *)fetchResults;
 - (IDQQuestion *)fetchQuestionWithDifficultyLevel:(NSNumber *)difficultyLevel;
-- (void)saveResult:(IDQResult *)result;
+- (void)saveResultForUsername:(NSString *)username
+                   totalScore:(NSNumber *)score
+                    totalTime:(NSNumber *)time;
 
 @end

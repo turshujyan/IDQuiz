@@ -18,7 +18,7 @@
 @dynamic rightAnswerIndex;
 @dynamic difficultyLevel;
 
-- (void) setQuestionText:(NSString *)questionText
+- (void)setQuestionText:(NSString *)questionText
                  answers:(NSArray *)answers
         rightAnswerIndex:(NSNumber *)rightAnswer
                 infoText:(NSString *)infoText

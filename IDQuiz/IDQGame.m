@@ -27,13 +27,25 @@
     self.gameState = [[IDQGameState alloc] init];
 }
 
--(void)endGame:(IDQResult *)result{
-    
+- (IDQQuestion *)changeQuestionWithDifficultyLevel:(NSNumber *)difficultyLevel {
     AppDelegate *appDelegate = [UIApplication appDelegate];
-    [appDelegate.dataController saveResult:result];
-    
-    
+    return  [appDelegate.dataController fetchQuestionWithDifficultyLevel:difficultyLevel];
+}
 
+- (void)endGameForUser:(NSString *)username {
+    NSArray *components = [self.gameState.totalTime componentsSeparatedByString:@":"];
+    NSInteger totalTimeInSeconds = 60 * [components[0] integerValue] + [components[1] integerValue];
+    AppDelegate *appDelegate = [UIApplication appDelegate];
+    [appDelegate.dataController saveResultForUsername:username
+                                           totalScore:[NSNumber numberWithInteger:self.gameState.totalScore]
+                                            totalTime:[NSNumber numberWithInteger:totalTimeInSeconds]];
+    
+}
+
+- (void)getLeaderBoard {
+    AppDelegate *appDelegate = [UIApplication appDelegate];
+    NSArray *results = [appDelegate.dataController fetchResults];
+  //  NSLog(@"%@",results );
 }
 
 @end

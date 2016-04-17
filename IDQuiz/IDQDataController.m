@@ -59,20 +59,40 @@
                  rightAnswerIndex:[NSNumber numberWithInteger:righAnswerIndex]
                          infoText:[NSString stringWithFormat:@"Info text for question %ld", (long)i+1]
                      categoryName:[NSString stringWithFormat:@"Category %u", arc4random()%15]
-                  difficultyLevel:[NSNumber numberWithLong:(i%5 + 1)]
-                       questionId:[NSNumber numberWithInteger:i+1]];
+                  difficultyLevel:[NSNumber numberWithInt:(int)(i)/10 + 1]
+                       questionId:[NSNumber numberWithInteger: i + 1 ]];
+        
+        // 1-10 diff.level=1, 11-19 ->2...
         [self saveContext];
     }
 }
 
 
 - (NSArray *)fetchQuestions{
+    
+    NSArray *array1 = [self getRandomNumbersFrom:1 to :10];
+    NSArray *array2 = [self getRandomNumbersFrom:11 to :20];
+    NSArray *array3 = [self getRandomNumbersFrom:21 to :30];
+    NSArray *array4 = [self getRandomNumbersFrom:31 to :40];
+    NSArray *array5 = [self getRandomNumbersFrom:41 to :50];
+    
+    NSMutableArray *questionNumbers = [[NSMutableArray alloc ]  init];
+    [questionNumbers addObjectsFromArray:array1];
+    [questionNumbers addObjectsFromArray:array2];
+    [questionNumbers addObjectsFromArray:array3];
+    [questionNumbers addObjectsFromArray:array4];
+    [questionNumbers addObjectsFromArray:array5];
+    
+    
     NSError *requestError = nil;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:kEntityNameQuestion];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(questionId IN %@)", questionNumbers]];
     [request setFetchLimit:15];
     NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&requestError];
-    NSMutableArray *questionIds = [[NSMutableArray alloc] initWithCapacity:result.count];
     
+    NSMutableArray *questionIds = [[NSMutableArray alloc] initWithCapacity:result.count];
+
+
     if(!requestError) {
         for(IDQQuestion *question in result) {
             [questionIds addObject:question.questionId];
@@ -99,8 +119,45 @@
     }
 }
 
-- (void)saveResult:(IDQResult *)result {
+- (void)saveResultForUsername:(NSString *)username
+                   totalScore:(NSNumber *)score
+                    totalTime:(NSNumber *)time {
 
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:kEntityNameResult];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"username = %@" , username]];
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
+
+    if ([results count] == 0){
+        IDQResult *result = [NSEntityDescription insertNewObjectForEntityForName:kEntityNameResult
+                                                          inManagedObjectContext:self.managedObjectContext];
+        [result setUsername:username
+                 totalScore:score
+                  totalTime:time];
+    } else if ([results count] == 1){
+        IDQResult *result = results[0];
+        result.totalScore = score;
+        result.totalTime = time;
+    }
+    
+    [self saveContext];
+}
+
+
+- (NSArray *)fetchResults {
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:kEntityNameResult];
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:nil];
+    return result;    
+}
+
+
+- (NSArray *)getRandomNumbersFrom:(int)from to:(int)to {
+    NSMutableSet *randomNumbers = [[NSMutableSet alloc] init];
+    while([randomNumbers count] != 3) {
+        [randomNumbers addObject:[NSNumber numberWithInteger:from + arc4random() % (to-from+1)]];
+    }
+    return [randomNumbers allObjects];
 }
 
 #pragma mark - CORE DATA

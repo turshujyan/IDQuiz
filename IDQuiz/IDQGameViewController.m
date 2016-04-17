@@ -36,32 +36,26 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
     [runner addTimer:timer forMode: NSDefaultRunLoopMode];
-
-
 }
 
 - (IBAction)selectAnswer:(UIButton *)sender {
     NSNumber *index = self.currentQuestion.rightAnswerIndex;
-    if ([sender.titleLabel.text isEqual:self.currentQuestion.answers[[index intValue]]]) {
-        NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
-        [self loadQuestion:self.game.questions[nextQuestionNumber]];
-    } else {
+    if (![sender.titleLabel.text isEqual:self.currentQuestion.answers[[index intValue]]] ) {
+        
         [self endGame];
+
+    } else {
+        self.game.gameState.totalScore += 100; // POXEL
+        if (self.game.gameState.currentQuestionNumber != 14) {
+            NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
+            [self loadQuestion:self.game.questions[nextQuestionNumber]];
+        } else {
+            [self endGame];
+        }
+
     }
 }
 
-- (void)loadQuestion:(IDQQuestion *)question{
-    self.currentQuestion = question;
-    self.questionLabel.text = self.currentQuestion.questionText;
-    NSArray *answers = self.currentQuestion.answers;
-    
-    //ARAM shuffle answers array before setting to buttons
-    for (NSInteger i = 0; i <  answers.count; i++) {
-        UIButton *button =  self.answerButtons[i];
-        button.hidden = NO;
-        [button setTitle:answers[i] forState:UIControlStateNormal];
-    }
-}
 
 - (IBAction)removeTwoAnswers:(UIButton *)sender {
     // ARAM, remove random 2 incorrect answers
@@ -85,7 +79,7 @@
 - (IBAction)changeQuestion:(UIButton *)sender {
     if ([[self.game.gameState.helpOptions objectForKey:@"changeQuestion"] isEqualToString:@"available"]) {
         NSNumber *level = self.currentQuestion.difficultyLevel;
-        IDQQuestion *newQuestion = [[[UIApplication appDelegate] dataController] fetchQuestionWithDifficultyLevel:level];
+        IDQQuestion *newQuestion = [self.game changeQuestionWithDifficultyLevel:level];
         [self loadQuestion:newQuestion];
         NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
         [helpOptions setValue:@"used" forKey:@"changeQuestion"];
@@ -109,6 +103,18 @@
 }
 
 
+- (void)loadQuestion:(IDQQuestion *)question{
+    self.currentQuestion = question;
+    self.questionLabel.text = self.currentQuestion.questionText;
+    NSArray *answers = self.currentQuestion.answers;
+    
+    //ARAM shuffle answers array before setting to buttons
+    for (NSInteger i = 0; i <  answers.count; i++) {
+        UIButton *button =  self.answerButtons[i];
+        button.hidden = NO;
+        [button setTitle:answers[i] forState:UIControlStateNormal];
+    }
+}
 
 - (void)timeTick:(NSTimer *)timer {
     NSDate *currentDate = [NSDate date];
@@ -122,7 +128,6 @@
 
 - (void)endGame {
     self.game.gameState.totalTime = self.totalTimeLabel.text;
-    NSLog(@"%@", self.game.gameState.totalTime);
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
     [self presentViewController:vc animated:YES completion:nil];
 }

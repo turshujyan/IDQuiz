@@ -9,9 +9,9 @@
         <attribute name="questionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightAnswerIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Result" representedClassName="Result" syncable="YES">
-        <attribute name="bestScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="bestTime" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Result" representedClassName="IDQResult" syncable="YES">
+        <attribute name="totalScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>

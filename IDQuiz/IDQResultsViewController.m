@@ -7,7 +7,9 @@
 //
 
 #import "IDQResultsViewController.h"
+#import "IDQLeaderBoardViewController.h"
 #import "IDQGame.h"
+
 
 @interface IDQResultsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -22,13 +24,20 @@
     [super viewDidLoad];
     IDQGame *game = [IDQGame sharedGame];
     self.timeLabel.text = game.gameState.totalTime;
+    self.scoreLabel.text = [NSString stringWithFormat:@"%ld",(long)game.gameState.totalScore];
     
     // Do any additional setup after loading the view.
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)okAction:(UIButton *)sender {
+    if ([self.usernameTextField hasText]) {
+        [[IDQGame sharedGame] endGameForUser:self.usernameTextField.text];
+        IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"leaderBoardVC"];
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+    //alert
+    }
+    
+    
 }
 
 

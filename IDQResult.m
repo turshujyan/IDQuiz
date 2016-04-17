@@ -10,8 +10,17 @@
 
 @implementation IDQResult
 
-@dynamic bestScore;
-@dynamic bestTime;
+@dynamic totalScore;
+@dynamic totalTime;
 @dynamic username;
+
+- (void)setUsername:(NSString *)username
+         totalScore:(NSNumber *)score
+          totalTime:(NSNumber *)time {
+    self.username = username;
+    self.totalScore = score;
+    self.totalTime = time;
+}
+
 
 @end

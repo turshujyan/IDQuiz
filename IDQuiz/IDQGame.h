@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "IDQGameState.h"
 #import "IDQResult.h"
+#import "IDQQuestion.h"
 
 
 @interface IDQGame : NSObject
@@ -18,5 +19,7 @@
 
 + (instancetype)sharedGame;
 - (void)startNewGame;
-- (void)endGame:(IDQResult *)result;
+- (IDQQuestion *)changeQuestionWithDifficultyLevel:(NSNumber *)difficultyLevel;
+- (void)endGameForUser:(NSString *)username;
+- (void)getLeaderBoard;
 @end

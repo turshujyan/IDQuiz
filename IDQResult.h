@@ -12,8 +12,11 @@
 
 @interface IDQResult : NSManagedObject
 
-@property (nullable, nonatomic, retain) NSNumber *bestScore;
-@property (nullable, nonatomic, retain) NSString *bestTime;
-@property (nullable, nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSNumber *totalScore;
+@property (nonatomic, retain) NSNumber *totalTime;
+@property (nonatomic, retain) NSString *username;
 
+- (void)setUsername:(NSString *)username
+         totalScore:(NSNumber *)score
+          totalTime:(NSNumber *)time;
 @end
