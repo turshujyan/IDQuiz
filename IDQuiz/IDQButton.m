@@ -13,8 +13,9 @@
 - (void)awakeFromNib {
     
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.layer.cornerRadius = 6;
-    self.backgroundColor = [UIColor colorWithRed:0.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:1.0];
+    self.layer.cornerRadius = 4;
+    self.backgroundColor = [UIColor colorWithRed:12.0/255.0 green:94.0/255.0 blue:148.0/255.0 alpha:1.0];
+
     self.titleLabel.textColor = [UIColor whiteColor];
 
 }

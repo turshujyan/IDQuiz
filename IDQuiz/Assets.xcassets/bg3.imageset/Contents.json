@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "1460905360_30_Sound_off.png",
+      "filename" : "bg3.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "1460905360_30_Sound_off-1.png",
+      "filename" : "bg3-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "1460905360_30_Sound_off-2.png",
+      "filename" : "bg3-2.png",
       "scale" : "3x"
     }
   ],
