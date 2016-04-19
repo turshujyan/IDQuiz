@@ -7,16 +7,32 @@
 //
 
 #import "IDQButton.h"
+#import <AudioToolBox/AudioToolBox.h>
+
 
 @implementation IDQButton
 
 - (void)awakeFromNib {
     
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.layer.cornerRadius = 6;
-    self.backgroundColor = [UIColor colorWithRed:0.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:1.0];
+    self.layer.cornerRadius = 4;
+    self.backgroundColor = [UIColor colorWithRed:12.0/255.0 green:94.0/255.0 blue:148.0/255.0 alpha:1.0];
+    self.titleLabel.font = [UIFont systemFontOfSize:20];
     self.titleLabel.textColor = [UIColor whiteColor];
+    [self addTarget:self action:@selector(playSound) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
+- (void)playSound {
+    
+  /*  NSString *soundPath = [[NSBundle mainBundle]pathForResource:@"buttonSound" ofType:@"wav"];
+    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+    
+    SystemSoundID sound;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &sound);
+    AudioServicesPlaySystemSound(sound);*/
+}
+
 @end
+
+

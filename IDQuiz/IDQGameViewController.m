@@ -19,18 +19,16 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
 @property (nonatomic, assign) CNContactStore *addressBook;
 @property (nonatomic, strong) NSMutableArray *menuArray;
-
-
 @property (nonatomic, strong) IDQGame *game;
 @property (nonatomic, strong) IDQQuestion *currentQuestion;
-@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (nonatomic, strong) IDQPlayerManager *player;
 @property (nonatomic, strong) NSDate *startDate;
+
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *answerButtons;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
-@property (nonatomic, strong) IDQPlayerManager *player;
 
 @end
 
@@ -39,19 +37,27 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.game = [IDQGame sharedGame];
-    self.player = [IDQPlayerManager sharedPlayer];
-    
     [self loadQuestion:self.game.questions[0]];
     self.startDate = [NSDate date];
-    
+    self.player = [IDQPlayerManager sharedPlayer];
+
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
     [runner addTimer:timer forMode: NSDefaultRunLoopMode];
+    
+    self.questionLabel.layer.masksToBounds = YES;
+    self.questionLabel.layer.cornerRadius = 4;
+
 }
 
-- (IBAction)selectAnswer:(UIButton *)sender {
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.player.audioPlayer pause];
+    self.player.audioPlayer.currentTime = 0;
+
+}
+
+- (IBAction)selectAnswer:(IDQButton *)sender {
     NSNumber *index = self.currentQuestion.rightAnswerIndex;
     if (![sender.titleLabel.text isEqual:self.currentQuestion.answers[[index intValue]]] ) {
         
@@ -62,21 +68,35 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
         if (self.game.gameState.currentQuestionNumber != 14) {
             NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
             [self loadQuestion:self.game.questions[nextQuestionNumber]];
+            self.totalScoreLabel.text = [NSString stringWithFormat:@"%ld", (long)self.game.gameState.totalScore];
         } else {
             [self endGame];
         }
-
     }
 }
 
 
 - (IBAction)removeTwoAnswers:(UIButton *)sender {
-    // ARAM, remove random 2 incorrect answers
-    UIButton *button =  self.answerButtons[0];
-    button.hidden  = YES;
-    
+    if ([[self.game.gameState.helpOptions objectForKey:@"50/50"] isEqualToString:@"available"]) {
+        NSInteger index1, index2;
+        do {
+            index1 = arc4random() % 4;
+        } while (index1 == [self.currentQuestion.rightAnswerIndex integerValue]);
+        [self.answerButtons[index1] setHidden:YES];
+        
+        do {
+            index2 = arc4random() % 4;
+        } while (index2 == index1 || index2 == [self.currentQuestion.rightAnswerIndex integerValue]);
+        [self.answerButtons[index2] setHidden:YES];
+        
+        NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
+        [helpOptions setValue:@"used" forKey:@"50/50"];
+        self.game.gameState.helpOptions = helpOptions;
+        [sender setEnabled:NO];
+    }
 }
-- (IBAction)showInfoText:(id)sender {
+
+- (IBAction)showInfoText:(IDQButton *)sender {
     if ([[self.game.gameState.helpOptions objectForKey:@"showInfoText"] isEqualToString:@"available"]) {
         
         UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:self.currentQuestion.infoText  message:nil  preferredStyle:UIAlertControllerStyleAlert];
@@ -86,10 +106,11 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
         NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
         [helpOptions setValue:@"used" forKey:@"showInfoText"];
         self.game.gameState.helpOptions = helpOptions;
+        [sender setEnabled:NO];
     }
     
 }
-- (IBAction)changeQuestion:(UIButton *)sender {
+- (IBAction)changeQuestion:(IDQButton *)sender {
     if ([[self.game.gameState.helpOptions objectForKey:@"changeQuestion"] isEqualToString:@"available"]) {
         NSNumber *level = self.currentQuestion.difficultyLevel;
         IDQQuestion *newQuestion = [self.game changeQuestionWithDifficultyLevel:level];
@@ -97,36 +118,28 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
         NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
         [helpOptions setValue:@"used" forKey:@"changeQuestion"];
         self.game.gameState.helpOptions = helpOptions;
+        [sender setEnabled:NO];
     }
 }
 
 
-- (IBAction)playMusic:(UIButton *)sender {    
-    if ([self.player.audioPlayer isPlaying]) {
-        [self.player.audioPlayer pause];
+- (IBAction)playMusic:(IDQButton *)sender {
+    IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
+    if ([player.audioPlayer isPlaying]) {
+        [player.audioPlayer pause];
+        [sender setBackgroundImage:[UIImage imageNamed:@"sound_off.png"] forState:UIControlStateNormal];
+       // sender.alpha = 0.5;
     } else {
-        [self.player.audioPlayer play];
-        self.player.audioPlayer.currentTime = 0;
+        [player.audioPlayer play];
+        player.audioPlayer.currentTime = 0;
+        [sender setBackgroundImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
+
     }
 }
 
--(void)showPeoplePickerController {
-    
-    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-    picker.peoplePickerDelegate = self;
-    // Display only a person's phone, email, and birthdate
-    NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty],
-                               [NSNumber numberWithInt:kABPersonEmailProperty],
-                               [NSNumber numberWithInt:kABPersonBirthdayProperty], nil];
-    
-    
-    picker.displayedProperties = displayedItems;
-    // Show the picker
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
-- (IBAction)openContacts:(UIButton *)sender {
+- (IBAction)openContacts:(IDQButton *)sender {
     [self showPeoplePickerController];
+    [sender setEnabled:NO];
 }
 
 
@@ -154,12 +167,24 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 }
 
 - (void)endGame {
-    
-    [self.player.audioPlayer pause];
-    
     self.game.gameState.totalTime = self.totalTimeLabel.text;
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+-(void)showPeoplePickerController {
+    
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    // Display only a person's phone, email, and birthdate
+    NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty],
+                               [NSNumber numberWithInt:kABPersonEmailProperty],
+                               [NSNumber numberWithInt:kABPersonBirthdayProperty], nil];
+    
+    
+    picker.displayedProperties = displayedItems;
+    // Show the picker
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "IDQGameState.h"
 #import "IDQResult.h"
 #import "IDQQuestion.h"
+#import "IDQButton.h"
 
 
 @interface IDQGame : NSObject

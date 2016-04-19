@@ -25,7 +25,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)play:(UIButton *)sender {
+- (IBAction)play:(IDQButton *)sender {
     
     IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
     [player.audioPlayer play];
@@ -33,8 +33,7 @@
     IDQGame *game = [IDQGame sharedGame];
     [game startNewGame];
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"gameVC"];
-    [self presentViewController:vc animated:YES completion:^{
-    }];
+    [self presentViewController:vc animated:YES completion:nil];
 
 }
 
