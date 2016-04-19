@@ -2,7 +2,7 @@
 //  IDQLearnViewController.h
 //  IDQuiz
 //
-//  Created by Khoren Markosyan on 4/18/16.
+//  Created by Hermine on 4/19/16.
 //  Copyright © 2016 Hermine. All rights reserved.
 //
 
@@ -11,4 +11,5 @@
 @interface IDQLearnViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end

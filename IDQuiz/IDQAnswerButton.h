@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IDQButton.h"
 
-@interface IDQAnswerButton : UIButton
+@interface IDQAnswerButton : IDQButton
 
 @end
