@@ -16,7 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"rules.pdf" ofType:nil];
+    NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
+    NSURLRequest *request = [NSURLRequest requestWithURL:fileUrl];
+    [self.webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

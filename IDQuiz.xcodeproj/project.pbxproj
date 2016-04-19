@@ -26,6 +26,10 @@
 		5E0BC38B1CC0039700B6E491 /* IDQResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3891CC0039700B6E491 /* IDQResult.m */; };
 		5EEBD3DF1CC4F6F900A708B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3DE1CC4F6F900A708B7 /* Assets.xcassets */; };
 		5EEBD3E21CC500C700A708B7 /* IDQAnswerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBD3E11CC500C700A708B7 /* IDQAnswerButton.m */; };
+		A00444B61CC605BD00F4176E /* JSKTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A00444B51CC605BD00F4176E /* JSKTimerView.m */; };
+		A00444BE1CC60E4700F4176E /* IDQLearnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00444BD1CC60E4700F4176E /* IDQLearnViewController.m */; };
+		A00444C21CC6128C00F4176E /* Programming in Objective-C.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A00444C11CC6128C00F4176E /* Programming in Objective-C.pdf */; };
+		A00444CA1CC6290D00F4176E /* rules.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A00444C91CC6290D00F4176E /* rules.pdf */; };
 		A03CDE731CBF861600C941F6 /* IDQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */; };
 		A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03CDE781CBF87F700C941F6 /* redbone.mp3 */; };
 		A05DAD061CC19A0700EDB12E /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05DAD051CC19A0700EDB12E /* Contacts.framework */; };
@@ -67,6 +71,12 @@
 		5EEBD3DE1CC4F6F900A708B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EEBD3E01CC500C700A708B7 /* IDQAnswerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQAnswerButton.h; sourceTree = "<group>"; };
 		5EEBD3E11CC500C700A708B7 /* IDQAnswerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQAnswerButton.m; sourceTree = "<group>"; };
+		A00444B41CC605BD00F4176E /* JSKTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSKTimerView.h; sourceTree = "<group>"; };
+		A00444B51CC605BD00F4176E /* JSKTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSKTimerView.m; sourceTree = "<group>"; };
+		A00444BC1CC60E4700F4176E /* IDQLearnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQLearnViewController.h; sourceTree = "<group>"; };
+		A00444BD1CC60E4700F4176E /* IDQLearnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQLearnViewController.m; sourceTree = "<group>"; };
+		A00444C11CC6128C00F4176E /* Programming in Objective-C.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Programming in Objective-C.pdf"; sourceTree = "<group>"; };
+		A00444C91CC6290D00F4176E /* rules.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = rules.pdf; sourceTree = "<group>"; };
 		A03CDE711CBF861600C941F6 /* IDQPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQPlayerManager.h; sourceTree = "<group>"; };
 		A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQPlayerManager.m; sourceTree = "<group>"; };
 		A03CDE781CBF87F700C941F6 /* redbone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = redbone.mp3; sourceTree = "<group>"; };
@@ -108,6 +118,7 @@
 		5E0BC3001CB7DE5700B6E491 /* IDQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				A00444B21CC605BD00F4176E /* Libs */,
 				5E0BC3751CBA585400B6E491 /* IDQConstants.h */,
 				5E0BC3041CB7DE5700B6E491 /* AppDelegate.h */,
 				5E0BC3051CB7DE5700B6E491 /* AppDelegate.m */,
@@ -159,6 +170,8 @@
 		5E0BC37A1CBD4CDA00B6E491 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A00444BC1CC60E4700F4176E /* IDQLearnViewController.h */,
+				A00444BD1CC60E4700F4176E /* IDQLearnViewController.m */,
 				5E0BC31B1CB7DE7B00B6E491 /* IDQHomeViewController.h */,
 				5E0BC31C1CB7DE7B00B6E491 /* IDQHomeViewController.m */,
 				5E0BC31D1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.h */,
@@ -180,9 +193,28 @@
 			name = "New Group";
 			sourceTree = "<group>";
 		};
+		A00444B21CC605BD00F4176E /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				A00444B31CC605BD00F4176E /* Timer */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		A00444B31CC605BD00F4176E /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				A00444B41CC605BD00F4176E /* JSKTimerView.h */,
+				A00444B51CC605BD00F4176E /* JSKTimerView.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		A03CDE761CBF87F700C941F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A00444C91CC6290D00F4176E /* rules.pdf */,
+				A00444C11CC6128C00F4176E /* Programming in Objective-C.pdf */,
 				A03CDE771CBF87F700C941F6 /* Music */,
 			);
 			path = Resources;
@@ -254,6 +286,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00444CA1CC6290D00F4176E /* rules.pdf in Resources */,
+				A00444C21CC6128C00F4176E /* Programming in Objective-C.pdf in Resources */,
 				5E0BC3141CB7DE5700B6E491 /* LaunchScreen.storyboard in Resources */,
 				5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */,
 				5EEBD3DF1CC4F6F900A708B7 /* Assets.xcassets in Resources */,
@@ -274,6 +308,7 @@
 				A03CDE731CBF861600C941F6 /* IDQPlayerManager.m in Sources */,
 				5E0BC3291CB7DE7B00B6E491 /* IDQRulesViewController.m in Sources */,
 				5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */,
+				A00444BE1CC60E4700F4176E /* IDQLearnViewController.m in Sources */,
 				5E0BC30F1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld in Sources */,
 				5E0BC3061CB7DE5700B6E491 /* AppDelegate.m in Sources */,
 				5E0BC38B1CC0039700B6E491 /* IDQResult.m in Sources */,
@@ -283,6 +318,7 @@
 				5E0BC3251CB7DE7B00B6E491 /* IDQHomeViewController.m in Sources */,
 				5E0BC3271CB7DE7B00B6E491 /* IDQGameViewController.m in Sources */,
 				5EEBD3E21CC500C700A708B7 /* IDQAnswerButton.m in Sources */,
+				A00444B61CC605BD00F4176E /* JSKTimerView.m in Sources */,
 				5E0BC33D1CB7DED600B6E491 /* IDQButton.m in Sources */,
 				5E0BC3031CB7DE5700B6E491 /* main.m in Sources */,
 			);
