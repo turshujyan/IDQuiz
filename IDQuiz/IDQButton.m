@@ -24,14 +24,16 @@
 }
 
 - (void)playSound {
+
     
-  /*  NSString *soundPath = [[NSBundle mainBundle]pathForResource:@"buttonSound" ofType:@"wav"];
+    NSString *soundPath = [NSString stringWithFormat:@"%@/buttonSound.wav", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     
     SystemSoundID sound;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &sound);
-    AudioServicesPlaySystemSound(sound);*/
+    AudioServicesPlaySystemSound(sound);
 }
+
 
 @end
 

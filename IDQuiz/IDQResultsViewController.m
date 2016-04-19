@@ -46,9 +46,14 @@
     
     
 }
+
 - (IBAction)calcel:(IDQButton *)sender {
     IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"homeVC"];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 

@@ -23,11 +23,14 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 @property (nonatomic, strong) IDQQuestion *currentQuestion;
 @property (nonatomic, strong) IDQPlayerManager *player;
 @property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSTimer *timer;
+
 
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *answerButtons;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *questionNumberLabel;
 
 
 @end
@@ -42,12 +45,14 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
     self.startDate = [NSDate date];
     self.player = [IDQPlayerManager sharedPlayer];
 
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
-    [runner addTimer:timer forMode: NSDefaultRunLoopMode];
+    [runner addTimer:self.timer forMode: NSDefaultRunLoopMode];
     
     self.questionLabel.layer.masksToBounds = YES;
     self.questionLabel.layer.cornerRadius = 4;
+   // self.questionLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    //self.questionLabel.layer.borderWidth = 2.0;
 
 }
 
@@ -60,10 +65,10 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 - (IBAction)selectAnswer:(IDQButton *)sender {
     NSNumber *index = self.currentQuestion.rightAnswerIndex;
     if (![sender.titleLabel.text isEqual:self.currentQuestion.answers[[index intValue]]] ) {
-        
         [self endGame];
-
     } else {
+        
+        
         self.game.gameState.totalScore += 100; // POXEL
         if (self.game.gameState.currentQuestionNumber != 14) {
             NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
@@ -127,14 +132,17 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
     IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
     if ([player.audioPlayer isPlaying]) {
         [player.audioPlayer pause];
-        [sender setBackgroundImage:[UIImage imageNamed:@"sound_off.png"] forState:UIControlStateNormal];
+        [sender setBackgroundImage:[UIImage imageNamed:@"music_off"] forState:UIControlStateNormal];
        // sender.alpha = 0.5;
     } else {
         [player.audioPlayer play];
         player.audioPlayer.currentTime = 0;
-        [sender setBackgroundImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
+        [sender setBackgroundImage:[UIImage imageNamed:@"music.png"] forState:UIControlStateNormal];
 
     }
+}
+- (IBAction)changeSoundSetting:(IDQButton *)sender {
+    
 }
 
 - (IBAction)openContacts:(IDQButton *)sender {
@@ -147,13 +155,14 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
     self.currentQuestion = question;
     self.questionLabel.text = self.currentQuestion.questionText;
     NSArray *answers = self.currentQuestion.answers;
-    
     //ARAM shuffle answers array before setting to buttons
     for (NSInteger i = 0; i <  answers.count; i++) {
         UIButton *button =  self.answerButtons[i];
         button.hidden = NO;
         [button setTitle:answers[i] forState:UIControlStateNormal];
     }
+    self.questionNumberLabel.text = [NSString stringWithFormat:@"%ld of 15", (long)self.game.gameState.currentQuestionNumber+1];
+
 }
 
 - (void)timeTick:(NSTimer *)timer {
@@ -168,6 +177,7 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
 - (void)endGame {
     self.game.gameState.totalTime = self.totalTimeLabel.text;
+    [self.timer invalidate];
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -185,6 +195,10 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
     picker.displayedProperties = displayedItems;
     // Show the picker
     [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end
