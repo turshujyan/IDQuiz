@@ -66,7 +66,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhX-dr-3B3" customClass="IDQButton">
                                 <rect key="frame" x="32" y="187" width="256" height="36"/>
-                                <color key="backgroundColor" red="0.047058824449777603" green="0.36862745881080627" blue="0.58039218187332153" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.95686274766921997" green="0.32156863808631897" blue="0.10980392247438431" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qhX-dr-3B3" secondAttribute="height" multiplier="64:9" id="tlQ-Oe-YjG"/>
                                 </constraints>
@@ -333,7 +333,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DQ7-af-e1P" secondAttribute="height" multiplier="64:9" id="g77-w8-Scw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Answer" backgroundImage="answer1">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -429,7 +429,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vr-2X-p9q">
                                 <rect key="frame" x="16" y="198.5" width="288" height="100"/>
-                                <color key="backgroundColor" red="0.047058824449777603" green="0.36862745881080627" blue="0.58039218187332153" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.047058824449777603" green="0.36862745881080627" blue="0.58039218187332153" alpha="0.54599759615384613" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="2bA-Yf-pBB"/>
                                 </constraints>

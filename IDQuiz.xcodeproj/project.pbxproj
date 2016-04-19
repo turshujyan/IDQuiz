@@ -30,6 +30,7 @@
 		5EEBD3E71CC6814300A708B7 /* rules.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3E51CC6814300A708B7 /* rules.pdf */; };
 		5EEBD3E81CC6814300A708B7 /* Programming in Objective-C.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3E61CC6814300A708B7 /* Programming in Objective-C.pdf */; };
 		5EEBD3EB1CC681BF00A708B7 /* IDQLearnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBD3EA1CC681BF00A708B7 /* IDQLearnViewController.m */; };
+		5EEBD3ED1CC6A42E00A708B7 /* Questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3EC1CC6A42E00A708B7 /* Questions.plist */; };
 		A03CDE731CBF861600C941F6 /* IDQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */; };
 		A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03CDE781CBF87F700C941F6 /* redbone.mp3 */; };
 /* End PBXBuildFile section */
@@ -70,10 +71,11 @@
 		5EEBD3E01CC500C700A708B7 /* IDQAnswerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQAnswerButton.h; sourceTree = "<group>"; };
 		5EEBD3E11CC500C700A708B7 /* IDQAnswerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQAnswerButton.m; sourceTree = "<group>"; };
 		5EEBD3E31CC67A4E00A708B7 /* buttonSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound.wav; sourceTree = "<group>"; };
-		5EEBD3E51CC6814300A708B7 /* rules.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = rules.pdf; sourceTree = "<group>"; };
-		5EEBD3E61CC6814300A708B7 /* Programming in Objective-C.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Programming in Objective-C.pdf"; sourceTree = "<group>"; };
+		5EEBD3E51CC6814300A708B7 /* rules.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = rules.pdf; path = ../rules.pdf; sourceTree = "<group>"; };
+		5EEBD3E61CC6814300A708B7 /* Programming in Objective-C.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Programming in Objective-C.pdf"; path = "../Programming in Objective-C.pdf"; sourceTree = "<group>"; };
 		5EEBD3E91CC681BF00A708B7 /* IDQLearnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQLearnViewController.h; sourceTree = "<group>"; };
 		5EEBD3EA1CC681BF00A708B7 /* IDQLearnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQLearnViewController.m; sourceTree = "<group>"; };
+		5EEBD3EC1CC6A42E00A708B7 /* Questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Questions.plist; sourceTree = "<group>"; };
 		A03CDE711CBF861600C941F6 /* IDQPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQPlayerManager.h; sourceTree = "<group>"; };
 		A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQPlayerManager.m; sourceTree = "<group>"; };
 		A03CDE781CBF87F700C941F6 /* redbone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = redbone.mp3; sourceTree = "<group>"; };
@@ -123,8 +125,6 @@
 				5EEBD3DE1CC4F6F900A708B7 /* Assets.xcassets */,
 				5EE7A2D91CC39257004F0170 /* New Group */,
 				5E0BC3121CB7DE5700B6E491 /* LaunchScreen.storyboard */,
-				5EEBD3E51CC6814300A708B7 /* rules.pdf */,
-				5EEBD3E61CC6814300A708B7 /* Programming in Objective-C.pdf */,
 				5E0BC3151CB7DE5700B6E491 /* Info.plist */,
 				5E0BC33B1CB7DED600B6E491 /* IDQButton.h */,
 				5E0BC33C1CB7DED600B6E491 /* IDQButton.m */,
@@ -168,6 +168,7 @@
 				5EEBD3EA1CC681BF00A708B7 /* IDQLearnViewController.m */,
 				5E0BC31D1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.h */,
 				5E0BC31E1CB7DE7B00B6E491 /* IDQLeaderBoardViewController.m */,
+				5EEBD3EC1CC6A42E00A708B7 /* Questions.plist */,
 				5E0BC31F1CB7DE7B00B6E491 /* IDQGameViewController.h */,
 				5E0BC3201CB7DE7B00B6E491 /* IDQGameViewController.m */,
 				5E0BC3211CB7DE7B00B6E491 /* IDQResultsViewController.h */,
@@ -188,6 +189,8 @@
 		A03CDE761CBF87F700C941F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5EEBD3E51CC6814300A708B7 /* rules.pdf */,
+				5EEBD3E61CC6814300A708B7 /* Programming in Objective-C.pdf */,
 				5EEBD3E31CC67A4E00A708B7 /* buttonSound.wav */,
 				A03CDE771CBF87F700C941F6 /* Music */,
 			);
@@ -264,6 +267,7 @@
 				5E0BC3141CB7DE5700B6E491 /* LaunchScreen.storyboard in Resources */,
 				5EEBD3E41CC67A4E00A708B7 /* buttonSound.wav in Resources */,
 				5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */,
+				5EEBD3ED1CC6A42E00A708B7 /* Questions.plist in Resources */,
 				5EEBD3DF1CC4F6F900A708B7 /* Assets.xcassets in Resources */,
 				5EEBD3E81CC6814300A708B7 /* Programming in Objective-C.pdf in Resources */,
 				A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */,
