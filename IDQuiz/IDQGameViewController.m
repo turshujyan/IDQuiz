@@ -136,7 +136,6 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
        // sender.alpha = 0.5;
     } else {
         [player.audioPlayer play];
-        player.audioPlayer.currentTime = 0;
         [sender setBackgroundImage:[UIImage imageNamed:@"music.png"] forState:UIControlStateNormal];
 
     }
@@ -154,14 +153,22 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 - (void)loadQuestion:(IDQQuestion *)question{
     self.currentQuestion = question;
     self.questionLabel.text = self.currentQuestion.questionText;
-    NSArray *answers = self.currentQuestion.answers;
-    //ARAM shuffle answers array before setting to buttons
+    self.questionNumberLabel.text = [NSString stringWithFormat:@"%ld of 15", (long)self.game.gameState.currentQuestionNumber + 1];
+    NSMutableArray *answers = [NSMutableArray arrayWithArray:self.currentQuestion.answers];
+    NSInteger index;
+    id temp;
+    for (NSInteger i = 0; i < answers.count; ++i) {
+        index = arc4random() % (answers.count - i) + i;
+        temp = answers[i];
+        answers[i] = answers[index];
+        answers[index] = temp;
+    }
+    
     for (NSInteger i = 0; i <  answers.count; i++) {
         UIButton *button =  self.answerButtons[i];
         button.hidden = NO;
         [button setTitle:answers[i] forState:UIControlStateNormal];
     }
-    self.questionNumberLabel.text = [NSString stringWithFormat:@"%ld of 15", (long)self.game.gameState.currentQuestionNumber+1];
 
 }
 

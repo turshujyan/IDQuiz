@@ -16,12 +16,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"rules.pdf" ofType:nil];
+    NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
+    NSURLRequest *request = [NSURLRequest requestWithURL:fileUrl];
+    [self.webView loadRequest:request];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)backButton:(UIButton *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
