@@ -10,6 +10,4 @@
 
 @interface IDQRulesViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-
 @end

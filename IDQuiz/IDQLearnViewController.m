@@ -9,7 +9,7 @@
 #import "IDQLearnViewController.h"
 
 @interface IDQLearnViewController ()
-
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
 @implementation IDQLearnViewController
@@ -23,15 +23,12 @@
     [self.webView loadRequest:request];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)backButton:(UIButton *)sender {
-    
        [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 
 @end

@@ -11,6 +11,13 @@
 static NSString *const kEntityNameQuestion = @"Question";
 static NSString *const kEntityNameResult = @"Result";
 static NSInteger const kQuestionTime = 30;
+//static NSArray *questionScores = @[@100, @200, @300, @400, @500]
+typedef enum {
+    RemoveTwoIncorrectAnswers,
+    ChangeQuestion,
+    PasswordsDoNotMatchWarning,
+    UsernameInUseWarning,
+} HelpOption;
 
 
 

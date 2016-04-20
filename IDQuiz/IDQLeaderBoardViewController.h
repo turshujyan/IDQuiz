@@ -1,9 +1,9 @@
 //
 //  IDQLeaderBoardViewController.h
-//  AMProgrammerTest
+//  IDQuiz
 //
-//  Created by Hermine on 4/7/16.
-//  Copyright © 2016 Arman Markosyan. All rights reserved.
+//  Created by Hermine on 4/20/16.
+//  Copyright © 2016 Hermine. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

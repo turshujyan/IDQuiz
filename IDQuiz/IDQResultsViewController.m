@@ -8,6 +8,7 @@
 
 #import "IDQResultsViewController.h"
 #import "IDQLeaderBoardViewController.h"
+#import "AppDelegate.h"
 #import "IDQGame.h"
 
 
@@ -48,8 +49,10 @@
 }
 
 - (IBAction)calcel:(IDQButton *)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"homeVC"];
-    [self presentViewController:vc animated:YES completion:nil];
+    [appDelegate.window setRootViewController:vc];
+
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
