@@ -211,9 +211,9 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     
     progress = [self sanitizeProgressValue:progress];
     
-    if (progress > 0.4) {
+    if (progress > 0.66) {
         self.progressColor = self.progressStartColor;
-    } else if (progress > 0.15 && self.remainingTimeInSeconds != 1) {
+    } else if (progress > 0.33 && self.remainingTimeInSeconds != 1) {
         self.progressColor = self.progressNearFinishedColor;
     } else if (progress == 0) {
         self.progressColor = self.progressFinishedColor;
@@ -310,7 +310,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     [self addSubview:self.timerLabel];
     
     NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:25.0];
     
     [self addConstraints:@[centerXConstraint, centerYConstraint]];
 }

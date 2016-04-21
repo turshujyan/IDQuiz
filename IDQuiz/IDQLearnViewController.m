@@ -23,15 +23,12 @@
     [self.webView loadRequest:request];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)backButton:(UIButton *)sender {
+       [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)backButton:(UIBarButtonItem *)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

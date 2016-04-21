@@ -30,6 +30,9 @@
 		5EEBD3E81CC6814300A708B7 /* Programming in Objective-C.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3E61CC6814300A708B7 /* Programming in Objective-C.pdf */; };
 		5EEBD3EB1CC681BF00A708B7 /* IDQLearnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBD3EA1CC681BF00A708B7 /* IDQLearnViewController.m */; };
 		5EEBD3ED1CC6A42E00A708B7 /* Questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3EC1CC6A42E00A708B7 /* Questions.plist */; };
+		5EEBD3F01CC6DF2300A708B7 /* IDQLeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBD3EF1CC6DF2300A708B7 /* IDQLeaderBoardViewController.m */; };
+		5EEBD3F51CC6E74700A708B7 /* IDQLeaderBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBD3F41CC6E74700A708B7 /* IDQLeaderBoardCell.m */; };
+		5EEBD3F71CC73BE600A708B7 /* IDQLeaderBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3F61CC73BE600A708B7 /* IDQLeaderBoardCell.xib */; };
 		A007BAA71CC6D9ED00C8C45A /* JSKTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A007BAA61CC6D9ED00C8C45A /* JSKTimerView.m */; };
 		A007BAAB1CC6E73600C8C45A /* Lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A007BAA81CC6E73600C8C45A /* Lose.mp3 */; };
 		A007BAAC1CC6E73600C8C45A /* Win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A007BAA91CC6E73600C8C45A /* Win.mp3 */; };
@@ -37,6 +40,7 @@
 		A007BAAF1CC6EDD700C8C45A /* Rules.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A007BAAE1CC6EDD700C8C45A /* Rules.pdf */; };
 		A03CDE731CBF861600C941F6 /* IDQPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */; };
 		A03CDE791CBF87F700C941F6 /* redbone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03CDE781CBF87F700C941F6 /* redbone.mp3 */; };
+		A04B775D1CC8D58F0096C011 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A04B775C1CC8D58F0096C011 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +83,11 @@
 		5EEBD3E91CC681BF00A708B7 /* IDQLearnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQLearnViewController.h; sourceTree = "<group>"; };
 		5EEBD3EA1CC681BF00A708B7 /* IDQLearnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQLearnViewController.m; sourceTree = "<group>"; };
 		5EEBD3EC1CC6A42E00A708B7 /* Questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Questions.plist; sourceTree = "<group>"; };
+		5EEBD3EE1CC6DF2300A708B7 /* IDQLeaderBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQLeaderBoardViewController.h; sourceTree = "<group>"; };
+		5EEBD3EF1CC6DF2300A708B7 /* IDQLeaderBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQLeaderBoardViewController.m; sourceTree = "<group>"; };
+		5EEBD3F31CC6E74700A708B7 /* IDQLeaderBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQLeaderBoardCell.h; sourceTree = "<group>"; };
+		5EEBD3F41CC6E74700A708B7 /* IDQLeaderBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQLeaderBoardCell.m; sourceTree = "<group>"; };
+		5EEBD3F61CC73BE600A708B7 /* IDQLeaderBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDQLeaderBoardCell.xib; sourceTree = "<group>"; };
 		A007BAA51CC6D9ED00C8C45A /* JSKTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSKTimerView.h; sourceTree = "<group>"; };
 		A007BAA61CC6D9ED00C8C45A /* JSKTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSKTimerView.m; sourceTree = "<group>"; };
 		A007BAA81CC6E73600C8C45A /* Lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Lose.mp3; path = IDQuiz/Lose.mp3; sourceTree = SOURCE_ROOT; };
@@ -88,6 +97,7 @@
 		A03CDE711CBF861600C941F6 /* IDQPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQPlayerManager.h; sourceTree = "<group>"; };
 		A03CDE721CBF861600C941F6 /* IDQPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQPlayerManager.m; sourceTree = "<group>"; };
 		A03CDE781CBF87F700C941F6 /* redbone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = redbone.mp3; sourceTree = "<group>"; };
+		A04B775C1CC8D58F0096C011 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +140,8 @@
 				5EEBD3F81CC73D3B00A708B7 /* UIElements */,
 				5E0BC34A1CB9AFB800B6E491 /* Model */,
 				5E0BC37A1CBD4CDA00B6E491 /* ViewControllers */,
+				A04B775C1CC8D58F0096C011 /* Main.storyboard */,
 				5E0BC30D1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld */,
-				5EEBD3F11CC6E3F100A708B7 /* Main.storyboard */,
 				5EEBD3EC1CC6A42E00A708B7 /* Questions.plist */,
 				5EEBD3DE1CC4F6F900A708B7 /* Assets.xcassets */,
 				5E0BC3121CB7DE5700B6E491 /* LaunchScreen.storyboard */,
@@ -306,8 +316,8 @@
 				5EEBD3E41CC67A4E00A708B7 /* buttonSound.wav in Resources */,
 				A007BAAF1CC6EDD700C8C45A /* Rules.pdf in Resources */,
 				A007BAAD1CC6E73600C8C45A /* Intrig.mp3 in Resources */,
-				5E0BC33A1CB7DEAD00B6E491 /* Main.storyboard in Resources */,
 				5EEBD3ED1CC6A42E00A708B7 /* Questions.plist in Resources */,
+				A04B775D1CC8D58F0096C011 /* Main.storyboard in Resources */,
 				5EEBD3F71CC73BE600A708B7 /* IDQLeaderBoardCell.xib in Resources */,
 				5EEBD3DF1CC4F6F900A708B7 /* Assets.xcassets in Resources */,
 				5EEBD3E81CC6814300A708B7 /* Programming in Objective-C.pdf in Resources */,
@@ -342,6 +352,7 @@
 				5EEBD3E21CC500C700A708B7 /* IDQAnswerButton.m in Sources */,
 				5E0BC33D1CB7DED600B6E491 /* IDQButton.m in Sources */,
 				A007BAA71CC6D9ED00C8C45A /* JSKTimerView.m in Sources */,
+				5EEBD3F51CC6E74700A708B7 /* IDQLeaderBoardCell.m in Sources */,
 				5E0BC3031CB7DE5700B6E491 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

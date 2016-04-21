@@ -46,7 +46,9 @@ static NSString *kSoundState = @"test";
     [self loadQuestion:self.game.questions[0]];
     self.startDate = [NSDate date];
     self.player = [IDQPlayerManager sharedPlayer];
+    
     [self.timerView startTimerWithDuration:30];
+    self.timerView.labelTextColor = [UIColor whiteColor];
 
     self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
@@ -66,6 +68,8 @@ static NSString *kSoundState = @"test";
     [super viewWillAppear:animated];
     [self.player.audioPlayer isPlaying];
 }
+
+#pragma mark IBACTIONS
 
 - (IBAction)selectAnswer:(IDQButton *)sender {
     NSUInteger selectedButtonIndex = [self.answerButtons indexOfObject:sender];
@@ -279,13 +283,17 @@ static NSString *kSoundState = @"test";
     
 }
 
-- (void)saveSoundState {
+- (void)changeBackgroundForButton:(NSInteger)index withColor:(NSString *)color {
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-   
+    NSString *imageName = [NSString stringWithFormat:@"answer%lu-%@",index + 1, color];
+    UIImage *newImage = [UIImage imageNamed:imageName];
+    [self.answerButtons[index] setBackgroundImage:newImage forState:UIControlStateNormal];
+
 }
 
+- (void)addScoreForQuestion:(NSInteger)questionNumber {
+    self.game.gameState.totalScore += (questionNumber + 1) * 100;
+}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
