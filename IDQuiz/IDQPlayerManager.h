@@ -13,6 +13,7 @@
 
 @property (nonatomic,retain) AVAudioPlayer *audioPlayer;
 
+
 + (instancetype)sharedPlayer;
 
 @end

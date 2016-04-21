@@ -14,6 +14,7 @@
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
 
+
 @interface IDQGameViewController () < ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate,
 ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
@@ -32,9 +33,9 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionNumberLabel;
 
-
 @end
 
+static NSString *kSoundState = @"test";
 
 @implementation IDQGameViewController
 
@@ -44,6 +45,7 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
     [self loadQuestion:self.game.questions[0]];
     self.startDate = [NSDate date];
     self.player = [IDQPlayerManager sharedPlayer];
+    [self.timerView startTimerWithDuration:30];
 
     self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
@@ -57,12 +59,15 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self.player.audioPlayer pause];
-    self.player.audioPlayer.currentTime = 0;
+  [self.player.audioPlayer pause];
+  self.player.audioPlayer.currentTime = 0;
 
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.player.audioPlayer isPlaying];
+}
 
 - (IBAction)selectAnswer:(IDQButton *)sender {
     
@@ -191,6 +196,10 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 - (IBAction)openContacts:(IDQButton *)sender {
     [self showPeoplePickerController];
     [sender setEnabled:NO];
+    [self.player.audioPlayer pause];
+    self.player.audioPlayer.currentTime = 0;
+
+    
 }
 
 
@@ -247,7 +256,16 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
     picker.displayedProperties = displayedItems;
     // Show the picker
     [self presentViewController:picker animated:YES completion:nil];
+    
 }
+
+- (void)saveSoundState {
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+   
+}
+
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;

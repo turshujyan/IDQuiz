@@ -28,10 +28,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)backButton:(UIButton *)sender {
+- (IBAction)backButton:(UIBarButtonItem *)sender {
     
-       [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
-
 
 @end
