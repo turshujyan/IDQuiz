@@ -57,7 +57,7 @@
                                     <segue destination="wu7-ka-0Tk" kind="showDetail" id="iN8-6u-daq"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bv6-GM-bgw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoHome" translatesAutoresizingMaskIntoConstraints="NO" id="Bv6-GM-bgw">
                                 <rect key="frame" x="35" y="45" width="250" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="EDT-yz-qWB"/>
@@ -66,7 +66,6 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhX-dr-3B3" customClass="IDQButton">
                                 <rect key="frame" x="32" y="187" width="256" height="36"/>
-                                <color key="backgroundColor" red="0.95686274766921997" green="0.32156863808631897" blue="0.10980392247438431" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qhX-dr-3B3" secondAttribute="height" multiplier="64:9" id="tlQ-Oe-YjG"/>
                                 </constraints>
@@ -109,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="483" y="-354"/>
+            <point key="canvasLocation" x="522" y="-275"/>
         </scene>
         <!--Leader Board View Controller-->
         <scene sceneID="tZz-kj-KAj">
@@ -123,21 +122,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg4" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-Uo-aui">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg4" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-Uo-aui">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6M-5K-wIk" customClass="IDQButton">
-                                <rect key="frame" x="39" y="322" width="256" height="42"/>
-                                <color key="backgroundColor" red="0.047058824449777603" green="0.36862745881080627" blue="0.58039218187332153" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="New game">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Q2-zR-9Wm"/>
-                                    <action selector="startNewGame:" destination="wu7-ka-0Tk" eventType="touchUpInside" id="peS-hn-lRN"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="siK-mL-Smu" customClass="IDQButton">
                                 <rect key="frame" x="39" y="386" width="256" height="42"/>
                                 <color key="backgroundColor" red="0.047058824449777603" green="0.36862745881080627" blue="0.58039218187332153" alpha="1" colorSpace="calibratedRGB"/>
@@ -150,14 +137,44 @@
                                     <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3BA-1t-ztc"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6AD-dC-E6C">
+                                <rect key="frame" x="47" y="42" width="240" height="323"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kM5-Uv-eEh">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kM5-Uv-eEh" id="E26-Fw-Iim">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wu7-ka-0Tk" id="19K-pW-di7"/>
+                                    <outlet property="delegate" destination="wu7-ka-0Tk" id="MYr-T7-v6E"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="mh0-Uo-aui" firstAttribute="width" secondItem="sLi-oB-j7u" secondAttribute="width" id="1GP-Ot-4Uu"/>
+                            <constraint firstItem="6AD-dC-E6C" firstAttribute="top" secondItem="wG6-aK-nfz" secondAttribute="bottom" constant="30" id="32f-JG-grb"/>
+                            <constraint firstItem="6AD-dC-E6C" firstAttribute="centerX" secondItem="sLi-oB-j7u" secondAttribute="centerX" id="3qe-ZS-MyS"/>
+                            <constraint firstItem="6AD-dC-E6C" firstAttribute="width" secondItem="sLi-oB-j7u" secondAttribute="width" multiplier="0.8" id="7W1-Tc-5TN"/>
+                            <constraint firstItem="mh0-Uo-aui" firstAttribute="centerY" secondItem="sLi-oB-j7u" secondAttribute="centerY" id="9Jm-We-643"/>
+                            <constraint firstItem="mh0-Uo-aui" firstAttribute="height" secondItem="sLi-oB-j7u" secondAttribute="height" id="Ds3-WZ-xYf"/>
+                            <constraint firstItem="mh0-Uo-aui" firstAttribute="centerX" secondItem="sLi-oB-j7u" secondAttribute="centerX" id="cf4-9i-x9X"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="resultsTableView" destination="6AD-dC-E6C" id="WEW-4I-sAe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzU-aZ-azT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="390"/>
+            <point key="canvasLocation" x="118" y="453"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="wtL-1T-pHJ">
@@ -298,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwh-Z2-ftD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1293" y="-354"/>
+            <point key="canvasLocation" x="1313" y="-312"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Rdl-Lp-ZYs">
@@ -488,14 +505,14 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" id="vJe-6G-THt"/>
+                                            <action selector="backToHome:" destination="mGM-K9-bMa" eventType="touchUpInside" id="okx-Tr-HGQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRr-N5-Ijt">
                                         <rect key="frame" x="259" y="121" width="29" height="29"/>
                                         <state key="normal" backgroundImage="sound"/>
                                         <connections>
-                                            <action selector="sound:" destination="mGM-K9-bMa" eventType="touchUpInside" id="kCD-re-bog"/>
+                                            <action selector="changeSoundSetting:" destination="mGM-K9-bMa" eventType="touchUpInside" id="T6Q-I6-InL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUs-bB-oZp">
@@ -573,7 +590,7 @@
                             <constraint firstItem="iQF-De-HKl" firstAttribute="height" secondItem="i1t-9D-Arr" secondAttribute="height" id="8n4-Ns-qFQ"/>
                             <constraint firstItem="iQF-De-HKl" firstAttribute="width" secondItem="i1t-9D-Arr" secondAttribute="width" id="9uw-vK-DZ0"/>
                             <constraint firstItem="HLp-tK-MYc" firstAttribute="height" secondItem="DQ7-af-e1P" secondAttribute="height" id="AR2-r3-Y1W"/>
-                            <constraint firstItem="yFh-NZ-vlM" firstAttribute="top" secondItem="i1t-9D-Arr" secondAttribute="topMargin" constant="20" id="BPO-M1-O6g"/>
+                            <constraint firstItem="yFh-NZ-vlM" firstAttribute="top" secondItem="i1t-9D-Arr" secondAttribute="topMargin" constant="30" id="BPO-M1-O6g"/>
                             <constraint firstItem="DQ7-af-e1P" firstAttribute="width" secondItem="7Vr-2X-p9q" secondAttribute="width" id="CWm-2r-zbf"/>
                             <constraint firstItem="AUe-hg-EYN" firstAttribute="centerX" secondItem="i1t-9D-Arr" secondAttribute="centerX" id="Dwg-o3-ZB2"/>
                             <constraint firstItem="yFh-NZ-vlM" firstAttribute="centerX" secondItem="i1t-9D-Arr" secondAttribute="centerX" id="FyI-nd-eZL"/>
@@ -623,7 +640,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFs-l8-q5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="-354"/>
+            <point key="canvasLocation" x="913" y="-312"/>
         </scene>
         <!--Learn View Controller-->
         <scene sceneID="nel-Z3-AWy">
@@ -664,7 +681,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXP-ya-CWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="483" y="-1014"/>
+            <point key="canvasLocation" x="522" y="453"/>
         </scene>
         <!--Rules View Controller-->
         <scene sceneID="N2g-R4-hLo">
@@ -705,7 +722,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsZ-xf-I5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="390"/>
+            <point key="canvasLocation" x="907" y="453"/>
         </scene>
     </scenes>
     <resources>
@@ -722,6 +739,7 @@
         <image name="info" width="534" height="534"/>
         <image name="leaderboard" width="910" height="128"/>
         <image name="learn" width="910" height="128"/>
+        <image name="logoHome" width="512" height="512"/>
         <image name="music" width="512" height="512"/>
         <image name="play" width="910" height="128"/>
         <image name="rules" width="910" height="128"/>

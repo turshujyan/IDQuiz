@@ -22,5 +22,5 @@
 - (void)startNewGame;
 - (IDQQuestion *)changeQuestionWithDifficultyLevel:(NSNumber *)difficultyLevel;
 - (void)endGameForUser:(NSString *)username;
-- (void)getLeaderBoard;
+
 @end

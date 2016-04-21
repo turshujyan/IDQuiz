@@ -9,7 +9,7 @@
 #import "IDQLearnViewController.h"
 
 @interface IDQLearnViewController ()
-
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
 @implementation IDQLearnViewController

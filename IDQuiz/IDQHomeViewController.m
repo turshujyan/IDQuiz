@@ -32,6 +32,7 @@
     
     IDQGame *game = [IDQGame sharedGame];
     [game startNewGame];
+
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"gameVC"];
     [self presentViewController:vc animated:YES completion:nil];
 

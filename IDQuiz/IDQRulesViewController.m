@@ -10,6 +10,8 @@
 
 @interface IDQRulesViewController ()
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation IDQRulesViewController
@@ -24,14 +26,10 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (IBAction)backButton:(UIButton *)sender {
-    
+- (IBAction)backButton:(UIButton *)sender {    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
