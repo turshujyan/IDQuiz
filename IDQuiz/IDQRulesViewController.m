@@ -10,23 +10,28 @@
 
 @interface IDQRulesViewController ()
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation IDQRulesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)backButton:(UIButton *)sender {
     
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Rules.pdf" ofType:nil];
+    NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
+    NSURLRequest *request = [NSURLRequest requestWithURL:fileUrl];
+    [self.webView loadRequest:request];
+
+}
+
+- (IBAction)backButton:(UIButton *)sender {    
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

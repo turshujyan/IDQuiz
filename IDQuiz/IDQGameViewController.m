@@ -9,138 +9,241 @@
 #import "IDQGameViewController.h"
 #import "IDQGame.h"
 #import "IDQQuestion.h"
+#import "IDQCustomPopup.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
+
 
 @interface IDQGameViewController () < ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate,
 ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 
 @property (nonatomic, assign) CNContactStore *addressBook;
 @property (nonatomic, strong) NSMutableArray *menuArray;
-
-
 @property (nonatomic, strong) IDQGame *game;
 @property (nonatomic, strong) IDQQuestion *currentQuestion;
-@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (nonatomic, strong) IDQPlayerManager *player;
 @property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSTimer *timer;
+
+
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *answerButtons;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
-
-@property (nonatomic, strong) IDQPlayerManager *player;
+@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *questionNumberLabel;
 
 @end
 
+static NSString *kSoundState = @"test";
 
 @implementation IDQGameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.game = [IDQGame sharedGame];
-    self.player = [IDQPlayerManager sharedPlayer];
-    
     [self loadQuestion:self.game.questions[0]];
     self.startDate = [NSDate date];
+    self.player = [IDQPlayerManager sharedPlayer];
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
+    [self.timerView startTimerWithDuration:30];
+    self.timerView.labelTextColor = [UIColor whiteColor];
+
+    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
-    [runner addTimer:timer forMode: NSDefaultRunLoopMode];
+    [runner addTimer:self.timer forMode: NSDefaultRunLoopMode];
+    
+    self.questionLabel.layer.masksToBounds = YES;
+    self.questionLabel.layer.cornerRadius = 4;
 }
 
-- (IBAction)selectAnswer:(UIButton *)sender {
-    NSNumber *index = self.currentQuestion.rightAnswerIndex;
-    if (![sender.titleLabel.text isEqual:self.currentQuestion.answers[[index intValue]]] ) {
-        
-        [self endGame];
+- (void)viewWillDisappear:(BOOL)animated {
+  [self.player.audioPlayer pause];
+  self.player.audioPlayer.currentTime = 0;
 
-    } else {
-        self.game.gameState.totalScore += 100; // POXEL
-        if (self.game.gameState.currentQuestionNumber != 14) {
-            NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
-            [self loadQuestion:self.game.questions[nextQuestionNumber]];
-        } else {
-            [self endGame];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.player.audioPlayer isPlaying];
+}
+
+#pragma mark IBACTIONS
+
+- (IBAction)selectAnswer:(IDQButton *)sender {
+    NSUInteger selectedButtonIndex = [self.answerButtons indexOfObject:sender];
+    [self changeBackgroundForButton:(selectedButtonIndex) withColor:@"orange"];
+    for (UIButton *button in self.answerButtons) {
+        if(![button isEqual:sender]) {
+            [button setEnabled:NO];
         }
-
     }
-}
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        
+        NSNumber *rightAnswerIndex = self.currentQuestion.rightAnswerIndex;
+        if (![sender.titleLabel.text isEqualToString:self.currentQuestion.answers[[rightAnswerIndex intValue]]]) {
+            [self changeBackgroundForButton:(selectedButtonIndex) withColor:@"red"];
+            NSString *rightAnswerTitle = self.currentQuestion.answers[[rightAnswerIndex intValue]];
+            for (NSInteger i = 0; i < self.answerButtons.count; ++i) {
+                if ([[self.answerButtons[i] titleLabel].text isEqualToString:rightAnswerTitle]) {
+                    [self changeBackgroundForButton:i withColor:@"green"];
+                    break;
+                }
+            }
 
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [self endGame];
+            });
+        } else {
+
+            NSUInteger selectedButtonIndex = [self.answerButtons indexOfObject:sender];
+            [self changeBackgroundForButton:selectedButtonIndex withColor:@"green"];
+            [self addScoreForQuestion:self.game.gameState.currentQuestionNumber];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                if (self.game.gameState.currentQuestionNumber != 14) {
+                    NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
+                    [self loadQuestion:self.game.questions[nextQuestionNumber]];
+                    self.totalScoreLabel.text = [NSString stringWithFormat:@"%ld", (long)self.game.gameState.totalScore];
+                } else {
+                    [self endGame];
+                }
+            });
+           
+        }
+    });
+}
 
 - (IBAction)removeTwoAnswers:(UIButton *)sender {
-    // ARAM, remove random 2 incorrect answers
-    UIButton *button =  self.answerButtons[0];
-    button.hidden  = YES;
-    
-}
-- (IBAction)showInfoText:(id)sender {
-    if ([[self.game.gameState.helpOptions objectForKey:@"showInfoText"] isEqualToString:@"available"]) {
-        
-        UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:self.currentQuestion.infoText  message:nil  preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-        [self presentViewController:alertController animated:YES completion:nil];
+    if ([[self.game.gameState.helpOptions objectForKey:@"50/50"] isEqual:@YES]) {
+        UIButton *button;
+        NSString *rightAnswer = self.currentQuestion.answers[[self.currentQuestion.rightAnswerIndex integerValue]];
+        NSInteger index1, index2;
+        do {
+            index1 = arc4random() % 4;
+            button = self.answerButtons[index1];
+        } while ([button.titleLabel.text isEqualToString:rightAnswer]);
+        [self.answerButtons[index1] setHidden:YES];
+        do {
+            index2 = arc4random() % 4;
+            button = self.answerButtons[index2];
+        } while (index2 == index1 || [button.titleLabel.text isEqualToString:rightAnswer]);
+        [self.answerButtons[index2] setHidden:YES];
         
         NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
-        [helpOptions setValue:@"used" forKey:@"showInfoText"];
+        [helpOptions setValue:@NO forKey:@"50/50"];
         self.game.gameState.helpOptions = helpOptions;
+        [sender setEnabled:NO];
+    }
+}
+
+- (IBAction)backToHome:(IDQButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)showInfoText:(IDQButton *)sender {
+    if ([[self.game.gameState.helpOptions objectForKey:@"showInfoText"] isEqual:@YES]) {
+        
+     /*   UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:self.currentQuestion.infoText  message:nil  preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+        */
+        IDQCustomPopup *popup;
+        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"IDQCustomPopup" owner:self options:nil];
+        for (id nib in nibs) {
+            if ([nib isKindOfClass:[IDQCustomPopup class]]) {
+                popup = nib;
+                break;
+            }
+        }
+      //  NSLog(@"%@", popup);
+        popup.frame = CGRectMake(0, 0, 280, 130);
+        popup.center = self.view.center;
+        popup.infoTextLabel.text = @"kuku";
+     //   popup.delegate = self;
+        [[[[UIApplication sharedApplication] delegate] window] addSubview:popup];
+        
+        NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
+        [helpOptions setValue:@NO forKey:@"showInfoText"];
+        self.game.gameState.helpOptions = helpOptions;
+        [sender setEnabled:NO];
     }
     
 }
-- (IBAction)changeQuestion:(UIButton *)sender {
-    if ([[self.game.gameState.helpOptions objectForKey:@"changeQuestion"] isEqualToString:@"available"]) {
+
+- (IBAction)changeQuestion:(IDQButton *)sender {
+    if ([[self.game.gameState.helpOptions objectForKey:@"changeQuestion"] isEqual:@YES]) {
         NSNumber *level = self.currentQuestion.difficultyLevel;
         IDQQuestion *newQuestion = [self.game changeQuestionWithDifficultyLevel:level];
         [self loadQuestion:newQuestion];
         NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
-        [helpOptions setValue:@"used" forKey:@"changeQuestion"];
+        [helpOptions setValue:@NO forKey:@"changeQuestion"];
         self.game.gameState.helpOptions = helpOptions;
+        [sender setEnabled:NO];
     }
 }
 
-
-- (IBAction)playMusic:(UIButton *)sender {    
-    if ([self.player.audioPlayer isPlaying]) {
-        [self.player.audioPlayer pause];
+- (IBAction)playMusic:(IDQButton *)sender {
+    IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
+    if ([player.audioPlayer isPlaying]) {
+        [player.audioPlayer pause];
+        [sender setBackgroundImage:[UIImage imageNamed:@"music_off"] forState:UIControlStateNormal];
     } else {
-        [self.player.audioPlayer play];
-        self.player.audioPlayer.currentTime = 0;
+        [player.audioPlayer play];
+        [sender setBackgroundImage:[UIImage imageNamed:@"music.png"] forState:UIControlStateNormal];
+
     }
 }
 
--(void)showPeoplePickerController {
-    
-    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-    picker.peoplePickerDelegate = self;
-    // Display only a person's phone, email, and birthdate
-    NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty],
-                               [NSNumber numberWithInt:kABPersonEmailProperty],
-                               [NSNumber numberWithInt:kABPersonBirthdayProperty], nil];
-    
-    
-    picker.displayedProperties = displayedItems;
-    // Show the picker
-    [self presentViewController:picker animated:YES completion:nil];
+- (IBAction)changeSoundSetting:(IDQButton *)sender {
+    [sender changeSoundSetting];
 }
 
-- (IBAction)openContacts:(UIButton *)sender {
+- (IBAction)openContacts:(IDQButton *)sender {
     [self showPeoplePickerController];
+    [sender setEnabled:NO];
+    [self.player.audioPlayer pause];
+    self.player.audioPlayer.currentTime = 0;
+
+    
 }
 
+#pragma mark UTILITY METHODS
+
+- (void)resetButtonBackgrounds {
+    for (NSInteger i = 0; i < self.answerButtons.count; ++i) {
+        NSString *imageName = [NSString stringWithFormat:@"answer%lu",i + 1 ];
+        UIImage *newImage = [UIImage imageNamed:imageName];
+        [self.answerButtons[i] setBackgroundImage:newImage forState:UIControlStateNormal];
+    }
+}
 
 - (void)loadQuestion:(IDQQuestion *)question{
+    [self resetButtonBackgrounds];
     self.currentQuestion = question;
     self.questionLabel.text = self.currentQuestion.questionText;
-    NSArray *answers = self.currentQuestion.answers;
+    self.questionNumberLabel.text = [NSString stringWithFormat:@"%ld of 15", (long)self.game.gameState.currentQuestionNumber + 1];
     
-    //ARAM shuffle answers array before setting to buttons
+    NSMutableArray *answers = [NSMutableArray arrayWithArray:self.currentQuestion.answers];
+    
+    //shuffling array
+    NSInteger index;
+    id temp;
+    for (NSInteger i = 0; i < answers.count; ++i) {
+        index = arc4random() % (answers.count - i) + i;
+        temp = answers[i];
+        answers[i] = answers[index];
+        answers[index] = temp;
+    }
+    
     for (NSInteger i = 0; i <  answers.count; i++) {
         UIButton *button =  self.answerButtons[i];
         button.hidden = NO;
+        [button setEnabled:YES];
         [button setTitle:answers[i] forState:UIControlStateNormal];
     }
+
 }
 
 - (void)timeTick:(NSTimer *)timer {
@@ -154,12 +257,46 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 }
 
 - (void)endGame {
-    
-    [self.player.audioPlayer pause];
-    
     self.game.gameState.totalTime = self.totalTimeLabel.text;
+    [self.timer invalidate];
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
-    [self presentViewController:vc animated:YES completion:nil];
+  //  IDQGameViewController *svc = self;
+    [self presentViewController:vc animated:YES completion:^{
+       // [svc dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+
+}
+
+- (void)showPeoplePickerController {
+    
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    // Display only a person's phone, email, and birthdate
+    NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty],
+                               [NSNumber numberWithInt:kABPersonEmailProperty],
+                               [NSNumber numberWithInt:kABPersonBirthdayProperty], nil];
+    
+    
+    picker.displayedProperties = displayedItems;
+    [self presentViewController:picker animated:YES completion:nil];
+    
+}
+
+- (void)changeBackgroundForButton:(NSInteger)index withColor:(NSString *)color {
+    
+    NSString *imageName = [NSString stringWithFormat:@"answer%lu-%@",index + 1, color];
+    UIImage *newImage = [UIImage imageNamed:imageName];
+    [self.answerButtons[index] setBackgroundImage:newImage forState:UIControlStateNormal];
+
+}
+
+- (void)addScoreForQuestion:(NSInteger)questionNumber {
+    self.game.gameState.totalScore += (questionNumber + 1) * 100;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

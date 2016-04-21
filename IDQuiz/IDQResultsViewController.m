@@ -8,6 +8,7 @@
 
 #import "IDQResultsViewController.h"
 #import "IDQLeaderBoardViewController.h"
+#import "AppDelegate.h"
 #import "IDQGame.h"
 
 
@@ -28,16 +29,34 @@
     
     // Do any additional setup after loading the view.
 }
-- (IBAction)okAction:(UIButton *)sender {
+- (IBAction)saveResult:(IDQButton *)sender {
     if ([self.usernameTextField hasText]) {
         [[IDQGame sharedGame] endGameForUser:self.usernameTextField.text];
-        IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"leaderBoardVC"];
+        IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"homeVC"];
         [self presentViewController:vc animated:YES completion:nil];
     } else {
-    //alert
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning"
+                                                                                 message:@"Please fill username"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
     
     
+}
+
+- (IBAction)calcel:(IDQButton *)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"homeVC"];
+    [appDelegate.window setRootViewController:vc];
+
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 

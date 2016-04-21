@@ -16,23 +16,19 @@
     dispatch_once(&token, ^{
         instance = [[IDQPlayerManager alloc] init];
         [instance initAudioPlayer];
-        
-        
     });
     return instance;
-}
-
-- (NSURL *)getMusicURL {
-    
-    NSString *path = [NSString stringWithFormat:@"%@/redbone.mp3", [[NSBundle mainBundle] resourcePath]];
-    NSURL *musicURL = [NSURL fileURLWithPath:path];
-    
-    return musicURL;
 }
 
 - (void)initAudioPlayer {
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[self getMusicURL] error:nil];
     self.audioPlayer.numberOfLoops = -1;
+}
+
+- (NSURL *)getMusicURL {
+    NSString *path = [NSString stringWithFormat:@"%@/redbone.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSURL *musicURL = [NSURL fileURLWithPath:path];
+    return musicURL;
 }
 
 @end

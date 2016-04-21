@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVFoundation.h>
+#import <AVFoundation/AVFoundation.h> // porcel AVAudioPlayer
 
 @interface IDQPlayerManager : NSObject
 
 @property (nonatomic,retain) AVAudioPlayer *audioPlayer;
+
 
 + (instancetype)sharedPlayer;
 
