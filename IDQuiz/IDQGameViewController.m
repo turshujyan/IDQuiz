@@ -75,7 +75,7 @@ static NSString *kSoundState = @"test";
     NSUInteger selectedButtonIndex = [self.answerButtons indexOfObject:sender];
     [self changeBackgroundForButton:(selectedButtonIndex) withColor:@"orange"];
     for (UIButton *button in self.answerButtons) {
-        if(![button isEqual:sender]) {
+        //if(![button isEqual:sender]) {
             [button setEnabled:NO];
         }
     }
@@ -209,8 +209,7 @@ static NSString *kSoundState = @"test";
     
 }
 
-#pragma mark UTILITY METHODS
-
+#pragma mark other private methods
 - (void)resetButtonBackgrounds {
     for (NSInteger i = 0; i < self.answerButtons.count; ++i) {
         NSString *imageName = [NSString stringWithFormat:@"answer%lu",i + 1 ];
@@ -295,8 +294,5 @@ static NSString *kSoundState = @"test";
     self.game.gameState.totalScore += (questionNumber + 1) * 100;
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
 
 @end
