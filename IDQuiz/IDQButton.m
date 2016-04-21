@@ -14,21 +14,25 @@ static BOOL soundFX;
 @implementation IDQButton
 
 - (void)awakeFromNib {
-    
+    NSLog(@"awakefromnib");
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.layer.cornerRadius = 4;
-   // self.backgroundColor = [UIColor colorWithRed:12.0/255.0 green:94.0/255.0 blue:148.0/255.0 alpha:1.0];
     self.titleLabel.font = [UIFont systemFontOfSize:20];
     self.titleLabel.textColor = [UIColor whiteColor];
     [self addTarget:self action:@selector(playSound) forControlEvents:UIControlEventTouchUpInside];
-    soundFX = YES;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  //  if([userDefaults objectForKey:@"soundOn"] && [userDefaults boolForKey:@"soundOn"]) {
+        soundFX = YES;
+ //   } else {
+        soundFX = NO;
+ //   }
+
     
 }
 
 - (void)playSound {
-    
+
     static SystemSoundID sound;
-    
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         NSLog(@"token");
@@ -44,10 +48,13 @@ static BOOL soundFX;
 }
 
 - (void)changeSoundSetting {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (soundFX) {
         soundFX = NO;
+        [userDefaults setBool:NO forKey:@"soundOn"];
     } else {
         soundFX = YES;
+        [userDefaults setBool:YES forKey:@"soundOn"];
     }
 }
 

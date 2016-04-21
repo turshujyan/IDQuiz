@@ -27,8 +27,6 @@
 
 - (IBAction)play:(IDQButton *)sender {
     
-    IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
-    [player.audioPlayer play];
     
     IDQGame *game = [IDQGame sharedGame];
     [game startNewGame];

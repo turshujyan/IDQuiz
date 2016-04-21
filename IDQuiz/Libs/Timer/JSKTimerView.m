@@ -316,7 +316,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 }
 
 - (void)createLayer {
-    self.strokeWidth = CGRectGetWidth(self.bounds) / 15;
+   self.strokeWidth = CGRectGetWidth(self.bounds) / 15;
     
     CAShapeLayer *progressLayer = [CAShapeLayer layer];
     progressLayer.path = self.strokePath.CGPath;
@@ -332,7 +332,13 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 
 - (void)createPath {
     CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    self.progressLayer.path = [UIBezierPath bezierPathWithArcCenter:center radius:self.bounds.size.width / 2 - 6 startAngle:-M_PI_2 endAngle:-M_PI_2 + 2 * M_PI clockwise:YES].CGPath;
+   // CGPoint center = CGPointMake( self.viewTimer.accessibilityFrame.origin.x,  self.viewTimer.accessibilityFrame.origin.y);
+//    NSLog(@"%@", self.progressLayer);
+   
+
+  //  self.viewTimer.frame.size.height; 100
+    self.progressLayer.path = [UIBezierPath bezierPathWithArcCenter:center radius:self.bounds.size.width / 2 - 6
+                                                         startAngle:-M_PI_2 endAngle:-M_PI_2 + 2 * M_PI clockwise:YES].CGPath;
 }
 
 #pragma mark - Private Update UI Methods
@@ -373,7 +379,6 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
 
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
     CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
     CGContextSetLineWidth(context, self.strokeWidth / 4);
     CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);

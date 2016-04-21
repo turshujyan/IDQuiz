@@ -17,13 +17,13 @@
 
 
 @interface IDQGameViewController () < ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate,
-ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
+ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, JSKTimerViewDelegate>
 
 @property (nonatomic, assign) CNContactStore *addressBook;
 @property (nonatomic, strong) NSMutableArray *menuArray;
 @property (nonatomic, strong) IDQGame *game;
 @property (nonatomic, strong) IDQQuestion *currentQuestion;
-@property (nonatomic, strong) IDQPlayerManager *player;
+@property (nonatomic, strong) IDQPlayerManager *playerManager;
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -33,51 +33,70 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionNumberLabel;
+@property (weak, nonatomic) IBOutlet IDQButton *musicButton;
+@property (weak, nonatomic) IBOutlet IDQButton *soundButton;
 
 @end
 
-static NSString *kSoundState = @"test";
 
 @implementation IDQGameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Loading question
     self.game = [IDQGame sharedGame];
     [self loadQuestion:self.game.questions[0]];
-    self.startDate = [NSDate date];
-    self.player = [IDQPlayerManager sharedPlayer];
     
+    //Music/sound settings
+    self.playerManager = [IDQPlayerManager sharedPlayer];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults objectForKey:@"musicOn"] || ([userDefaults objectForKey:@"musicOn"] && [userDefaults boolForKey:@"musicOn"])) {     //if view is loaded first time or play music setting in on
+        [self.playerManager.audioPlayer play];
+    } else {
+        [self.musicButton setBackgroundImage:[UIImage imageNamed:@"musicOff"] forState:UIControlStateNormal];
+    };
+    
+    if (![userDefaults boolForKey:@"soundOn"]) {
+        [self.soundButton setBackgroundImage:[UIImage imageNamed:@"soundOff"] forState:UIControlStateNormal];
+    };
+    
+    
+    //Question timer
     [self.timerView startTimerWithDuration:30];
     self.timerView.labelTextColor = [UIColor whiteColor];
+    [self.timerView setDelegate:self];
 
+    
+    //Total timer
+    self.startDate = [NSDate date];
     self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timeTick:) userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
     [runner addTimer:self.timer forMode: NSDefaultRunLoopMode];
     
     self.questionLabel.layer.masksToBounds = YES;
     self.questionLabel.layer.cornerRadius = 4;
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-  [self.player.audioPlayer pause];
-  self.player.audioPlayer.currentTime = 0;
-
+        [self.playerManager.audioPlayer pause];
+        self.playerManager.audioPlayer.currentTime = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.player.audioPlayer isPlaying];
+  //  [self.playerManager.audioPlayer isPlaying];
 }
 
 #pragma mark IBACTIONS
 
 - (IBAction)selectAnswer:(IDQButton *)sender {
     NSUInteger selectedButtonIndex = [self.answerButtons indexOfObject:sender];
+    [self.timerView pauseTimer];
     [self changeBackgroundForButton:(selectedButtonIndex) withColor:@"orange"];
     for (UIButton *button in self.answerButtons) {
-        //if(![button isEqual:sender]) {
             button.userInteractionEnabled = NO;
-       // }
     }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -106,6 +125,10 @@ static NSString *kSoundState = @"test";
                     NSInteger nextQuestionNumber = ++self.game.gameState.currentQuestionNumber;
                     [self loadQuestion:self.game.questions[nextQuestionNumber]];
                     self.totalScoreLabel.text = [NSString stringWithFormat:@"%ld", (long)self.game.gameState.totalScore];
+                    [self.timerView resetTimer];
+                    [self.timerView startTimer];
+
+
                 } else {
                     [self endGame];
                 }
@@ -138,9 +161,6 @@ static NSString *kSoundState = @"test";
     }
 }
 
-- (IBAction)backToHome:(IDQButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 - (IBAction)showInfoText:(IDQButton *)sender {
     if ([[self.game.gameState.helpOptions objectForKey:@"showInfoText"] isEqual:@YES]) {
@@ -184,27 +204,40 @@ static NSString *kSoundState = @"test";
     }
 }
 
-- (IBAction)playMusic:(IDQButton *)sender {
-    IDQPlayerManager *player = [IDQPlayerManager sharedPlayer];
-    if ([player.audioPlayer isPlaying]) {
-        [player.audioPlayer pause];
-        [sender setBackgroundImage:[UIImage imageNamed:@"music_off"] forState:UIControlStateNormal];
-    } else {
-        [player.audioPlayer play];
-        [sender setBackgroundImage:[UIImage imageNamed:@"music.png"] forState:UIControlStateNormal];
+- (IBAction)backToHome:(IDQButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (IBAction)changeMusicSetting:(IDQButton *)sender {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([self.playerManager.audioPlayer isPlaying]) {
+        [self.playerManager.audioPlayer pause];
+        [sender setBackgroundImage:[UIImage imageNamed:@"musicOff"] forState:UIControlStateNormal];
+        [userDefaults setBool:NO forKey:@"musicOn"];
+    } else {
+        [self.playerManager.audioPlayer play];
+        [sender setBackgroundImage:[UIImage imageNamed:@"musicOn.png"] forState:UIControlStateNormal];
+        [userDefaults setBool:YES forKey:@"musicOn"];
     }
 }
 
 - (IBAction)changeSoundSetting:(IDQButton *)sender {
     [sender changeSoundSetting];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"soundOn"]) {
+        [self.soundButton setBackgroundImage:[UIImage imageNamed:@"soundOff"] forState:UIControlStateNormal];
+    } else {
+        [self.soundButton setBackgroundImage:[UIImage imageNamed:@"soundOn"] forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)openContacts:(IDQButton *)sender {
     [self showPeoplePickerController];
     [sender setEnabled:NO];
-    [self.player.audioPlayer pause];
-    self.player.audioPlayer.currentTime = 0;
+    [self.playerManager.audioPlayer pause];
+    self.playerManager.audioPlayer.currentTime = 0;
+    [self.timerView pauseTimer];
+    
 
     
 }
@@ -256,14 +289,14 @@ static NSString *kSoundState = @"test";
     self.totalTimeLabel.text = timeString;
 }
 
+- (void)timerDidFinish:(JSKTimerView *)timerView {
+    [self endGame];
+}
 - (void)endGame {
     self.game.gameState.totalTime = self.totalTimeLabel.text;
     [self.timer invalidate];
     IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
-  //  IDQGameViewController *svc = self;
-    [self presentViewController:vc animated:YES completion:^{
-       // [svc dismissViewControllerAnimated:YES completion:nil];
-    }];
+    [self presentViewController:vc animated:YES completion:nil];
     
 
 }
@@ -279,9 +312,10 @@ static NSString *kSoundState = @"test";
     
     
     picker.displayedProperties = displayedItems;
-    [self presentViewController:picker animated:YES completion:nil];
-    
+    [self presentViewController:picker animated:YES completion:nil];    
 }
+
+
 
 - (void)changeBackgroundForButton:(NSInteger)index withColor:(NSString *)color {
     
