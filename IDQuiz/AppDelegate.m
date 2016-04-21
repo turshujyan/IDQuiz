@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self setDataController:[IDQDataController sharedDataController]];
-
+    
     return YES;
     
 }

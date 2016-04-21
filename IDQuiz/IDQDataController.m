@@ -44,26 +44,36 @@
 
 - (void)writeQuestionsToDB {
     
-    for (NSInteger i = 0; i <= 49; i++) {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"Questions.plist"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+        plistPath = [[NSBundle mainBundle] pathForResource:@"Questions" ofType:@"plist"];
+    }
+    
+    NSArray *questionsArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
+    NSLog(@"%@", questionsArray);
+    //self.nameArr = [dict objectForKey:@"Name"];
+   // self.countryArr = [dict objectForKey:@"Country"];
+    
+    
+    for (NSInteger i = 0; i < questionsArray.count; i++) {
+        NSDictionary *questionDictionary = questionsArray[i];
         
         IDQQuestion *question = [NSEntityDescription insertNewObjectForEntityForName:kEntityNameQuestion
                                                               inManagedObjectContext:self.managedObjectContext];
         
-        NSInteger righAnswerIndex = arc4random()%4;
-        NSString *answerText = [NSString stringWithFormat:@"Q %ld answer", i+1 ];
-        NSMutableArray *answersArray = [[NSMutableArray alloc] initWithObjects: answerText, answerText, answerText, answerText, nil];
-        [answersArray setObject:@"rightAnswer" atIndexedSubscript:righAnswerIndex];
+      
         
-        [question setQuestionText:[NSString stringWithFormat:@"Question %ld text", (long)i+1]
-                          answers:answersArray
-                 rightAnswerIndex:[NSNumber numberWithInteger:righAnswerIndex]
-                         infoText:[NSString stringWithFormat:@"Info text for question %ld", (long)i+1]
-                     categoryName:[NSString stringWithFormat:@"Category %u", arc4random()%15]
-                  difficultyLevel:[NSNumber numberWithInt:(int)(i)/10 + 1]
-                       questionId:[NSNumber numberWithInteger: i + 1 ]];
+        [question setQuestionText:[questionDictionary objectForKey:@"questionText"]
+                          answers:[questionDictionary objectForKey:@"answers"]
+                 rightAnswerIndex:[questionDictionary objectForKey:@"righAnswerIndex"]
+                         infoText:[questionDictionary objectForKey:@"infoText"]
+                  difficultyLevel:[questionDictionary objectForKey:@"difficultyLevel"]
+                       questionId:[questionDictionary objectForKey:@"questionId"]];
         
         // 1-10 diff.level=1, 11-19 ->2...
-        [self saveContext];
+      //  [self saveContext];
     }
 }
 

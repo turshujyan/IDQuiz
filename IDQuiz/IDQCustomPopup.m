@@ -7,6 +7,7 @@
 //
 
 #import "IDQCustomPopup.h"
+#import "IDQGame.h"
 
 @interface IDQCustomPopup()
 
@@ -14,12 +15,15 @@
 
 
 @implementation IDQCustomPopup
+
 - (IBAction)okAction:(id)sender {
     
 }
 
 - (void)awakeFromNib {
     NSLog(@"%@", self.infoTextLabel.text);
+    //IDQGame *game = [IDQGame sharedGame];
+    
 }
 
 @end

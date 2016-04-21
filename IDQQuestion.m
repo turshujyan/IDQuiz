@@ -12,7 +12,6 @@
 
 @dynamic questionId;
 @dynamic answers;
-@dynamic categoryName;
 @dynamic infoText;
 @dynamic questionText;
 @dynamic rightAnswerIndex;
@@ -22,14 +21,12 @@
                  answers:(NSArray *)answers
         rightAnswerIndex:(NSNumber *)rightAnswer
                 infoText:(NSString *)infoText
-            categoryName:(NSString *)categoryName
          difficultyLevel:(NSNumber *)difficultyLevel
               questionId:(NSNumber *)questionId{
     self.questionText = questionText;
     self.answers = answers;
     self.rightAnswerIndex = rightAnswer;
     self.infoText = infoText;
-    self.categoryName = categoryName;
     self.difficultyLevel = difficultyLevel;
     self.questionId = questionId;
 }

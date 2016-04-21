@@ -30,8 +30,4 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 @end

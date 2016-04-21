@@ -11,7 +11,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="leaderBoardCell" rowHeight="45" id="L9T-mB-Cfh" customClass="IDQLeaderBoardCell">
             <rect key="frame" x="0.0" y="0.0" width="269" height="51"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L9T-mB-Cfh" id="W2V-kR-doO">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L9T-mB-Cfh" id="W2V-kR-doO">
                 <rect key="frame" x="0.0" y="0.0" width="269" height="50.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -66,7 +66,7 @@
                 <outlet property="timeLabel" destination="aOW-al-Iut" id="dln-2C-z4n"/>
                 <outlet property="usernameLabel" destination="qFj-Ht-YUL" id="9O6-LY-Lcd"/>
             </connections>
-            <point key="canvasLocation" x="205.5" y="162.5"/>
+            <point key="canvasLocation" x="175.5" y="-157.5"/>
         </tableViewCell>
     </objects>
 </document>
