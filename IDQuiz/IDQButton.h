@@ -10,4 +10,6 @@
 
 @interface IDQButton : UIButton
 
+- (void)changeSoundSetting;
+
 @end

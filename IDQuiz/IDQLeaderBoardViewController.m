@@ -1,24 +1,39 @@
 //
 //  IDQLeaderBoardViewController.m
-//  AMProgrammerTest
+//  IDQuiz
 //
-//  Created by Hermine on 4/7/16.
-//  Copyright © 2016 Arman Markosyan. All rights reserved.
+//  Created by Hermine on 4/20/16.
+//  Copyright © 2016 Hermine. All rights reserved.
 //
 
 #import "IDQLeaderBoardViewController.h"
+#import "IDQGameViewController.h"
+#import "AppDelegate.h"
+#import "IDQDataController.h"
 #import "IDQGame.h"
+#import "IDQResult.h"
+#import "IDQLeaderBoardCell.h"
+
 
 @interface IDQLeaderBoardViewController ()
-
+@property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
+@property (nonatomic, strong) NSArray *results;
 @end
 
 @implementation IDQLeaderBoardViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    IDQGame *game = [IDQGame sharedGame];
-    [game getLeaderBoard];
+    AppDelegate *appDelegate = [UIApplication appDelegate];
+    self.results = [appDelegate.dataController fetchResults];
+    [self.resultsTableView registerNib:[UINib nibWithNibName:@"IDQLeaderBoardCell" bundle:nil] forCellReuseIdentifier:@"leaderBoardCell"];
+
+
+
+    for(IDQResult *result in self.results) {
+       // NSLog(@"%@ %@ %@", result.username, result.totalScore, result.totalTime);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,14 +41,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)home:(IDQButton *)sender {
+    IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"homeVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+    
 }
-*/
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.results count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    IDQResult *result = self.results[indexPath.row];
+    IDQLeaderBoardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaderBoardCell" forIndexPath:indexPath];
+    cell.idLabel.text =[NSString stringWithFormat:@"%ld.", indexPath.row + 1 ];
+    cell.usernameLabel.text = result.username;
+    cell.scoreLabel.text = [result.totalScore stringValue];
+    cell.timeLabel.text =[ NSString stringWithFormat:@"%d:%d", [result.totalTime intValue] / 60, [result.totalTime intValue] % 60];
+
+    return cell;
+}
+
 
 @end

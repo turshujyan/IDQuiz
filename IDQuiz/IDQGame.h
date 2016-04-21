@@ -10,6 +10,7 @@
 #import "IDQGameState.h"
 #import "IDQResult.h"
 #import "IDQQuestion.h"
+#import "IDQButton.h"
 
 
 @interface IDQGame : NSObject
@@ -21,5 +22,5 @@
 - (void)startNewGame;
 - (IDQQuestion *)changeQuestionWithDifficultyLevel:(NSNumber *)difficultyLevel;
 - (void)endGameForUser:(NSString *)username;
-- (void)getLeaderBoard;
+
 @end

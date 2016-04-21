@@ -42,10 +42,4 @@
     
 }
 
-- (void)getLeaderBoard {
-    AppDelegate *appDelegate = [UIApplication appDelegate];
-    NSArray *results = [appDelegate.dataController fetchResults];
-  //  NSLog(@"%@",results );
-}
-
 @end

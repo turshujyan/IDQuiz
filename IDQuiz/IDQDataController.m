@@ -126,7 +126,8 @@
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:kEntityNameResult];
     [request setPredicate:[NSPredicate predicateWithFormat:@"username = %@" , username]];
-    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
 
     if ([results count] == 0){
         IDQResult *result = [NSEntityDescription insertNewObjectForEntityForName:kEntityNameResult
@@ -145,10 +146,20 @@
 
 
 - (NSArray *)fetchResults {
-
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:kEntityNameResult];
-    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:nil];
-    return result;    
+   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:kEntityNameResult];
+    NSSortDescriptor *sortByScore = [[NSSortDescriptor alloc] initWithKey:@"totalScore" ascending:NO];
+    NSSortDescriptor *sortByTime = [[NSSortDescriptor alloc] initWithKey:@"totalTime" ascending:YES];
+    
+    [request setSortDescriptors:[NSArray arrayWithObjects:sortByScore, sortByTime, nil]];
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if(!results) {
+        NSLog(@"%@", [error localizedDescription]);
+        return nil;
+    } else {
+        return results;
+    }
 }
 
 
