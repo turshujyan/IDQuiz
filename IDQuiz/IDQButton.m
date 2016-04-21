@@ -21,11 +21,11 @@ static BOOL soundFX;
     self.titleLabel.textColor = [UIColor whiteColor];
     [self addTarget:self action:@selector(playSound) forControlEvents:UIControlEventTouchUpInside];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  //  if([userDefaults objectForKey:@"soundOn"] && [userDefaults boolForKey:@"soundOn"]) {
+    if([userDefaults objectForKey:@"soundOn"] && [userDefaults boolForKey:@"soundOn"]) {
         soundFX = YES;
- //   } else {
+    } else {
         soundFX = NO;
- //   }
+    }
 
     
 }

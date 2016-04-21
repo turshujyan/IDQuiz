@@ -19,6 +19,10 @@
     
     [self setDataController:[IDQDataController sharedDataController]];
     
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"musicOn"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"soundOn"];
+    
     return YES;
     
 }

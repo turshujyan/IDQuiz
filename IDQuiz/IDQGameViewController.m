@@ -16,8 +16,8 @@
 #import <ContactsUI/ContactsUI.h>
 
 
-@interface IDQGameViewController () < ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate,
-ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, JSKTimerViewDelegate>
+@interface IDQGameViewController () < /*ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate,
+ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNContactPickerDelegate, JSKTimerViewDelegate>
 
 @property (nonatomic, assign) CNContactStore *addressBook;
 @property (nonatomic, strong) NSMutableArray *menuArray;
@@ -80,16 +80,18 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, JSKTim
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-        [self.playerManager.audioPlayer pause];
-        self.playerManager.audioPlayer.currentTime = 0;
+    [super viewWillDisappear:animated];
+    
+    [self.playerManager.audioPlayer pause];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  //  [self.playerManager.audioPlayer isPlaying];
+
 }
 
-#pragma mark IBACTIONS
+#pragma mark - IBACTIONS
 
 - (IBAction)selectAnswer:(IDQButton *)sender {
     NSUInteger selectedButtonIndex = [self.answerButtons indexOfObject:sender];
@@ -112,6 +114,8 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, JSKTim
                 }
             }
 
+            [[IDQPlayerManager sharedPlayer] playLoseSound];
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [self endGame];
             });
@@ -232,13 +236,12 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, JSKTim
 }
 
 - (IBAction)openContacts:(IDQButton *)sender {
-    [self showPeoplePickerController];
-    [sender setEnabled:NO];
-    [self.playerManager.audioPlayer pause];
-    self.playerManager.audioPlayer.currentTime = 0;
-    [self.timerView pauseTimer];
     
+    [self showPeoplePickerController];
+    
+    [sender setEnabled:NO];
 
+    [self.timerView pauseTimer];
     
 }
 
@@ -292,6 +295,7 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, JSKTim
 - (void)timerDidFinish:(JSKTimerView *)timerView {
     [self endGame];
 }
+
 - (void)endGame {
     self.game.gameState.totalTime = self.totalTimeLabel.text;
     [self.timer invalidate];
@@ -303,6 +307,13 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, JSKTim
 
 - (void)showPeoplePickerController {
     
+    CNContactPickerViewController *picker = [[CNContactPickerViewController alloc] init];
+    picker.delegate = self;
+    
+    picker.displayedPropertyKeys = @[CNContactPhoneNumbersKey];
+    [self presentViewController:picker animated:YES completion:nil];
+    
+    /*
     ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
     picker.peoplePickerDelegate = self;
     // Display only a person's phone, email, and birthdate
@@ -312,10 +323,18 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, JSKTim
     
     
     picker.displayedProperties = displayedItems;
-    [self presentViewController:picker animated:YES completion:nil];    
+    [self presentViewController:picker animated:YES completion:nil];   
+     */
 }
 
-
+- (void)contactPickerDidCancel:(CNContactPickerViewController *)picker {
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"musicOn"]) {
+        [self.playerManager.audioPlayer play];
+    }
+    
+    [self.timerView startTimer];
+}
 
 - (void)changeBackgroundForButton:(NSInteger)index withColor:(NSString *)color {
     
