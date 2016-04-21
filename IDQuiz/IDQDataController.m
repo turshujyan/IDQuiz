@@ -51,11 +51,7 @@
         plistPath = [[NSBundle mainBundle] pathForResource:@"Questions" ofType:@"plist"];
     }
     
-    NSArray *questionsArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
-    NSLog(@"%@", questionsArray);
-    //self.nameArr = [dict objectForKey:@"Name"];
-   // self.countryArr = [dict objectForKey:@"Country"];
-    
+    NSArray *questionsArray = [[NSArray alloc] initWithContentsOfFile:plistPath];    
     
     for (NSInteger i = 0; i < questionsArray.count; i++) {
         NSDictionary *questionDictionary = questionsArray[i];
@@ -72,8 +68,7 @@
                   difficultyLevel:[questionDictionary objectForKey:@"difficultyLevel"]
                        questionId:[questionDictionary objectForKey:@"questionId"]];
         
-        // 1-10 diff.level=1, 11-19 ->2...
-      //  [self saveContext];
+        [self saveContext];
     }
 }
 

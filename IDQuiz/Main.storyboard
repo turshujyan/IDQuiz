@@ -150,7 +150,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kM5-Uv-eEh" id="E26-Fw-Iim">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -207,7 +207,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCW-OJ-qv1" customClass="IDQButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCW-OJ-qv1" customClass="IDQButton">
                                 <rect key="frame" x="32" y="235" width="256" height="36"/>
                                 <color key="backgroundColor" red="0.047058824449777603" green="0.36862745881080627" blue="0.58039218187332153" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -220,7 +220,7 @@
                                     <action selector="saveResult:" destination="bbx-i4-WF1" eventType="touchUpInside" id="v9B-SX-rOf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwq-ee-pKt" customClass="IDQButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwq-ee-pKt" customClass="IDQButton">
                                 <rect key="frame" x="32" y="286" width="256" height="35"/>
                                 <color key="backgroundColor" red="0.047058824449777603" green="0.36862745881080627" blue="0.58039218187332153" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cancel">
@@ -583,11 +583,11 @@
                                     <constraint firstItem="gn6-tc-2vM" firstAttribute="width" secondItem="LW9-31-1mK" secondAttribute="width" id="xcM-bB-Rix"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoHome" translatesAutoresizingMaskIntoConstraints="NO" id="3aA-rx-TbE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="3aA-rx-TbE">
                                 <rect key="frame" x="110" y="73" width="100" height="100"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mZ-JN-WTo" customClass="JSKTimerView">
-                                <rect key="frame" x="110" y="73" width="100" height="100"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7mZ-JN-WTo" customClass="JSKTimerView">
+                                <rect key="frame" x="39" y="94" width="100" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="1Au-Af-6va"/>

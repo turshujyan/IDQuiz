@@ -270,7 +270,501 @@
 	</dict>
 	<dict>
 		<key>questionId</key>
-		<integer>7</integer>
+		<integer>15</integer>
+		<key>questionText</key>
+		<string>question 15 text </string>
+		<key>infoText</key>
+		<string>info text for 15</string>
+		<key>difficultyLevel</key>
+		<integer>2</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>16</integer>
+		<key>questionText</key>
+		<string>question 16 text</string>
+		<key>infoText</key>
+		<string>info text for 16 </string>
+		<key>difficultyLevel</key>
+		<integer>2</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>17</integer>
+		<key>questionText</key>
+		<string>question 17 text</string>
+		<key>infoText</key>
+		<string>info text for q17</string>
+		<key>difficultyLevel</key>
+		<integer>2</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>18</integer>
+		<key>questionText</key>
+		<string>question 18 text</string>
+		<key>infoText</key>
+		<string>info text for 18 </string>
+		<key>difficultyLevel</key>
+		<integer>2</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>19</integer>
+		<key>questionText</key>
+		<string>question 19 text</string>
+		<key>infoText</key>
+		<string>info text for 19</string>
+		<key>difficultyLevel</key>
+		<integer>2</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>20</integer>
+		<key>questionText</key>
+		<string>question 20 text</string>
+		<key>infoText</key>
+		<string>info text for 20 </string>
+		<key>difficultyLevel</key>
+		<integer>2</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>21</integer>
+		<key>questionText</key>
+		<string>question 21 text</string>
+		<key>infoText</key>
+		<string>info text for 21 </string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>22</integer>
+		<key>questionText</key>
+		<string>question 22 text</string>
+		<key>infoText</key>
+		<string>info text for 22 </string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>23</integer>
+		<key>questionText</key>
+		<string>question 23 text</string>
+		<key>infoText</key>
+		<string>info text for 23 </string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>24</integer>
+		<key>questionText</key>
+		<string>question 24 text</string>
+		<key>infoText</key>
+		<string>info text for 24 </string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>25</integer>
+		<key>questionText</key>
+		<string>question 25 text</string>
+		<key>infoText</key>
+		<string>info text for 25</string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>26</integer>
+		<key>questionText</key>
+		<string>question 26 text</string>
+		<key>infoText</key>
+		<string>info text for 26</string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>27</integer>
+		<key>questionText</key>
+		<string>question 27 text</string>
+		<key>infoText</key>
+		<string>info text for 27</string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>28</integer>
+		<key>questionText</key>
+		<string>question 28 text</string>
+		<key>infoText</key>
+		<string>info text for 28</string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>29</integer>
+		<key>questionText</key>
+		<string>question 29 text</string>
+		<key>infoText</key>
+		<string>info text for 29 </string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>30</integer>
+		<key>questionText</key>
+		<string>question 30 text</string>
+		<key>infoText</key>
+		<string>info text for 30</string>
+		<key>difficultyLevel</key>
+		<integer>3</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>31</integer>
+		<key>questionText</key>
+		<string>question 31 text</string>
+		<key>infoText</key>
+		<string>info text for 31 </string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>32</integer>
+		<key>questionText</key>
+		<string>question 32 text</string>
+		<key>infoText</key>
+		<string>info text for 32 </string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>33</integer>
+		<key>questionText</key>
+		<string>question 33 text</string>
+		<key>infoText</key>
+		<string>info text for 33</string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>34</integer>
+		<key>questionText</key>
+		<string>question 34 text</string>
+		<key>infoText</key>
+		<string>info text for 34 </string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>35</integer>
+		<key>questionText</key>
+		<string>question 35 text</string>
+		<key>infoText</key>
+		<string>info text for 35 </string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>36</integer>
+		<key>questionText</key>
+		<string>question 36 text</string>
+		<key>infoText</key>
+		<string>info text for 36 </string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>37</integer>
+		<key>questionText</key>
+		<string>question 37 text</string>
+		<key>infoText</key>
+		<string>info text for q37</string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>38</integer>
+		<key>questionText</key>
+		<string>question 38 text</string>
+		<key>infoText</key>
+		<string>info text for 38</string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>39</integer>
+		<key>questionText</key>
+		<string>question 39 text</string>
+		<key>infoText</key>
+		<string>info text for 39 </string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>40</integer>
+		<key>questionText</key>
+		<string>question 40 text</string>
+		<key>infoText</key>
+		<string>info text for 40 </string>
+		<key>difficultyLevel</key>
+		<integer>4</integer>
+		<key>rightAnswerIndex</key>
+		<integer>0</integer>
+		<key>answers</key>
+		<array>
+			<string>rightAnswer</string>
+			<string>answer</string>
+			<string>answer</string>
+			<string>answer</string>
+		</array>
+	</dict>
+	<dict>
+		<key>questionId</key>
+		<integer>41</integer>
 		<key>questionText</key>
 		<string>question 7 text</string>
 		<key>infoText</key>
@@ -289,7 +783,7 @@
 	</dict>
 	<dict>
 		<key>questionId</key>
-		<integer>7</integer>
+		<integer>42</integer>
 		<key>questionText</key>
 		<string>question 7 text</string>
 		<key>infoText</key>
@@ -308,507 +802,13 @@
 	</dict>
 	<dict>
 		<key>questionId</key>
-		<integer>7</integer>
+		<integer>43</integer>
 		<key>questionText</key>
-		<string>question 7 text</string>
+		<string>question 43 text</string>
 		<key>infoText</key>
-		<string>info text for q7</string>
+		<string>info text for 43</string>
 		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
-		<key>rightAnswerIndex</key>
-		<integer>0</integer>
-		<key>answers</key>
-		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
-		</array>
-	</dict>
-	<dict>
-		<key>questionId</key>
-		<integer>7</integer>
-		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
-		<key>difficultyLevel</key>
-		<integer>1</integer>
+		<integer>5</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
@@ -952,5 +952,6 @@
 			<string>answer</string>
 		</array>
 	</dict>
+	
 </array>
 </plist>

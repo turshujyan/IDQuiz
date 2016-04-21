@@ -76,8 +76,8 @@ static NSString *kSoundState = @"test";
     [self changeBackgroundForButton:(selectedButtonIndex) withColor:@"orange"];
     for (UIButton *button in self.answerButtons) {
         //if(![button isEqual:sender]) {
-            [button setEnabled:NO];
-        }
+            button.userInteractionEnabled = NO;
+       // }
     }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -238,6 +238,7 @@ static NSString *kSoundState = @"test";
     
     for (NSInteger i = 0; i <  answers.count; i++) {
         UIButton *button =  self.answerButtons[i];
+        button.userInteractionEnabled = YES;
         button.hidden = NO;
         [button setEnabled:YES];
         [button setTitle:answers[i] forState:UIControlStateNormal];
