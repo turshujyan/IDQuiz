@@ -13,6 +13,9 @@
 
 @property (nonatomic,retain) AVAudioPlayer *audioPlayer;
 
+- (void)playWinSound;
+- (void)playLoseSound;
+- (void)playIntrigSound;
 
 + (instancetype)sharedPlayer;
 

@@ -31,4 +31,36 @@
     return musicURL;
 }
 
+
+- (void)playWinSound {
+    [self playSoundByName:@"Win.mp3"];
+}
+
+- (void)playLoseSound {
+    [self playSoundByName:@"buttonSound.wav"];
+}
+
+- (void)playIntrigSound {
+    [self playSoundByName:@"Intrig.mp3"];
+}
+
+
+- (void)playSoundByName:(NSString *)soundName {
+    
+    static SystemSoundID sound;
+    static dispatch_once_t token;
+    dispatch_once(&token, ^{
+        NSLog(@"token");
+        NSString *soundPath = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], soundName];
+        NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+        
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &sound);
+    });
+    
+    AudioServicesPlaySystemSound(sound);
+}
+
+
+
+
 @end
