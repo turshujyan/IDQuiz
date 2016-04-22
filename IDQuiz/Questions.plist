@@ -6,7 +6,7 @@
 		<key>questionId</key>
 		<integer>1</integer>
 		<key>questionText</key>
-		<string>question 1 text</string>
+		<string>What are the tools required to develop iOS applications? </string>
 		<key>infoText</key>
 		<string>info text for q 1</string>
 		<key>difficultyLevel</key>
@@ -15,10 +15,10 @@
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>iOS SDK</string>
+			<string>iOS CSS</string>
+			<string>iOS OSX</string>
+			<string>iOS MVC</string>
 		</array>
 	</dict>
 	<dict>
@@ -196,7 +196,7 @@
 		<key>questionId</key>
 		<integer>11</integer>
 		<key>questionText</key>
-		<string>question 11 text</string>
+		<string>There are basically three ways of achieving concurrency in iOS.Which one is false?</string>
 		<key>infoText</key>
 		<string>info text for 11</string>
 		<key>difficultyLevel</key>
@@ -205,10 +205,10 @@
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Synchronization</string>
+			<string>Threads</string>
+			<string>Dispatch queues</string>
+			<string>Operation queues</string>
 		</array>
 	</dict>
 	<dict>
@@ -952,6 +952,5 @@
 			<string>answer</string>
 		</array>
 	</dict>
-	
 </array>
 </plist>

@@ -13,11 +13,6 @@
 
 @interface IDQGameViewController : UIViewController
 
-//@property (nonatomic,retain) AVAudioPlayer *audioPlayer;
 @property (weak, nonatomic) IBOutlet JSKTimerView *timerView;
-//@property (weak, nonatomic) IBOutlet UIButton *soundButton;
-
--(void)showPeoplePickerController;
-
 
 @end

@@ -18,5 +18,6 @@
 - (void)playIntrigSound;
 
 + (instancetype)sharedPlayer;
+- (void)playLoseSound;
 
 @end

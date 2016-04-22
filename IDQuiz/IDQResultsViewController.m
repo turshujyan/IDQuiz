@@ -10,7 +10,7 @@
 #import "IDQLeaderBoardViewController.h"
 #import "AppDelegate.h"
 #import "IDQGame.h"
-
+#import "IDQPlayerManager.h"
 
 @interface IDQResultsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -29,10 +29,16 @@
     
     // Do any additional setup after loading the view.
 }
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
 - (IBAction)saveResult:(IDQButton *)sender {
     if ([self.usernameTextField hasText]) {
         [[IDQGame sharedGame] endGameForUser:self.usernameTextField.text];
-        IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"homeVC"];
+        //[self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        
+        IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"leaderBoardVC"];
         [self presentViewController:vc animated:YES completion:nil];
     } else {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning"
@@ -48,10 +54,8 @@
     
 }
 
-- (IBAction)calcel:(IDQButton *)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    IDQLeaderBoardViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"homeVC"];
-    [appDelegate.window setRootViewController:vc];
+- (IBAction)cancel:(IDQButton *)sender {
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 
 }
 

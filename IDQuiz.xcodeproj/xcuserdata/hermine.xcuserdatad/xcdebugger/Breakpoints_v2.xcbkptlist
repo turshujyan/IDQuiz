@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IDQuiz/IDQGameViewController.m"
-            timestampString = "482950162.497527"
+            timestampString = "483025533.507242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "answerButtons"
             landmarkType = "19">
          </BreakpointContent>

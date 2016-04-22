@@ -9,15 +9,11 @@
 #import "IDQGameViewController.h"
 #import "IDQGame.h"
 #import "IDQQuestion.h"
-#import "IDQCustomPopup.h"
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
 
 
-@interface IDQGameViewController () < /*ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate,
-ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNContactPickerDelegate, JSKTimerViewDelegate>
+@interface IDQGameViewController () <CNContactPickerDelegate, JSKTimerViewDelegate>
 
 @property (nonatomic, assign) CNContactStore *addressBook;
 @property (nonatomic, strong) NSMutableArray *menuArray;
@@ -29,6 +25,7 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
 
 
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *answerButtons;
+@property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *helperButtons;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
@@ -74,6 +71,7 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
     [runner addTimer:self.timer forMode: NSDefaultRunLoopMode];
     
+    //UI settings
     self.questionLabel.layer.masksToBounds = YES;
     self.questionLabel.layer.cornerRadius = 4;
     
@@ -81,9 +79,8 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    [self.playerManager.audioPlayer pause];
-
+    [self.playerManager.audioPlayer stop];
+    self.playerManager.audioPlayer.currentTime = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -100,6 +97,9 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
     for (UIButton *button in self.answerButtons) {
             button.userInteractionEnabled = NO;
     }
+    for (UIButton *button in self.helperButtons) {
+        button.userInteractionEnabled = NO;
+    }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         
@@ -113,13 +113,12 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
                     break;
                 }
             }
-
-            [[IDQPlayerManager sharedPlayer] playLoseSound];
-            
+            [self.playerManager playLoseSound];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [self endGame];
             });
         } else {
+            [self.playerManager playWinSound];
 
             NSUInteger selectedButtonIndex = [self.answerButtons indexOfObject:sender];
             [self changeBackgroundForButton:selectedButtonIndex withColor:@"green"];
@@ -169,30 +168,16 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
 - (IBAction)showInfoText:(IDQButton *)sender {
     if ([[self.game.gameState.helpOptions objectForKey:@"showInfoText"] isEqual:@YES]) {
         
-     /*   UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:self.currentQuestion.infoText  message:nil  preferredStyle:UIAlertControllerStyleAlert];
+       UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:self.currentQuestion.infoText  message:nil  preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
-        */
-        IDQCustomPopup *popup;
-        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"IDQCustomPopup" owner:self options:nil];
-        for (id nib in nibs) {
-            if ([nib isKindOfClass:[IDQCustomPopup class]]) {
-                popup = nib;
-                break;
-            }
-        }
-      //  NSLog(@"%@", popup);
-        popup.frame = CGRectMake(0, 0, 280, 130);
-        popup.center = self.view.center;
-        popup.infoTextLabel.text = @"kuku";
-     //   popup.delegate = self;
-        [[[[UIApplication sharedApplication] delegate] window] addSubview:popup];
-        
-        NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
-        [helpOptions setValue:@NO forKey:@"showInfoText"];
-        self.game.gameState.helpOptions = helpOptions;
-        [sender setEnabled:NO];
+      
     }
+     NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
+     [helpOptions setValue:@NO forKey:@"showInfoText"];
+     self.game.gameState.helpOptions = helpOptions;
+     [sender setEnabled:NO];
+
     
 }
 
@@ -227,7 +212,6 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
 
 - (IBAction)changeSoundSetting:(IDQButton *)sender {
     [sender changeSoundSetting];
-    
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"soundOn"]) {
         [self.soundButton setBackgroundImage:[UIImage imageNamed:@"soundOff"] forState:UIControlStateNormal];
     } else {
@@ -238,14 +222,13 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
 - (IBAction)openContacts:(IDQButton *)sender {
     
     [self showPeoplePickerController];
-    
     [sender setEnabled:NO];
-
     [self.timerView pauseTimer];
     
 }
 
 #pragma mark other private methods
+
 - (void)resetButtonBackgrounds {
     for (NSInteger i = 0; i < self.answerButtons.count; ++i) {
         NSString *imageName = [NSString stringWithFormat:@"answer%lu",i + 1 ];
@@ -278,6 +261,9 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
         button.hidden = NO;
         [button setEnabled:YES];
         [button setTitle:answers[i] forState:UIControlStateNormal];
+    }
+    for (UIButton *button in self.helperButtons) {
+        button.userInteractionEnabled = YES;
     }
 
 }
@@ -313,19 +299,7 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
     picker.displayedPropertyKeys = @[CNContactPhoneNumbersKey];
     [self presentViewController:picker animated:YES completion:nil];
     
-    /*
-    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-    picker.peoplePickerDelegate = self;
-    // Display only a person's phone, email, and birthdate
-    NSArray *displayedItems = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty],
-                               [NSNumber numberWithInt:kABPersonEmailProperty],
-                               [NSNumber numberWithInt:kABPersonBirthdayProperty], nil];
-    
-    
-    picker.displayedProperties = displayedItems;
-    [self presentViewController:picker animated:YES completion:nil];   
-     */
-}
+    }
 
 - (void)contactPickerDidCancel:(CNContactPickerViewController *)picker {
     
@@ -337,11 +311,9 @@ ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate,*/ CNCo
 }
 
 - (void)changeBackgroundForButton:(NSInteger)index withColor:(NSString *)color {
-    
     NSString *imageName = [NSString stringWithFormat:@"answer%lu-%@",index + 1, color];
     UIImage *newImage = [UIImage imageNamed:imageName];
     [self.answerButtons[index] setBackgroundImage:newImage forState:UIControlStateNormal];
-
 }
 
 - (void)addScoreForQuestion:(NSInteger)questionNumber {

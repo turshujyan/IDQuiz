@@ -25,8 +25,7 @@
     [self.webView loadRequest:request];
 
 }
-
-- (IBAction)backButton:(UIButton *)sender {    
+- (IBAction)backButton:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

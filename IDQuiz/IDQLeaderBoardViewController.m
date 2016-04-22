@@ -28,23 +28,15 @@
     AppDelegate *appDelegate = [UIApplication appDelegate];
     self.results = [appDelegate.dataController fetchResults];
     [self.resultsTableView registerNib:[UINib nibWithNibName:@"IDQLeaderBoardCell" bundle:nil] forCellReuseIdentifier:@"leaderBoardCell"];
-
-
-
-    for(IDQResult *result in self.results) {
-       // NSLog(@"%@ %@ %@", result.username, result.totalScore, result.totalTime);
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)home:(IDQButton *)sender {
-    IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"homeVC"];
-    [self presentViewController:vc animated:YES completion:nil];
-    
+    if (self.presentingViewController.presentingViewController) {
+        [self.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+    }
 }
 
 
@@ -52,6 +44,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.results count];
 }
