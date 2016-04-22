@@ -14,14 +14,39 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="xE6-We-SLm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZB1-Ru-wfZ">
+                                <rect key="frame" x="85" y="209" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="5yI-Jr-H0F"/>
+                                    <constraint firstAttribute="width" constant="150" id="v3M-Ss-yQO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZB1-Ru-wfZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4KK-Kb-8Bi"/>
+                            <constraint firstItem="xE6-We-SLm" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="80L-fc-mvF"/>
+                            <constraint firstItem="xE6-We-SLm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Nuq-Mg-g7r"/>
+                            <constraint firstItem="xE6-We-SLm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="OO9-nZ-ZYm"/>
+                            <constraint firstItem="xE6-We-SLm" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="aLg-5m-kYX"/>
+                            <constraint firstItem="ZB1-Ru-wfZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iGF-40-pTC"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="1920" height="1200"/>
+        <image name="logo" width="1024" height="1024"/>
+    </resources>
 </document>

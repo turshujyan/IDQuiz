@@ -13,6 +13,5 @@
 
 @interface IDQGameViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet JSKTimerView *timerView;
 
 @end

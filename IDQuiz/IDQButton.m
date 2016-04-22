@@ -19,6 +19,7 @@ static BOOL soundFX;
     self.layer.cornerRadius = 4;
     self.titleLabel.font = [UIFont systemFontOfSize:20];
     self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.numberOfLines = 2;
     
     [self addTarget:self action:@selector(playSound) forControlEvents:UIControlEventTouchUpInside];
     

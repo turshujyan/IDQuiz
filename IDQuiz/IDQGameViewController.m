@@ -9,6 +9,7 @@
 #import "IDQGameViewController.h"
 #import "IDQGame.h"
 #import "IDQQuestion.h"
+#import "IDQHelperButton.h"
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
 
@@ -22,16 +23,18 @@
 @property (nonatomic, strong) IDQPlayerManager *playerManager;
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) BOOL allowIncorrectAnswerSelected;
 
 
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *answerButtons;
-@property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *helperButtons;
+@property (nonatomic, strong) IBOutletCollection(IDQHelperButton) NSArray *helperButtons;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionNumberLabel;
 @property (weak, nonatomic) IBOutlet IDQButton *musicButton;
 @property (weak, nonatomic) IBOutlet IDQButton *soundButton;
+@property (weak, nonatomic) IBOutlet JSKTimerView *timerView;
 
 @end
 
@@ -95,7 +98,7 @@
     [self.timerView pauseTimer];
     [self changeBackgroundForButton:(selectedButtonIndex) withColor:@"orange"];
     for (UIButton *button in self.answerButtons) {
-            button.userInteractionEnabled = NO;
+        button.userInteractionEnabled = NO;
     }
     for (UIButton *button in self.helperButtons) {
         button.userInteractionEnabled = NO;
@@ -106,20 +109,34 @@
         NSNumber *rightAnswerIndex = self.currentQuestion.rightAnswerIndex;
         if (![sender.titleLabel.text isEqualToString:self.currentQuestion.answers[[rightAnswerIndex intValue]]]) {
             [self changeBackgroundForButton:(selectedButtonIndex) withColor:@"red"];
-            NSString *rightAnswerTitle = self.currentQuestion.answers[[rightAnswerIndex intValue]];
-            for (NSInteger i = 0; i < self.answerButtons.count; ++i) {
-                if ([[self.answerButtons[i] titleLabel].text isEqualToString:rightAnswerTitle]) {
-                    [self changeBackgroundForButton:i withColor:@"green"];
-                    break;
+            
+            if(self.allowIncorrectAnswerSelected) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                    [self changeBackgroundForButton:(selectedButtonIndex) withColor:@"blue"];
+                    for (UIButton *button in self.answerButtons) {
+                        button.userInteractionEnabled = YES;
+                        self.allowIncorrectAnswerSelected = NO;
+                        [self.timerView startTimer];
+                    }
+                });
+            
+            } else {
+            
+                NSString *rightAnswerTitle = self.currentQuestion.answers[[rightAnswerIndex intValue]];
+                for (NSInteger i = 0; i < self.answerButtons.count; ++i) {
+                    if ([[self.answerButtons[i] titleLabel].text isEqualToString:rightAnswerTitle]) {
+                        [self changeBackgroundForButton:i withColor:@"green"];
+                        break;
+                    }
                 }
+                [self.playerManager playLoseSound];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                    [self endGame];
+                });
             }
-            [self.playerManager playLoseSound];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                [self endGame];
-            });
         } else {
             [self.playerManager playWinSound];
-
+            self.allowIncorrectAnswerSelected = NO;
             NSUInteger selectedButtonIndex = [self.answerButtons indexOfObject:sender];
             [self changeBackgroundForButton:selectedButtonIndex withColor:@"green"];
             [self addScoreForQuestion:self.game.gameState.currentQuestionNumber];
@@ -131,7 +148,6 @@
                     [self.timerView resetTimer];
                     [self.timerView startTimer];
 
-
                 } else {
                     [self endGame];
                 }
@@ -142,7 +158,7 @@
 }
 
 - (IBAction)removeTwoAnswers:(UIButton *)sender {
-    if ([[self.game.gameState.helpOptions objectForKey:@"50/50"] isEqual:@YES]) {
+    if ([[self.game.gameState.helpOptions objectForKey:@"removeTwoAnswers"] isEqual:@YES]) {
         UIButton *button;
         NSString *rightAnswer = self.currentQuestion.answers[[self.currentQuestion.rightAnswerIndex integerValue]];
         NSInteger index1, index2;
@@ -158,36 +174,41 @@
         [self.answerButtons[index2] setHidden:YES];
         
         NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
-        [helpOptions setValue:@NO forKey:@"50/50"];
+        [helpOptions setValue:@NO forKey:@"removeTwoAnswers"];
         self.game.gameState.helpOptions = helpOptions;
         [sender setEnabled:NO];
     }
 }
 
 
-- (IBAction)showInfoText:(IDQButton *)sender {
-    if ([[self.game.gameState.helpOptions objectForKey:@"showInfoText"] isEqual:@YES]) {
-        
-       UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:self.currentQuestion.infoText  message:nil  preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-        [self presentViewController:alertController animated:YES completion:nil];
-      
-    }
-     NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
-     [helpOptions setValue:@NO forKey:@"showInfoText"];
-     self.game.gameState.helpOptions = helpOptions;
-     [sender setEnabled:NO];
 
+
+- (IBAction)openContacts:(IDQButton *)sender {
+    
+    [self showPeoplePickerController];
+    [sender setEnabled:NO];
+    [self.timerView pauseTimer];
     
 }
-
-- (IBAction)changeQuestion:(IDQButton *)sender {
+- (IBAction)changeQuestion:(UIButton *)sender {
     if ([[self.game.gameState.helpOptions objectForKey:@"changeQuestion"] isEqual:@YES]) {
         NSNumber *level = self.currentQuestion.difficultyLevel;
         IDQQuestion *newQuestion = [self.game changeQuestionWithDifficultyLevel:level];
         [self loadQuestion:newQuestion];
         NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
         [helpOptions setValue:@NO forKey:@"changeQuestion"];
+        self.game.gameState.helpOptions = helpOptions;
+        [sender setEnabled:NO];
+        [self.timerView resetTimer];
+        [self.timerView startTimer];
+    }
+}
+
+- (IBAction)allowIncorrectAnswer:(UIButton *)sender {
+    if ([[self.game.gameState.helpOptions objectForKey:@"allowIncorrectAnswer"] isEqual:@YES]) {
+        self.allowIncorrectAnswerSelected = YES;
+        NSMutableDictionary *helpOptions = [self.game.gameState.helpOptions mutableCopy];
+        [helpOptions setValue:@NO forKey:@"allowIncorrectAnswer"];
         self.game.gameState.helpOptions = helpOptions;
         [sender setEnabled:NO];
     }
@@ -219,19 +240,13 @@
     }
 }
 
-- (IBAction)openContacts:(IDQButton *)sender {
-    
-    [self showPeoplePickerController];
-    [sender setEnabled:NO];
-    [self.timerView pauseTimer];
-    
-}
+
 
 #pragma mark other private methods
 
 - (void)resetButtonBackgrounds {
     for (NSInteger i = 0; i < self.answerButtons.count; ++i) {
-        NSString *imageName = [NSString stringWithFormat:@"answer%lu",i + 1 ];
+        NSString *imageName = [NSString stringWithFormat:@"answer%lu-blue",i + 1 ];
         UIImage *newImage = [UIImage imageNamed:imageName];
         [self.answerButtons[i] setBackgroundImage:newImage forState:UIControlStateNormal];
     }
@@ -278,35 +293,21 @@
     self.totalTimeLabel.text = timeString;
 }
 
-- (void)timerDidFinish:(JSKTimerView *)timerView {
-    [self endGame];
-}
 
-- (void)endGame {
-    self.game.gameState.totalTime = self.totalTimeLabel.text;
-    [self.timer invalidate];
-    IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
-    [self presentViewController:vc animated:YES completion:nil];
-    
 
-}
 
 - (void)showPeoplePickerController {
-    
     CNContactPickerViewController *picker = [[CNContactPickerViewController alloc] init];
     picker.delegate = self;
-    
     picker.displayedPropertyKeys = @[CNContactPhoneNumbersKey];
     [self presentViewController:picker animated:YES completion:nil];
-    
-    }
+}
 
 - (void)contactPickerDidCancel:(CNContactPickerViewController *)picker {
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"musicOn"]) {
         [self.playerManager.audioPlayer play];
     }
-    
     [self.timerView startTimer];
 }
 
@@ -318,6 +319,29 @@
 
 - (void)addScoreForQuestion:(NSInteger)questionNumber {
     self.game.gameState.totalScore += (questionNumber + 1) * 100;
+}
+
+//Timer delegate methods
+- (void)timerDidFinish:(JSKTimerView *)timerView {
+    [self endGame];
+}
+- (void)timerChangedStateToRed:(JSKTimerView *)timerView {
+    for (IDQHelperButton *button in self.helperButtons) {
+        button.backgroundColor = [UIColor redColor];
+    }
+}
+- (void)timerChangedStateToYellow:(JSKTimerView *)timerView {
+    for (IDQHelperButton *button in self.helperButtons) {
+        button.backgroundColor = [UIColor colorWithRed:1.0 green:204/255.0 blue:51/255.0 alpha:1.0];
+    }
+}
+
+
+- (void)endGame {
+    self.game.gameState.totalTime = self.totalTimeLabel.text;
+    [self.timer invalidate];
+    IDQGameViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"resultsVC"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

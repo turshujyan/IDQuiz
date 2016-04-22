@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet IDQButton *saveButton;
 
 @end
 
@@ -33,6 +34,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
 }
+
 - (IBAction)saveResult:(IDQButton *)sender {
     if ([self.usernameTextField hasText]) {
         [[IDQGame sharedGame] endGameForUser:self.usernameTextField.text];
@@ -56,8 +58,12 @@
 
 - (IBAction)cancel:(IDQButton *)sender {
     [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-
 }
+/*
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  //  [self.usernameTextField resignFirstResponder];
+    return NO;
+}*/
 
 
 @end

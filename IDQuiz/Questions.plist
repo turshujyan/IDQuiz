@@ -6,9 +6,7 @@
 		<key>questionId</key>
 		<integer>1</integer>
 		<key>questionText</key>
-		<string>What are the tools required to develop iOS applications? </string>
-		<key>infoText</key>
-		<string>info text for q 1</string>
+		<string>What is the tools required to develop iOS applications? </string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
@@ -25,180 +23,160 @@
 		<key>questionId</key>
 		<integer>2</integer>
 		<key>questionText</key>
-		<string>question 2 text</string>
-		<key>infoText</key>
-		<string>info text for q2</string>
+		<string>In which state an app is said to be active?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Running in foreground</string>
+			<string>Running in background</string>
+			<string>Suspended</string>
+			<string>Not running</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>3</integer>
 		<key>questionText</key>
-		<string>question 3 text</string>
-		<key>infoText</key>
-		<string>info text for q3</string>
+		<string>Who calls the main function of your app during the app launch cycle?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Main thread</string>
+			<string>UIWindow</string>
+			<string>NSObject</string>
+			<string>viewDidLoad method</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>4</integer>
 		<key>questionText</key>
-		<string>question 4 text</string>
-		<key>infoText</key>
-		<string>info text for q4</string>
+		<string>Which is the direct super class of all view controller objects?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>UIViewController class</string>
+			<string>UITableViewController class</string>
+			<string>UIScrollViewController class</string>
+			<string>NSObject class</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>5</integer>
 		<key>questionText</key>
-		<string>question 5 text</string>
-		<key>infoText</key>
-		<string>info text for q5</string>
+		<string>Which of the followings languages is used for ios development ?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Obective-C</string>
+			<string>Java</string>
+			<string>C/C++</string>
+			<string>C#</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>6</integer>
 		<key>questionText</key>
-		<string>question 6 text</string>
-		<key>infoText</key>
-		<string>info text for q6</string>
+		<string>Whats the difference between NSArray and NSMutableArray?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>NSMutableArray contents can be modified</string>
+			<string>Both are the same</string>
+			<string>NSArray contents can be modified</string>
+			<string>NSMutableArray is parent class for NSArray </string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>7</integer>
 		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
+		<string>From which thread  UIKit classes should be used?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Main thread</string>
+			<string>Background thread</string>
+			<string>First thread</string>
+			<string>Any thread</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>8</integer>
 		<key>questionText</key>
-		<string>question 8 text</string>
-		<key>infoText</key>
-		<string>info text for 8</string>
+		<string>When do you use the &quot;assign&quot; value for a property?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>For primitive values</string>
+			<string>For objects</string>
+			<string>Only for BOOL properties</string>
+			<string>All answers are incorrect</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>9</integer>
 		<key>questionText</key>
-		<string>question 9 text</string>
-		<key>infoText</key>
-		<string>info text for 9</string>
+		<string>+( void)doSomething{}</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>is a class method</string>
+			<string>is an instance method</string>
+			<string>both true</string>
+			<string>both false</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>10</integer>
 		<key>questionText</key>
-		<string>question 10 text</string>
-		<key>infoText</key>
-		<string>info text for 10</string>
+		<string>ARC stands for:</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Automatic Reference Countin</string>
+			<string>Automatic Retained Collections</string>
+			<string>Autoreleased Reference Counters</string>
+			<string>Allocated Reference Cycles</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>11</integer>
 		<key>questionText</key>
-		<string>There are basically three ways of achieving concurrency in iOS.Which one is false?</string>
-		<key>infoText</key>
-		<string>info text for 11</string>
+		<string>There are basically three ways of achieving concurrency in iOS. Which one is false?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
@@ -215,665 +193,595 @@
 		<key>questionId</key>
 		<integer>12</integer>
 		<key>questionText</key>
-		<string>question 12 text</string>
-		<key>infoText</key>
-		<string>info text for 12 </string>
+		<string>Assume that an app is not in foreground but is still executing code. In which state will it be in?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Background state</string>
+			<string>Running state</string>
+			<string>Suspended state</string>
+			<string>Active state</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>13</integer>
 		<key>questionText</key>
-		<string>question 13 text</string>
-		<key>infoText</key>
-		<string>info text for 13 </string>
+		<string>Where does Core Data save its data?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>in .xcdatamodeld file </string>
+			<string>in .coredata file</string>
+			<string>in .plist file</string>
+			<string>in .xcassets file</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>14</integer>
 		<key>questionText</key>
-		<string>question 14 text</string>
-		<key>infoText</key>
-		<string>info text for 14 </string>
+		<string>Are document objects required for an application?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>NO</string>
+			<string>YES</string>
+			<string>Depends on the application</string>
+			<string>Depends on project settings</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>15</integer>
 		<key>questionText</key>
-		<string>question 15 text </string>
-		<key>infoText</key>
-		<string>info text for 15</string>
+		<string>You wish to define your custom view. Which class will be subclassed?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>UIView</string>
+			<string>UIViewController</string>
+			<string>UICustomView</string>
+			<string>UICustomViewController</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>16</integer>
 		<key>questionText</key>
-		<string>question 16 text</string>
-		<key>infoText</key>
-		<string>info text for 16 </string>
+		<string>What is fast enumeration?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Objective-C feature</string>
+			<string>Compiler feature</string>
+			<string>C feature</string>
+			<string>IOS feature</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>17</integer>
 		<key>questionText</key>
-		<string>question 17 text</string>
-		<key>infoText</key>
-		<string>info text for q17</string>
+		<string>Will the following code work? NSString *name=&quot;Krish&quot;;</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>No</string>
+			<string>Yes</string>
+			<string>Yes, but with a warning</string>
+			<string>Depends on application settings</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>18</integer>
 		<key>questionText</key>
-		<string>question 18 text</string>
-		<key>infoText</key>
-		<string>info text for 18 </string>
+		<string>How to use a reusable cell in UITableView?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>dequeueReusableCellWithIdentifier</string>
+			<string>reuseUITableViewCell</string>
+			<string>mainReusableCellWithIdentifier</string>
+			<string>dispatchReusableCellWithIdentifier</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>19</integer>
 		<key>questionText</key>
-		<string>question 19 text</string>
-		<key>infoText</key>
-		<string>info text for 19</string>
+		<string>Which XML parser we use in iOS?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>NSXML Parser</string>
+			<string>DOM Parser</string>
+			<string>NSDOM Parser</string>
+			<string>iOSXML Parser</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>20</integer>
 		<key>questionText</key>
-		<string>question 20 text</string>
-		<key>infoText</key>
-		<string>info text for 20 </string>
+		<string>An app is loaded into memory but is not executing any code. In which state will it be in?</string>
 		<key>difficultyLevel</key>
 		<integer>2</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Suspended state</string>
+			<string>Running state</string>
+			<string>Background state</string>
+			<string>Inactive state</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>21</integer>
 		<key>questionText</key>
-		<string>question 21 text</string>
-		<key>infoText</key>
-		<string>info text for 21 </string>
+		<string>Which object is created by UIApplicationMain function at app launch time?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>The AppDelegate</string>
+			<string>Root ViewController</string>
+			<string>Main.storyboard</string>
+			<string>LaunchScreen.storyboard</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>22</integer>
 		<key>questionText</key>
-		<string>question 22 text</string>
-		<key>infoText</key>
-		<string>info text for 22 </string>
+		<string>How is the app delegate declared by Xcode project templates?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Subclass of UIResponder</string>
+			<string>Subclass of UIKit</string>
+			<string>Subclass of UIApllication</string>
+			<string>Subclass of delegate</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>23</integer>
 		<key>questionText</key>
-		<string>question 23 text</string>
-		<key>infoText</key>
-		<string>info text for 23 </string>
+		<string>Is there any garbage collector concept available in iOS?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>No</string>
+			<string>Yes, since iOS 4.0</string>
+			<string>ARC can be considered as one</string>
+			<string>YES, since iOS 3.0</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>24</integer>
 		<key>questionText</key>
-		<string>question 24 text</string>
-		<key>infoText</key>
-		<string>info text for 24 </string>
+		<string>What happens when you call release on an object in ARC managed code?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Compiler error </string>
+			<string>Crashes at runtime</string>
+			<string>Clears the object from the autorelease pool</string>
+			<string>Nothing happens</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>25</integer>
 		<key>questionText</key>
-		<string>question 25 text</string>
-		<key>infoText</key>
-		<string>info text for 25</string>
+		<string>How to parse JSON in IOS?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>By using NSJSONSerialization</string>
+			<string>By using NSURLSession</string>
+			<string>By using core data</string>
+			<string>No way</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>26</integer>
 		<key>questionText</key>
-		<string>question 26 text</string>
-		<key>infoText</key>
-		<string>info text for 26</string>
+		<string>How to download something from the internet?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>By using NSURLSession</string>
+			<string>By using NSURLNetwork</string>
+			<string>By using NSURLNetworkPath</string>
+			<string>By Using NSURLPostRequest</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>27</integer>
 		<key>questionText</key>
-		<string>question 27 text</string>
-		<key>infoText</key>
-		<string>info text for 27</string>
+		<string>What happens when you invoke a method on a nil pointer?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Nothing happens</string>
+			<string>Compiler error</string>
+			<string>Runtime error</string>
+			<string>Compiler warning</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>28</integer>
 		<key>questionText</key>
-		<string>question 28 text</string>
-		<key>infoText</key>
-		<string>info text for 28</string>
+		<string>In Core Data, what is the object representation of a record called?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>NSManagedObject</string>
+			<string>NSManagedObjectContext</string>
+			<string>NSCoreDateObject</string>
+			<string>NSManagedObjectModel</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>29</integer>
 		<key>questionText</key>
-		<string>question 29 text</string>
-		<key>infoText</key>
-		<string>info text for 29 </string>
+		<string>In ARC enabled project what happens when you call [someObject release];</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Compile error</string>
+			<string>Crash on runtime</string>
+			<string>Retain count will become zero</string>
+			<string>Nothing happens</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>30</integer>
 		<key>questionText</key>
-		<string>question 30 text</string>
-		<key>infoText</key>
-		<string>info text for 30</string>
+		<string>In MRC, what do you do when you don&apos;t need a reference on a object?</string>
 		<key>difficultyLevel</key>
 		<integer>3</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>[obj release];</string>
+			<string>[obj free];</string>
+			<string>[obj autorelease];</string>
+			<string>[obj dealloc];</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>31</integer>
 		<key>questionText</key>
-		<string>question 31 text</string>
-		<key>infoText</key>
-		<string>info text for 31 </string>
+		<string>What is App Bundle?</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Directory in the file system</string>
+			<string>Delegate method</string>
+			<string>Framework</string>
+			<string>Pre-processor</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>32</integer>
 		<key>questionText</key>
-		<string>question 32 text</string>
-		<key>infoText</key>
-		<string>info text for 32 </string>
+		<string>Is a delegate retained?</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>No</string>
+			<string>Yes</string>
+			<string>Yes, only once</string>
+			<string>Depends on the situation</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>33</integer>
 		<key>questionText</key>
-		<string>question 33 text</string>
-		<key>infoText</key>
-		<string>info text for 33</string>
+		<string>Multitasking support is available from which version?</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>iOS 4.0</string>
+			<string>iOS 5.0</string>
+			<string>iOS 6.0</string>
+			<string>iOS 3.0</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>34</integer>
 		<key>questionText</key>
-		<string>question 34 text</string>
-		<key>infoText</key>
-		<string>info text for 34 </string>
+		<string>Select the class hierarchy for a UIControl</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>NSObject-&gt;UIResponder-&gt;UIView-&gt;UIControl</string>
+			<string>NSObject-&gt;UIView-&gt;UIResponder-&gt;UIControl</string>
+			<string>NSObject-&gt;UIView-&gt;UIControl</string>
+			<string>NSObject-&gt;UIControl</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>35</integer>
 		<key>questionText</key>
-		<string>question 35 text</string>
-		<key>infoText</key>
-		<string>info text for 35 </string>
+		<string>What happens when the following code executes? Ball *ball = [[[[Ball alloc] init] autorelease] autorelease];</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>The app will crash</string>
+			<string>Nothing happens</string>
+			<string>Complier error</string>
+			<string>Retain count of ball will be 2</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>36</integer>
 		<key>questionText</key>
-		<string>question 36 text</string>
-		<key>infoText</key>
-		<string>info text for 36 </string>
+		<string>What are the newly added frameworks iOS 4.3 to iOS 5.0?</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Accounts</string>
+			<string>Maps</string>
+			<string>Game center</string>
+			<string>UIKit</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>37</integer>
 		<key>questionText</key>
-		<string>question 37 text</string>
-		<key>infoText</key>
-		<string>info text for q37</string>
+		<string>Who invented Objective C?</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Broad Cox and Tom Love</string>
+			<string>Dennis Ritchie</string>
+			<string>Steve Jobs</string>
+			<string>Anders Hejlsber</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>38</integer>
 		<key>questionText</key>
-		<string>question 38 text</string>
-		<key>infoText</key>
-		<string>info text for 38</string>
+		<string>Which are the two types of predicates? </string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>Comparison and compound predicates</string>
+			<string>Expression and operator predicates</string>
+			<string>Filter and exclusion predicates</string>
+			<string>Comparition and sorting predicates</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>39</integer>
 		<key>questionText</key>
-		<string>question 39 text</string>
-		<key>infoText</key>
-		<string>info text for 39 </string>
+		<string>Which is faster: to iterate through an NSArray or an NSSet</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>NSArray</string>
+			<string>NSSet</string>
+			<string>Can not iterate through NSSet</string>
+			<string>No difference</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>40</integer>
 		<key>questionText</key>
-		<string>question 40 text</string>
-		<key>infoText</key>
-		<string>info text for 40 </string>
+		<string>Which statement is true regarding a key in NSDictionary?</string>
 		<key>difficultyLevel</key>
 		<integer>4</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>A key should conform NSCopying protocol</string>
+			<string>A key can be any object</string>
+			<string>A key must be an NSString</string>
+			<string>A key should conform NSKeyValue protocol</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>41</integer>
 		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
+		<string>How many bytes we can send to apple push notification server?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>2 kb</string>
+			<string>1024 bytes</string>
+			<string>512 bytes</string>
+			<string>3 kb</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>42</integer>
 		<key>questionText</key>
-		<string>question 7 text</string>
-		<key>infoText</key>
-		<string>info text for q7</string>
+		<string>What compiler is Apple using?</string>
 		<key>difficultyLevel</key>
 		<integer>1</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>GNU Compiler Collection</string>
+			<string>AMPC Compiler</string>
+			<string>CodeWarrior Compiler Collection</string>
+			<string>VBCC Compiler</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>43</integer>
 		<key>questionText</key>
-		<string>question 43 text</string>
-		<key>infoText</key>
-		<string>info text for 43</string>
+		<string>How to find the memory leaks in MRC?</string>
 		<key>difficultyLevel</key>
 		<integer>5</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>By using static analyzer</string>
+			<string>By using NSUserDefaults</string>
+			<string>By using autorelease pools</string>
+			<string>By turning on ARC</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>44</integer>
 		<key>questionText</key>
-		<string>question 44 text</string>
-		<key>infoText</key>
-		<string>info text for q44</string>
+		<string>What is the type of @selector(foo)?</string>
 		<key>difficultyLevel</key>
 		<integer>5</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>SEL</string>
+			<string>@SEL</string>
+			<string>void</string>
+			<string>@selector</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>45</integer>
 		<key>questionText</key>
-		<string>question 45 text</string>
-		<key>infoText</key>
-		<string>info text for q45</string>
+		<string>In which version of IOS are introduced  Storyboard capabilities?</string>
 		<key>difficultyLevel</key>
 		<integer>5</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>IOS 5.0</string>
+			<string>IOS 3.0</string>
+			<string>IOS 7.0</string>
+			<string>IOS 6.0</string>
 		</array>
 	</dict>
 	<dict>
 		<key>questionId</key>
 		<integer>46</integer>
 		<key>questionText</key>
-		<string>question 46 text</string>
-		<key>infoText</key>
-		<string>info text for q46</string>
+		<string>Which Objective-C language feature does the delegate pattern use?</string>
 		<key>difficultyLevel</key>
 		<integer>5</integer>
 		<key>rightAnswerIndex</key>
 		<integer>0</integer>
 		<key>answers</key>
 		<array>
-			<string>rightAnswer</string>
-			<string>answer</string>
-			<string>answer</string>
-			<string>answer</string>
+			<string>All of the answers are correct</string>
+			<string>Dynamic binding</string>
+			<string>Dynamic typing</string>
+			<string>Protocols</string>
 		</array>
 	</dict>
 	<dict>
@@ -881,8 +789,6 @@
 		<integer>47</integer>
 		<key>questionText</key>
 		<string>question 47 text</string>
-		<key>infoText</key>
-		<string>info text for q47</string>
 		<key>difficultyLevel</key>
 		<integer>5</integer>
 		<key>rightAnswerIndex</key>
@@ -900,8 +806,6 @@
 		<integer>48</integer>
 		<key>questionText</key>
 		<string>question 48 text</string>
-		<key>infoText</key>
-		<string>info text for q48</string>
 		<key>difficultyLevel</key>
 		<integer>5</integer>
 		<key>rightAnswerIndex</key>
@@ -919,8 +823,6 @@
 		<integer>49</integer>
 		<key>questionText</key>
 		<string>question 49 text</string>
-		<key>infoText</key>
-		<string>info text for q49</string>
 		<key>difficultyLevel</key>
 		<integer>5</integer>
 		<key>rightAnswerIndex</key>

@@ -14,8 +14,10 @@
 #import "IDQResult.h"
 #import "IDQLeaderBoardCell.h"
 
+static NSString *customCell = @"leaderBoardCell";
 
 @interface IDQLeaderBoardViewController ()
+
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 @property (nonatomic, strong) NSArray *results;
 @end
@@ -27,7 +29,7 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication appDelegate];
     self.results = [appDelegate.dataController fetchResults];
-    [self.resultsTableView registerNib:[UINib nibWithNibName:@"IDQLeaderBoardCell" bundle:nil] forCellReuseIdentifier:@"leaderBoardCell"];
+    [self.resultsTableView registerNib:[UINib nibWithNibName:@"IDQLeaderBoardCell" bundle:nil] forCellReuseIdentifier:customCell];
 }
 
 - (IBAction)home:(IDQButton *)sender {
@@ -51,11 +53,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     IDQResult *result = self.results[indexPath.row];
-    IDQLeaderBoardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leaderBoardCell" forIndexPath:indexPath];
+    IDQLeaderBoardCell *cell = [tableView dequeueReusableCellWithIdentifier:customCell forIndexPath:indexPath];
     cell.idLabel.text =[NSString stringWithFormat:@"%ld.", indexPath.row + 1 ];
     cell.usernameLabel.text = result.username;
     cell.scoreLabel.text = [result.totalScore stringValue];
-    cell.timeLabel.text =[ NSString stringWithFormat:@"%d:%d", [result.totalTime intValue] / 60, [result.totalTime intValue] % 60];
+    
+    NSInteger minutes = [result.totalTime integerValue] / 60;
+    NSInteger seconds = [result.totalTime integerValue] % 60;
+    
+    NSString *minutesString = [NSString stringWithFormat:@"%ld", (long)minutes];
+    NSString *secondsString = [NSString stringWithFormat:@"%ld", (long)seconds];
+    
+    if (minutes <= 10) {
+        minutesString = [NSString stringWithFormat:@"0%ld", (long)minutes];
+    }
+    if (seconds <=10) {
+        secondsString = [NSString stringWithFormat:@"0%ld", (long)seconds];
+    }
+    cell.timeLabel.text =[ NSString stringWithFormat:@"%@:%@", minutesString, secondsString ];
 
     return cell;
 }

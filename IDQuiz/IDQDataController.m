@@ -64,7 +64,6 @@
         [question setQuestionText:[questionDictionary objectForKey:@"questionText"]
                           answers:[questionDictionary objectForKey:@"answers"]
                  rightAnswerIndex:[questionDictionary objectForKey:@"righAnswerIndex"]
-                         infoText:[questionDictionary objectForKey:@"infoText"]
                   difficultyLevel:[questionDictionary objectForKey:@"difficultyLevel"]
                        questionId:[questionDictionary objectForKey:@"questionId"]];
         

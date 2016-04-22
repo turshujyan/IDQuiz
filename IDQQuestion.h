@@ -15,7 +15,6 @@
 @property (nonatomic, retain) NSString *questionText;
 @property (nonatomic, retain) NSArray *answers;
 @property (nonatomic, assign) NSNumber *rightAnswerIndex;
-@property (nonatomic, retain) NSString *infoText;
 @property (nonatomic, assign) NSNumber *difficultyLevel;
 @property (nonatomic, assign) NSNumber *questionId;
 
@@ -23,7 +22,6 @@
 - (void)setQuestionText:(NSString *)questionText
                  answers:(NSArray *)answers
        rightAnswerIndex:(NSNumber *)rightAnswer
-               infoText:(NSString *)infoText
          difficultyLevel:(NSNumber *)difficultyLevel
              questionId:(NSNumber *)questionId;
 

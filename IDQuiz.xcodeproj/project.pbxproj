@@ -24,6 +24,7 @@
 		5E0BC38B1CC0039700B6E491 /* IDQResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BC3891CC0039700B6E491 /* IDQResult.m */; };
 		5E558B541CCA42B80082C14F /* Lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E558B521CCA42B80082C14F /* Lose.wav */; };
 		5E558B551CCA42B80082C14F /* Win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E558B531CCA42B80082C14F /* Win.wav */; };
+		5E558B581CCAD3700082C14F /* IDQHelperButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E558B571CCAD3700082C14F /* IDQHelperButton.m */; };
 		5EEBD3DF1CC4F6F900A708B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3DE1CC4F6F900A708B7 /* Assets.xcassets */; };
 		5EEBD3E21CC500C700A708B7 /* IDQAnswerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBD3E11CC500C700A708B7 /* IDQAnswerButton.m */; };
 		5EEBD3E41CC67A4E00A708B7 /* buttonSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBD3E31CC67A4E00A708B7 /* buttonSound.wav */; };
@@ -71,6 +72,8 @@
 		5E0BC3891CC0039700B6E491 /* IDQResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDQResult.m; path = ../IDQResult.m; sourceTree = "<group>"; };
 		5E558B521CCA42B80082C14F /* Lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Lose.wav; sourceTree = "<group>"; };
 		5E558B531CCA42B80082C14F /* Win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Win.wav; sourceTree = "<group>"; };
+		5E558B561CCAD3700082C14F /* IDQHelperButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQHelperButton.h; sourceTree = "<group>"; };
+		5E558B571CCAD3700082C14F /* IDQHelperButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQHelperButton.m; sourceTree = "<group>"; };
 		5EEBD3DE1CC4F6F900A708B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EEBD3E01CC500C700A708B7 /* IDQAnswerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDQAnswerButton.h; sourceTree = "<group>"; };
 		5EEBD3E11CC500C700A708B7 /* IDQAnswerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDQAnswerButton.m; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 			children = (
 				5E0BC33B1CB7DED600B6E491 /* IDQButton.h */,
 				5E0BC33C1CB7DED600B6E491 /* IDQButton.m */,
+				5E558B561CCAD3700082C14F /* IDQHelperButton.h */,
+				5E558B571CCAD3700082C14F /* IDQHelperButton.m */,
 				5EEBD3E01CC500C700A708B7 /* IDQAnswerButton.h */,
 				5EEBD3E11CC500C700A708B7 /* IDQAnswerButton.m */,
 				5EEBD3F31CC6E74700A708B7 /* IDQLeaderBoardCell.h */,
@@ -329,6 +334,7 @@
 				5E0BC3741CBA488D00B6E491 /* IDQQuestion.m in Sources */,
 				5E0BC30F1CB7DE5700B6E491 /* IDQuiz.xcdatamodeld in Sources */,
 				5E0BC3061CB7DE5700B6E491 /* AppDelegate.m in Sources */,
+				5E558B581CCAD3700082C14F /* IDQHelperButton.m in Sources */,
 				5E0BC38B1CC0039700B6E491 /* IDQResult.m in Sources */,
 				5E0BC3281CB7DE7B00B6E491 /* IDQResultsViewController.m in Sources */,
 				5E0BC3791CBA73FF00B6E491 /* IDQDataController.m in Sources */,

@@ -3,7 +3,6 @@
     <entity name="Question" representedClassName="IDQQuestion" syncable="YES">
         <attribute name="answers" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="difficultyLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="infoText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="questionId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="questionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightAnswerIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -14,7 +13,7 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Question" positionX="-1386" positionY="-1107" width="128" height="133"/>
+        <element name="Question" positionX="-1386" positionY="-1107" width="128" height="118"/>
         <element name="Result" positionX="-1107" positionY="-1062" width="128" height="88"/>
     </elements>
 </model>

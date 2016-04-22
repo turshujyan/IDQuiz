@@ -43,8 +43,6 @@
     });
     
     AudioServicesPlaySystemSound(sound);
-
-  //  [self playSoundByName:@"Win.wav"];
 }
 
 - (void)playLoseSound {
@@ -57,7 +55,6 @@
     });
     
     AudioServicesPlaySystemSound(sound);
-    //[self playMusicByName:@"Lose.wav"];
 }
 
 
