@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Programming in Objective-C.pdf" ofType:nil];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Programming in Objective-C - .pdf" ofType:nil];
     NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
     NSURLRequest *request = [NSURLRequest requestWithURL:fileUrl];
     [self.webView loadRequest:request];

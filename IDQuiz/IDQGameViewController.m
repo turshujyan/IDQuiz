@@ -330,9 +330,14 @@
         button.backgroundColor = [UIColor redColor];
     }
 }
-- (void)timerChangedStateToYellow:(JSKTimerView *)timerView {
+- (void)timerChangedStateToOrange:(JSKTimerView *)timerView {
     for (IDQHelperButton *button in self.helperButtons) {
-        button.backgroundColor = [UIColor colorWithRed:1.0 green:204/255.0 blue:51/255.0 alpha:1.0];
+        button.backgroundColor = [UIColor colorWithRed:1.0 green:128/255.0 blue:0/255.0 alpha:1.0];
+    }
+}
+- (void)timerChangedStateToGreen:(JSKTimerView *)timerView {
+    for (IDQHelperButton *button in self.helperButtons) {
+        button.backgroundColor = [UIColor colorWithRed:101/255.0 green:188/255.0 blue:85/255.0 alpha:1.0];
     }
 }
 

@@ -83,8 +83,7 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     
     self.progressColor = [UIColor colorWithRed:51/255.0 green:204/255.0 blue:51/255.0 alpha:1.0];
     self.progressStartColor = [UIColor colorWithRed:101/255.0 green:188/255.0 blue:85/255.0 alpha:1.0];
-    self.progressNearFinishedColor = [UIColor colorWithRed:1.0 green:204/255.0 blue:51/255.0 alpha:1.0];
-    //self.progressNearFinishedColor = [UIColor colorWithRed:244/255.0 green:82/255.0 blue:28/255.0 alpha:1.0];
+    self.progressNearFinishedColor = [UIColor colorWithRed:1.0 green:128/255.0 blue:0/255.0 alpha:1.0];
     self.progressAlmostFinishedColor = [UIColor redColor];
     self.progressFinishedColor = [UIColor darkGrayColor];
     
@@ -214,9 +213,10 @@ static NSString *jsk_progressAnimationKey = @"progressAnimationKey";
     
     if (progress > 0.66) {
         self.progressColor = self.progressStartColor;
+        [self.delegate  timerChangedStateToGreen:self];
     } else if (progress > 0.33 && self.remainingTimeInSeconds != 1) {
         self.progressColor = self.progressNearFinishedColor;
-        [self.delegate  timerChangedStateToYellow:self];
+        [self.delegate  timerChangedStateToOrange:self];
     } else if (progress == 0) {
         self.progressColor = self.progressFinishedColor;
     } else {

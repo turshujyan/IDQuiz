@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Rules.pdf" ofType:nil];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"rules.pdf" ofType:nil];
     NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
     NSURLRequest *request = [NSURLRequest requestWithURL:fileUrl];
     [self.webView loadRequest:request];

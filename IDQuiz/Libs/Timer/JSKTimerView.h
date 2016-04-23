@@ -34,9 +34,12 @@
  */
 - (void)timerDidFinish:(JSKTimerView *)timerView;
 
-- (void)timerChangedStateToYellow:(JSKTimerView *)timerView;
+- (void)timerChangedStateToOrange:(JSKTimerView *)timerView;
 
 - (void)timerChangedStateToRed:(JSKTimerView *)timerView;
+
+- (void)timerChangedStateToGreen:(JSKTimerView *)timerView;
+
 
 @end
 
